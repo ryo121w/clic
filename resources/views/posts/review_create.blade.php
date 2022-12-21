@@ -64,5 +64,21 @@
             </ul>
         </header>
     </div>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2>ブログ投稿フォーム</h2>
+            <form action='/posts/store' method="POST">
+              @csrf
+              <div class="title"><h2>Title</h2>
+                  <input type="text" name="review[title]" placeholder="タイトル"/>
+              </div>
+              <div class="body">
+                  <h2>Body</h2>
+                  <textarea name="review[body]" placeholder="REVIEW"></textarea>
+              </div>
+              <input type="submit" value="store" >
+            </form>
+    </div>
+</div>
     </body>
 </html>

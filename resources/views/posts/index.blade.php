@@ -37,16 +37,12 @@
                         <a href="login" style="color:inherit;text-decoration:none;">
                             <p>ログイン</p>
                         </a>
-                        <a href="profile">
+                        <a href="profile" style="color:inherit;text-decoration:none;">
                             <p>新規登録</p>
                         </a>
-                        <a href="review">
+                        <a href="review" style="color:inherit;text-decoration:none;">
                             <p>評価</p>
                         </a>
-                        <a href="post">
-                            <p>投稿</p>
-                        </a>
-
                     </div>
 
                     <div class="header_holder">

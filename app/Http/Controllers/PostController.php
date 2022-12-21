@@ -8,9 +8,9 @@ use App\Models\Post;
 
 class PostController extends Controller
 {
-    public function show(Post $post)
+    public function index(Post $post)
     {
-        dd($post);
+      return view('posts/review_post')->with(['posts' => $post->get()]);
     }
 }
 ?>
