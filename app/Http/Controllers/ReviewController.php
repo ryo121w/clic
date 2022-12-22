@@ -29,10 +29,9 @@ class ReviewController extends Controller
 
     public function store (Request $request, Review $review)
     {
-        dd($request->all());
-    //   $input = $request['review'];
-    //   $review->fill($input)->save();
-    //   return redirect('posts/review');
+      $input = $request['review'];
+      $review->fill($input)->save();
+      return redirect('/review');
     }
 
 
