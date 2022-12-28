@@ -5,10 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="./resources/views/css/style.css">
-
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" type="text/css" href="type.css">
     <title>CLIC</title>
 </head>
 
@@ -54,7 +51,7 @@
 
             <ul class="header_menu">
                 <li>
-                    <a href="" style="color:inherit;text-decoration:none;">
+                    <a href="/posts/store" style="color:inherit;text-decoration:none;">
                         <h1>SELECT</h1>
                     </a>
                 </li>
@@ -165,7 +162,7 @@
 
     <footer id="footer">
         <div class="footer_store_register">
-            <a href="">
+            <a href="/posts/store_register">
                 <p>店舗登録</p>
             </a>
         </div>
@@ -178,8 +175,7 @@
 
 
 
-    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-    <script src="./resources/views/js/index.js"></script>
+
 
 </body>
 

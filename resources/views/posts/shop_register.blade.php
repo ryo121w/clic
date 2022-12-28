@@ -69,16 +69,45 @@
             </ul>
         </header>
     </div>
-    <h1>一覧画面</h1>
-    @foreach ($stores as $store)
-    <h2>{{ $store->name }}</h2>
-    <p>{{ $store->phone }}</p>
-    <p>{{ $store->prefecture }}</p>
-    <p>{{ $store->city }}</p>
-    <p>{{ $store->town }}</p>
-    <p>{{ $store->body }}</p>
-    <img src="{{ Storage::url($store->image_path) }}" width="25%">
-    @endforeach
+        <main>
+            <h2>店舗登録フォーム</h2>
+            <form action="/posts/upload" method="POST" enctype="multipart/form-data">
+                @csrf
+                <h2>店舗名</h2>
+                <input type="text" name="store[name]"  placeholder="店舗名">
+
+                <h2>店舗の特徴</h2>
+                 <textarea name="store[body]" placeholder="私たちの店は、、、"></textarea>
+
+                <h2>店舗イメージ</h2>
+                <input type="file" name="image">
+
+            <div class="address">
+                 <h2>住所</h2>
+                 <h3>都道府県</h3>
+                 <input type="text" name="store[prefecture]"  placeholder="・・県">
+
+　　　　　　　　 <h3>市</h3>
+                 <input type="text" name="store[city]"  placeholder="・・市">
+
+                 <h3>町・番地</h3>
+                 <input type="text" name="store[town]"  placeholder="・・町">
+
+                 <h3>建物名</h3>
+                 <input type="text" name="store[building]"  placeholder="・・ビル・・階">
+           </div>
+
+
+                <h2>電話番号</h2>
+                <input type="text" name="store[phone]"  placeholder="123-456-7890">
+
+                <button type="submit">登録</button>
+            </form>
+
+        </main>
+
+
+
 
 
 </body>

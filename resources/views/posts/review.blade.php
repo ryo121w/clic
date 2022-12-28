@@ -206,9 +206,6 @@ display:flex;
             <tr class="review_main">
                 <td><a href="/posts/review/{{ $review->id }} ">{{ $review->title }}</a></td>
                 <div class="reveiw">
-                    <div id="star">
-                    <star-rating v-model="rating"></star-rating>
-                    </div>
                     <td>{{ $review->id }}</td>
                 </div>
                 <td>{{ $review->updated_at}}</td>
