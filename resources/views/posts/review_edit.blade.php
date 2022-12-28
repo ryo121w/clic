@@ -64,45 +64,29 @@
     </ul>
 </header>
 </div>
+<main>
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
-        <h2>ブログ投稿フォーム</h2>
-        <form method="POST" action="{{ route('update') }}" onSubmit="return checkSubmit()">
-            @csrf
-            <input type="hidden" name="id" value="{{ $review->id }}">
-            <div class="form-group">
-                <label for="title">
-                    タイトル
-                </label>
-                <input id="title" name="title" class="form-control" value="{{ $review->title }}" type="text">
-                @if ($errors->has('title'))
-                <div class="text-danger">
-                    {{ $errors->first('title') }}
-                </div>
-                @endif
-            </div>
-            <div class="form-group">
-                <label for="content">
-                    本文
-                </label>
-                <textarea id="content" name="content" class="form-control" rows="4">{{ $review->body }}</textarea>
-                @if ($errors->has('body'))
-                <div class="text-danger">
-                    {{ $errors->first('body') }}
-                </div>
-                @endif
-            </div>
-            <div class="mt-5">
-                <a class="btn btn-secondary" href="{{ route('reviews') }}">
-                    キャンセル
-                </a>
-                <button type="submit" class="btn btn-primary">
-                    更新する
-                </button>
-            </div>
-        </form>
+        <h2>ブログ投稿編集フォーム</h2>
+            <form action="{{ route('update') }}" method="POST">
+              @method('PUT')
+              @csrf
+              <div class="title"><h2>Title</h2>
+                  <input type="text" name="review[title]" placeholder="タイトル" value={{ $review->title }}>
+              </div>
+              <div class="body">
+                  <h2>Body</h2>
+                  <textarea name="review[body]" placeholder="REVIEW">{{ $review->body }}</textarea>
+              </div>
+              <input type="submit" value="update" >
+            </form>
     </div>
-</div>
+</main>
+<footer>
+    <div>
+        <p href="/posts/review/{id}">戻る</p>
+    </div>
+</footer>
 <script>
     function checkSubmit() {
         if (window.confirm('更新してよろしいですか？')) {

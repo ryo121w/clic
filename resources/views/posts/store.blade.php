@@ -69,3 +69,8 @@
             </ul>
         </header>
     </div>
+
+    <img src="{{ asset($image->path) }}">
+    </body>
+    </html>
+

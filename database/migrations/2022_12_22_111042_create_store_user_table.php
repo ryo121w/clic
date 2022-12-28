@@ -8,21 +8,18 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-
+     *
      * @return void
      */
     public function up()
     {
-        Schema::create('stores', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('phone', 16);
-            $table->string('prefecture');
-            $table->string('city');
-            $table->string('town');
-            $table->string('body');
-            $table->string('image_path');
+        Schema::create('store_user', function (Blueprint $table) {
+
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('stores_id');
             $table->timestamps();
+            $table->unique(['user_id', 'stores_id']);
         });
     }
 
@@ -33,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stores');
+        Schema::dropIfExists('store_user');
     }
 };

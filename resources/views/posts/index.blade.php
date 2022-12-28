@@ -166,7 +166,7 @@
     <footer id="footer">
         <div class="footer_store_register">
             <a href="">
-                <p>店舗登録</p>
+                <a href="posts/store_register"><p>店舗登録</p></a>
             </a>
         </div>
     </footer>

@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     public function reviews() {
-        return $this->hasMany(\App\ProductRebiew::class, 'product_id', 'id')
+        return $this->hasMany(\App\ProductRebiew::class, 'product_id', 'id');
     }
 }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\Store_RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,7 +38,7 @@ Route::get('/posts/create', [ReviewController::class, 'showCreate'])->name('crea
 Route::get('/post', [PostController::class, 'index']);
 
 // 評価登録
-Route::post('/posts/store', [ReviewController::class, 'store'])->name('store');
+Route::post('/posts/store', [ReviewController::class, 'exeStore'])->name('store');
 
 
 // 評価編集ページ
@@ -48,6 +49,53 @@ Route::get('/post/update', [PostController::class, 'exeUpdate'])->name('update')
 
 // 評価の削除
 Route::post('/posts/delete/{id}', [ReviewController::class, 'exeDelete'])->name('delete');
+
+// 店舗登録フォーム
+Route::get('/posts/store_register', [Store_RegisterController::class, 'registerStore']);
+
+// 店舗登録
+Route::post('/posts/upload', [Store_RegisterController::class, 'upStore'])->name('upload');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

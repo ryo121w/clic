@@ -1,16 +1,17 @@
-<!DOCTYPE HTML>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Posts</title>
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="ja">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    </head>
-    <body>
-      <div class="conteiner">
+    <link rel="stylesheet" href="">
+    <title>CLIC</title>
+</head>
+
+<body>
+    <div class="conteiner">
         <header id="header">
             <div class="header">
                 <section class="header_flex">
@@ -34,10 +35,12 @@
                         <a href="login" style="color:inherit;text-decoration:none;">
                             <p>ログイン</p>
                         </a>
-                        <a href="profile">
+                        <a href="profile" style="color:inherit;text-decoration:none;">
                             <p>新規登録</p>
                         </a>
-
+                        <a href="review" style="color:inherit;text-decoration:none;">
+                            <p>評価</p>
+                        </a>
                     </div>
 
                     <div class="header_holder">
@@ -66,21 +69,48 @@
             </ul>
         </header>
     </div>
-<div class="row">
-    <div class="col-md-8 col-md-offset-2">
-        <h2>ブログ投稿フォーム</h2>
-            <form action='/posts/store' method="POST">
-              @csrf
-              <div class="title"><h2>Title</h2>
-                  <input type="text" name="review[title]" placeholder="タイトル"/>
-              </div>
-              <div class="body">
-                  <h2>Body</h2>
-                  <textarea name="review[body]" placeholder="REVIEW"></textarea>
-              </div>
-              <input type="submit" value="store" >
+        <main>
+            <h2>店舗登録フォーム</h2>
+            <form action="/posts/upload" method="POST" enctype="multipart/form-data">
+                @csrf
+                <h2>店舗名</h2>
+                <input type="text" name="store[name]"  placeholder="店舗名">
+
+                <h2>店舗の特徴</h2>
+                 <textarea name="store[body]" placeholder="私たちの店は、、、"></textarea>
+
+                <h2>店舗イメージ</h2>
+                <input type="file" name="store[image_id]">
+
+            <div class="address">
+                 <h2>住所</h2>
+                 <h3>都道府県</h3>
+                 <input type="text" name="store[prefecture]"  placeholder="・・県">
+
+　　　　　　　　 <h3>市</h3>
+                 <input type="text" name="store[city]"  placeholder="・・市">
+
+                 <h3>町・番地</h3>
+                 <input type="text" name="store[town]"  placeholder="・・町">
+
+                 <h3>建物名</h3>
+                 <input type="text" name="store[building]"  placeholder="・・ビル・・階">
+           </div>
+
+
+                <h2>電話番号</h2>
+                <input type="text" name="store[phone]"  placeholder="123-456-7890">
+
+                <button type="submit">登録</button>
             </form>
-    </div>
-</div>
-    </body>
+
+        </main>
+
+
+
+
+
+</body>
+
+
 </html>

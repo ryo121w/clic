@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
     <link rel="stylesheet" href="style.css">
+
     <style>body {
     margin: 0;
 }
@@ -199,16 +200,16 @@ display:flex;
     </div>
 
     <main>
-
+        <form>
+            @scrf
+            <button href="/store/test" type="submit" value="test">test</button>
+        </form>
         <div class='post'>
             <h1>Rview</h1>
             @foreach($reviews as $review)
             <tr class="review_main">
                 <td><a href="/posts/review/{{ $review->id }} ">{{ $review->title }}</a></td>
                 <div class="reveiw">
-                    <div id="star">
-                    <star-rating v-model="rating"></star-rating>
-                    </div>
                     <td>{{ $review->id }}</td>
                 </div>
                 <td>{{ $review->updated_at}}</td>
@@ -216,16 +217,4 @@ display:flex;
             </tr>
             @endforeach
         </div>
-        <script src="https://unpkg.com/vue@next"></script>
-<script>
-    import StarRating from 'vue-star-rating'
-    Vue.component('star-rating', StarRating);
-    const app = new Vue({
-    el: '#star',
-    data: {
-        rating: 0
-    }
-    });
-</script>
-
     </main>

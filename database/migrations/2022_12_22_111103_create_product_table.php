@@ -8,20 +8,13 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-
+     *
      * @return void
      */
     public function up()
     {
-        Schema::create('stores', function (Blueprint $table) {
+        Schema::create('product', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('phone', 16);
-            $table->string('prefecture');
-            $table->string('city');
-            $table->string('town');
-            $table->string('body');
-            $table->string('image_path');
             $table->timestamps();
         });
     }
@@ -33,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stores');
+        Schema::dropIfExists('product');
     }
 };
