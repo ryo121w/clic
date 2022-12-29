@@ -14,9 +14,7 @@ class Store extends Model
      protected $fillable = [
         'name',
         'phone',
-        'prefecture',
-        'city',
-        'town',
+        'prefecture_id',
         'body',
         'image_path',
     ];
@@ -24,6 +22,11 @@ class Store extends Model
     public function users()
     {
         return $this->belongsToMany(User::class);
+    }
+
+     public function prefecture()
+    {
+        return $this->belongsTo(Prefecture::class);
     }
 
 

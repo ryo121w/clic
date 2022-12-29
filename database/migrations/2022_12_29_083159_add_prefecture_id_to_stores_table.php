@@ -8,17 +8,13 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     *
      * @return void
      */
     public function up()
     {
-        Schema::create('stores', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('phone', 16);
-            $table->string('body');
-            $table->string('image_path');
-            $table->timestamps();
+        Schema::table('stores', function (Blueprint $table) {
+             $table->foreignId('prefecture_id')->constrained();
         });
     }
 
@@ -29,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stores');
+        Schema::table('stores', function (Blueprint $table) {
+            //
+        });
     }
 };

@@ -31,10 +31,10 @@
 
                 <section class="header_flex">
                     <div class="header_login">
-                        <a href="login" style="color:inherit;text-decoration:none;">
+                        <a href="{{ route('login') }}" style="color:inherit;text-decoration:none;">
                             <p>ログイン</p>
                         </a>
-                        <a href="profile" style="color:inherit;text-decoration:none;">
+                        <a href="{{ route('register') }}" style="color:inherit;text-decoration:none;">
                             <p>新規登録</p>
                         </a>
                         <a href="review" style="color:inherit;text-decoration:none;">

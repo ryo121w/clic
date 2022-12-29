@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Review;
 use App\Http\Requests\ReveiwRequest;
+use Illuminate\Support\Facades\Auth;
 
 class ReviewController extends Controller
 {
@@ -29,6 +30,7 @@ class ReviewController extends Controller
 
     public function exeStore (Request $request, Review $review)
     {
+      dd(Auth::user()->id);
       $input = $request['review'];
       $review->fill($input)->save();
     //   return redirect('posts/review_detail', $review->id);
