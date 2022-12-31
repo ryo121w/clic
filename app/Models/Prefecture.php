@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Store;
+
 
 class Prefecture extends Model
 {
@@ -17,6 +19,6 @@ class Prefecture extends Model
 
     public function stores()
     {
-        return $this->hasMany(stores::class, 'prefecture_id', 'id');
+        return $this->hasMany(stores::class);
     }
 }

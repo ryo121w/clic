@@ -85,8 +85,13 @@
             <div class="address">
                  <h2>住所</h2>
                  <h3>都道府県</h3>
-                 <input type="text" name="store[prefecture]"  placeholder="・・県">
+                 <select name="store[prefecture_id]">
+                   @foreach($prefectures as $prefecture)
+                   <option value="{{ $prefecture->id }}">{{ $prefecture->name }}</option>
+                   @endforeach
+                 </select>
 
+                 </select>
 　　　　　　　　 <h3>市</h3>
                  <input type="text" name="store[city]"  placeholder="・・市">
 

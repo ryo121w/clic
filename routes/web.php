@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\Store_RegisterController;
+use App\Http\Controllers\PrefectureController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,9 +48,11 @@ Route::post('/posts/delete/{id}', [ReviewController::class, 'exeDelete'])->name(
 
 Route::get('/posts/store',[Store_RegisterController::class, 'showStore'])->name('showStore');
 // 店舗登録フォーム
-Route::get('/posts/store_register', [Store_RegisterController::class, 'registerStore']);
+Route::get('/posts/store_register', [Store_RegisterController::class, 'registerStore'])->name('registerstore');
 // 店舗登録
 Route::post('/posts/upload', [Store_RegisterController::class, 'upStore'])->name('upload');
+
+
 
 
 

@@ -7,9 +7,5 @@ use App\Models\Prefecture;
 
 class PrefectureController extends Controller
 {
-    public function create(){
-        $prefectures = Prefecture::all();
 
-        return view()
-    }
 }

@@ -73,11 +73,12 @@
     @foreach ($stores as $store)
     <h2>{{ $store->name }}</h2>
     <p>{{ $store->phone }}</p>
-    <p>{{ $store->prefecture }}</p>
+    <a href="">{{ $store->prefecture->name }}</a>
     <p>{{ $store->city }}</p>
     <p>{{ $store->town }}</p>
+    <p>{{ $store->building }}</p>
     <p>{{ $store->body }}</p>
-    <img src="{{ Storage::url($store->image_path) }}" width="25%">
+    <img src="{{ $store->image_path }}" alt="画像が読み込めません。"/>
     @endforeach
 
 

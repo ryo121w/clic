@@ -14,7 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::table('stores', function (Blueprint $table) {
-             $table->foreignId('prefecture_id')->constrained();
+            $table->string('ctiy');
+            $table->string('town');
+            $table->string('building');
         });
     }
 
