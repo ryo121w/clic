@@ -19,6 +19,11 @@ class Prefecture extends Model
 
     public function stores()
     {
-        return $this->hasMany(stores::class);
+        return $this->hasMany(Store::class);
+    }
+
+     public function getByPrefecture (int $limit_count=10)
+    {
+        return $this->stores()->with('prefecture')->paginate($limit_count);
     }
 }

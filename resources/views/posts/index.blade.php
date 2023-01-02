@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="type.css">
+    <link rel="stylesheet" href="{{ asset('/assets/style.css')}}">
     <title>CLIC</title>
 </head>
 
@@ -114,13 +115,13 @@
                             <div class="main_search">
                                 <ul>
                                     <li>
-                                        <h3>エリアから探す</h3>
+                                        <a href="/search/area"><h3>エリアから探す</h3></a>
                                     </li>
                                     <li>
-                                        <h3>カテゴリーから探す</h3>
+                                        <a href="/search/category"><h3>カテゴリーから探す</h3></a>
                                     </li>
                                     <li>
-                                        <h3>ランキングから探す</h3>
+                                        <a href="/search/rank"><h3>ランキングから探す</h3></a>
                                     </li>
                                 </ul>
                             </div>

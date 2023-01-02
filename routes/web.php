@@ -52,6 +52,9 @@ Route::get('/posts/store_register', [Store_RegisterController::class, 'registerS
 // 店舗登録
 Route::post('/posts/upload', [Store_RegisterController::class, 'upStore'])->name('upload');
 
+Route::get('/prefecture/{prefecture}', [Store_RegisterController::class, 'search'])->name('search');
+
+Route::get('/search/area', [PrefectureController::class, 'searchArea']);
 
 
 

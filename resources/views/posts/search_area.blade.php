@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./resources/views/css/style.css">
 
     <link rel="stylesheet" href="">
     <title>CLIC</title>
@@ -35,12 +37,10 @@
                         <a href="login" style="color:inherit;text-decoration:none;">
                             <p>ログイン</p>
                         </a>
-                        <a href="profile" style="color:inherit;text-decoration:none;">
+                        <a href="profile">
                             <p>新規登録</p>
                         </a>
-                        <a href="review" style="color:inherit;text-decoration:none;">
-                            <p>評価</p>
-                        </a>
+
                     </div>
 
                     <div class="header_holder">
@@ -69,27 +69,15 @@
             </ul>
         </header>
     </div>
+
     <main>
-    <h1>一覧画面</h1>
-    @foreach ($stores as $store)
-    <h2>{{ $store->name }}</h2>
-    <p>{{ $store->phone }}</p>
-    <a href="/prefecture/{{ $store->prefecture->id }}">{{ $store->prefecture->name }}</a>
-    <p>{{ $store->city }}</p>
-    <p>{{ $store->town }}</p>
-    <p>{{ $store->building }}</p>
-    <p>{{ $store->body }}</p>
-    <img src="{{ $store->image_path }}" alt="画像が読み込めません。"/>
-    @endforeach
+        @foreach($prefectures as $prefecture)
+            <a href="/prefecture/{{ $prefecture->id }}"><p>{{ $prefecture->name }}</p></a>
+        @endforeach
+
+
+
+
     </main>
-
-    <div>
-        <a href="/show/search"><button>search</button></a>
-    </div>
-
-<a href="/"><p>return</p></a>
-
-</body>
-
-
-</html>
+    </body>
+    </html>

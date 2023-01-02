@@ -15,7 +15,7 @@ class Store_RegisterController extends Controller
         return view ('posts/store')->with(['stores' => $store]);
     }
 
-
+// 店舗登録フォーム
      public function registerStore(Store $store, Prefecture $prefecture)
     {
         $stores = Store::all();
@@ -23,7 +23,7 @@ class Store_RegisterController extends Controller
         return view ('posts/shop_register')->with(['prefectures' => $prefecture]);
     }
 
-
+// 画像アップロード処理
     public function upStore(Request $request, Store $store)
     {
         $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
@@ -32,16 +32,18 @@ class Store_RegisterController extends Controller
         $store->fill($input)->save();
         return redirect()->route('showStore');
 
-
-        //  // 画像フォームでリクエストした画像を取得
-        // $img = $request->file('image');
-        // // storage > public > img配下に画像が保存される
-        // $path = $img->store('img','public');
-        // // DBに登録する処理
-        // Store::create([
-        //     'image_path' => $path,
-        // ]);
-
     }
+
+    public function showSarch(Request $request, Store $store)
+    {
+        return view('post/search_pref');
+    }
+
+    public function search(Prefecture $prefecture)
+    {
+       return view('posts/search_pref')->with(['stores' => $prefecture->getByPrefecture()]);
+    }
+
+
 
 }
