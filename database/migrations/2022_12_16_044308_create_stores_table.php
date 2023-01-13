@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('body');
             $table->string('image_path');
             $table->timestamps();
+            // $table->foreignId('store_format_id')->constrained();
         });
     }
 

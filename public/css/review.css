@@ -1,0 +1,13 @@
+#main{
+    max-width: 580px;
+    margin:0 auto;
+}
+
+.post {
+    padding-bottom: 30px;
+}
+
+.main_review_flex {
+    display: flex;
+    justify-content:space-between;
+}

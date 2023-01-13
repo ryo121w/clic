@@ -4,9 +4,12 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\Store_RegisterController;
 use App\Http\Controllers\PrefectureController;
+use App\Http\Controllers\BrandController;
+use App\Http\Controllers\StoreFormatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,13 +24,14 @@ use App\Http\Controllers\PrefectureController;
 
 
 // CLICのメインページ
-Route::get('/', function () {
-    return view('posts/index');
-});
+Route::get('/', [PostController::class, 'view']);
 // // ログインページ
 // Route::get('/login', function(){
 //     return view(‘welcome');
 // });
+Route::get('/posts/format/{format}', [Store_RegisterController::class, 'storeSelect']);
+
+
 // 評価一覧ページ
 Route::get('/review',[ReviewController::class, 'showList'])->name('reviews');
 // 評価詳細画面表示
@@ -48,13 +52,26 @@ Route::post('/posts/delete/{id}', [ReviewController::class, 'exeDelete'])->name(
 
 Route::get('/posts/store',[Store_RegisterController::class, 'showStore'])->name('showStore');
 // 店舗登録フォーム
-Route::get('/posts/store_register', [Store_RegisterController::class, 'registerStore'])->name('registerstore');
+Route::get('/register/store', [Store_RegisterController::class, 'registerStore'])->name('registerstore');
 // 店舗登録
 Route::post('/posts/upload', [Store_RegisterController::class, 'upStore'])->name('upload');
 
 Route::get('/prefecture/{prefecture}', [Store_RegisterController::class, 'search'])->name('search');
 
 Route::get('/search/area', [PrefectureController::class, 'searchArea']);
+
+Route::get('/show/brand',[BrandController::class, 'showBrand'])->name('shBrand');
+
+Route::get('/register/brand', [BrandController::class, 'formBrand']);
+
+Route::post('/store/brand', [BrandController::class, 'storeBrand']);
+
+Route::get('/brand/{brand}', [BrandController::class, 'detailBrand']);
+
+Route::get('/store/format/{store_format}', [Store_RegisterController::class, 'storeSelect']);
+
+
+
 
 
 

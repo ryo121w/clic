@@ -6,23 +6,23 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Store;
 
-class Prefecture extends Model
+class Brand extends Model
 {
     use HasFactory;
 
-    protected $table = 'prefecture';
+    protected $table = 'brands';
 
     protected $fillable = [
-        'name',
+        'name'
         ];
 
     public function stores()
     {
-        return $this->hasMany(Store::class);
+        return $this->belongsToMany(Store::class);
     }
 
-     public function getByPrefecture (int $limit_count=10)
+    public function getByBrand (int $limit_count= 10)
     {
-        return $this->stores()->with('prefecture')->paginate($limit_count);
+        return $this->stores()->with('brands')->paginate($limit_count);
     }
 }

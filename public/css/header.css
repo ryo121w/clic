@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+}
+
+ul {
+    list-style:none;
+}
+
+
+
+/* header */
+#header {
+    background-color: rgba(201, 202, 203, 0.343);
+}
+
+.header {
+    max-width: 980px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header_flex {
+    display: flex;
+}
+
+.header_login{
+    display: flex;
+}
+
+.header_login p {
+    margin-left: 10px;
+}
+
+.header_format{
+    max-width: 980px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header_format h1{
+    border-bottom: 2px solid black;
+    margin-top:30px;
+    margin-bottom:0px;
+}

@@ -1,0 +1,94 @@
+body {
+    margin: 0;
+}
+
+ul {
+    list-style:none;
+}
+
+
+
+/* header */
+#header {
+    background-color: rgba(201, 202, 203, 0.343);
+}
+
+.header {
+    max-width: 980px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header_flex {
+    display: flex;
+}
+
+.header_login{
+    display: flex;
+}
+
+.header_login p {
+    margin-left: 10px;
+}
+
+.header_format{
+    max-width: 980px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header_format h1{
+    border-bottom: 2px solid black;
+    margin-top:30px;
+    margin-bottom:0px;
+}
+
+/* main */
+#main {
+    max-width: 980px;
+    margin: 0 auto;
+}
+.main_gender ul {
+    display: flex;
+}
+
+.main_gender ul li {
+    margin-left: 10px;
+}
+
+.main_gender ul li p {
+    margin: 0;
+}
+
+.main_gender_men p {
+    color: rgba(0, 85, 255, 0.797);
+}
+
+.main_gender_women p {
+    color: rgba(201, 7, 7, 0.774);
+
+}
+
+.swiper-slide{
+    text-align: center;
+}
+
+.swiper-slide img{
+    width:300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.swiper-slide p {
+    color:#fff;
+    position: relative;
+    bottom: 50px;
+    right: 130px;
+}
+
+.swiper_pagination{
+    text-align: center;
+}

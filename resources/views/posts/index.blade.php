@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="type.css">
-    <link rel="stylesheet" href="{{ asset('/assets/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="{{ asset('/css/style.css')}}">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" >
     <title>CLIC</title>
 </head>
 
@@ -41,37 +43,35 @@
                         <a href="review" style="color:inherit;text-decoration:none;">
                             <p>評価</p>
                         </a>
+
+                        <a href="" style="color:inherit;text-decoration:none;">
+                            <p>保存</p>
+                        </a>
                     </div>
 
-                    <div class="header_holder">
-                        <a href=""><img src="" alt="保存" width="20" height="20"></a>
-                    </div>
+
                 </section>
             </div>
 
 
-            <ul class="header_menu">
-                <li>
-                    <a href="/posts/store" style="color:inherit;text-decoration:none;">
-                        <h1>SELECT</h1>
-                    </a>
-                </li>
-                <li>
-                    <a href="" style="color:inherit;text-decoration:none;">
-                        <h1>USED</h1>
-                    </a>
-                </li>
-                <li>
-                    <a href="" style="color:inherit;text-decoration:none;">
-                        <h1>EC</h1>
-                    </a>
-                </li>
-            </ul>
+
+            <div class="header_format">
+                <a>
+                    <h1>SELECT</h1>
+                </a>
+                <a>
+                    <h1>USED</h1>
+                </a>
+                <a>
+                    <h1>EC</h1>
+                </a>
+            </div>
+
         </header>
     </div>
 
 
-    <main>
+    <main id="main">
         <div>
             <div class="main_gender">
                 <ul>
@@ -80,15 +80,19 @@
                             <p>すべて</p>
                         </a>
                     </li>
-                    <li class="main_gender_icon">
-                        <a href="" style="color:inherit;text-decoration:none;"><img src="img/gender12_man.png" alt="メンズ"
-                                width="30px" height="30px"></a>
+                    <li class="main_gender_men">
+                        <a href="" style="color:inherit;text-decoration:none;">
+                            <p>メンズ</p>
+                        </a>
                     </li>
-                    <li class="main_gender_icon">
-                        <a href="" style="color:inherit;text-decoration:none;"><img src="img/woman.jpeg" alt="ウィメンズ"
-                                width="30px" height="30px"></a>
+                    <li class="main_gender_women">
+                        <a href="" style="color:inherit;text-decoration:none;">
+                            <p>ウィメンズ</p>
+                        </a>
                     </li>
             </div>
+
+
 
 
 
@@ -96,18 +100,17 @@
                 <div class="container">
                     <div class="swiper infinite-slider">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img
-                                    src="img/CDG_AOYAMA_2019_SS_COMME_des_GARCONS_HOMME_PLUS_Installation_1.jpeg"
-                                    alt="画像1" /></div>
-                            <div class="swiper-slide"><img src="img/graf.jpeg" alt="" /></div>
-                            <div class="swiper-slide"><img src="img/kolor.jpeg" alt="画像3" /></div>
-                            <div class="swiper-slide"><img src="img/jilsander.jpeg" alt="画像4" /></div>
-                            <div class="swiper-slide"><img src="img/LUIK.jpeg" alt="画像4" /></div>
-                            <div class="swiper-slide"><img src="img/sings.jpeg" alt="画像4" /></div>
-                            <div class="swiper-slide"><img src="img/kitasennju.jpeg" alt="画像4" /></div>
-                        </div>
+                            @foreach ($stores as $store)
+                                    <div class="swiper-slide" href="">
+                                       <img src="{{ $store->image_path }}" alt="画像が読み込めません。">
+                                       <p>{{ $store->name }}</p>
+                                    </div>
+                            @endforeach
 
+                        </div>
                         <div class="swiper_pagination"></div>
+
+
                     </div>
 
                     <div class="main_container">
@@ -115,13 +118,19 @@
                             <div class="main_search">
                                 <ul>
                                     <li>
-                                        <a href="/search/area"><h3>エリアから探す</h3></a>
+                                        <a href="/search/area" style="color:inherit;text-decoration:none;">
+                                            <h3>エリアから探す</h3>
+                                        </a>
                                     </li>
                                     <li>
-                                        <a href="/search/category"><h3>カテゴリーから探す</h3></a>
+                                        <a href="/search/category" style="color:inherit;text-decoration:none;">
+                                            <h3>ブランドから探す</h3>
+                                        </a>
                                     </li>
                                     <li>
-                                        <a href="/search/rank"><h3>ランキングから探す</h3></a>
+                                        <a href="/search/rank" style="color:inherit;text-decoration:none;">
+                                            <h3>ランキングから探す</h3>
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
@@ -130,11 +139,12 @@
                                 <h4>SELECTランキング</h4>
                                 <div class="swiper-below">
                                     <div id="slid" class="swiper-pagination-below">
-                                        <img src="img/graf.jpeg" alt="" width="300" height="200px">
-                                        <img src="img/kolor.jpeg" alt="" width="300" height="200px">
-                                        <img src="img/jilsander.jpeg" alt="" width="300" height="200px">
-                                        <img src="img/CDG_AOYAMA_2019_SS_COMME_des_GARCONS_HOMME_PLUS_Installation_1.jpeg"
-                                            alt="" width="300" height="200px">
+                                                 <img src="img/22.jpeg" alt="" width="300" height="200px">
+                                    <img src="img/kitasennju.jpeg" alt="" width="300" height="200px">
+                                    <img src="img/LUIK.jpeg" alt="" width="300" height="200px">
+                                    <img src="img/sings.jpeg" alt="" width="300" height="200px">
+                                    <a class="arrow next" id="right" href=""></a>
+                                    <a class="arrow back" id="left" href=""></a>
                                     </div>
                                     <div class="swiper-pagination_below"></div>
                                 </div>
@@ -163,10 +173,19 @@
 
     <footer id="footer">
         <div class="footer_store_register">
-            <a href="/posts/store_register">
+            <a href="/register/store" style="color:inherit;text-decoration:none;">
                 <p>店舗登録</p>
             </a>
         </div>
+        <a href='/register/brand' style="color:inherit;text-decoration:none;">
+            <p>ブランド登録</p>
+        </a>
+        <a href='/show/brand' style="color:inherit;text-decoration:none;">
+            <p>ブランド一覧</p>
+        </a>
+        <a href="/posts/store" style="color:inherit;text-decoration:none;">
+            <p>Search</p>
+        </a>
     </footer>
     </div>
 
@@ -179,6 +198,8 @@
 
 
 </body>
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+<script src="{{ asset('/js/swiper.js') }}"></script>
 
 
 </html>

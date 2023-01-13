@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Store;
 
-class Prefecture extends Model
+class StoreFormat extends Model
 {
     use HasFactory;
 
-    protected $table = 'prefecture';
+    protected $table = 'store_formats';
 
     protected $fillable = [
         'name',
@@ -21,8 +21,8 @@ class Prefecture extends Model
         return $this->hasMany(Store::class);
     }
 
-     public function getByPrefecture (int $limit_count=10)
+    public function getByFormat (int $limit_count=10)
     {
-        return $this->stores()->with('prefecture')->paginate($limit_count);
+        return $this->stores()->with('store_format')->paginate($limit_count);
     }
 }

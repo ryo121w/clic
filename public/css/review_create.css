@@ -1,0 +1,10 @@
+#main {
+    max-width: 580px;
+    margin:0 auto;
+}
+
+.review_textarea{
+    resize:none;
+    width: 300px;
+    height: 200px;
+}

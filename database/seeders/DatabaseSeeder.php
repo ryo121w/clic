@@ -6,6 +6,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Review;
+use App\Models\Prefecture;
+use App\Models\Figure;
 
 
 
@@ -22,7 +24,8 @@ class DatabaseSeeder extends Seeder
         ([
          UserSeeder::class,
          ReviewSeeder::class,
-         MstPrefectureSeeder::class,
+         MstprefectureSeeder::class,
+         StoreFormatSeeder::class,
         ]);
     }
 }
