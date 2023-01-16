@@ -24,37 +24,54 @@ use App\Http\Controllers\StoreFormatController;
 
 
 // CLICのメインページ
-Route::get('/', [PostController::class, 'view']);
+Route::get('/', [PostController::class, 'view'])->name('mainView');
 // // ログインページ
 // Route::get('/login', function(){
 //     return view(‘welcome');
 // });
-Route::get('/posts/format/{format}', [Store_RegisterController::class, 'storeSelect']);
-
 
 // 評価一覧ページ
-Route::get('/review',[ReviewController::class, 'showList'])->name('reviews');
-// 評価詳細画面表示
-Route::get('/posts/review/{id}', [ReviewController::class, 'showDetail'])->name('detail');
+Route::get('/posts/review',[ReviewController::class, 'showList'])->name('reviews');
+
 // 評価登録画面を表示
 Route::get('/posts/create', [ReviewController::class, 'showCreate'])->name('create');
-// 評価投稿ページ
-Route::get('/post', [PostController::class, 'index']);
+
 // 評価登録
 Route::post('/posts/store', [ReviewController::class, 'exeStore'])->name('store');
+
+// 評価詳細画面表示
+Route::get('/posts/review/{id}', [ReviewController::class, 'showDetail'])->name('detail');
+
 // 評価編集ページ
 Route::get('/posts/review/edit/{id}', [ReviewController::class, 'showEdit'])->name('edit');
+
 // 評価編集後の登録
-Route::get('/post/update', [PostController::class, 'exeUpdate'])->name('update');
+Route::get('/posts/update', [ReviewController::class, 'exeUpdate'])->name('update');
+
 // 評価の削除
 Route::post('/posts/delete/{id}', [ReviewController::class, 'exeDelete'])->name('delete');
 
-
+// 店舗一覧
 Route::get('/posts/store',[Store_RegisterController::class, 'showStore'])->name('showStore');
+
+// 店舗詳細
+Route::get('/posts/store/detail/{store}', [Store_RegisterController::class, 'storeDetail']);
+
+//評価登録（店舗連携）
+Route::get('/posts/review_store/{store}', [ReviewController::class, 'reviewStore']);
+
+// 評価登録処理（店舗連携）
+Route::post('/posts/store/{store}', [ReviewController::class, 'exeDetailStore'])->name('store');
+
+// 評価一覧（店舗連携）
+Route::get('/posts/review_detail/{store}', [ReviewController::class, 'detailReview']);
+
 // 店舗登録フォーム
 Route::get('/register/store', [Store_RegisterController::class, 'registerStore'])->name('registerstore');
+
 // 店舗登録
 Route::post('/posts/upload', [Store_RegisterController::class, 'upStore'])->name('upload');
+
 
 Route::get('/prefecture/{prefecture}', [Store_RegisterController::class, 'search'])->name('search');
 
@@ -68,7 +85,7 @@ Route::post('/store/brand', [BrandController::class, 'storeBrand']);
 
 Route::get('/brand/{brand}', [BrandController::class, 'detailBrand']);
 
-Route::get('/store/format/{store_format}', [Store_RegisterController::class, 'storeSelect']);
+Route::get('/posts/format_store/{store_format}', [Store_RegisterController::class, 'storeSelect']);
 
 
 

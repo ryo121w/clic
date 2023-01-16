@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"  href="{{ asset('/css/review.css') }}">
-    <link rel="stylesheet" href="{{ asset('/css/header.css')}}">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="{{ asset('/css/style.css')}}">
+    <link rel="stylesheet"  href="{{ asset('/css/review_create.css') }}">
 
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" >
     <title>CLIC</title>
@@ -34,19 +35,37 @@
 
                 <section class="header_flex">
                     <div class="header_login">
-                        <a href="{{ route('login') }}" style="color:inherit;text-decoration:none;">
+                        <div>
+                          <a href="{{ route('login') }}" style="color:inherit;text-decoration:none;">
                             <p>ログイン</p>
-                        </a>
-                        <a href="{{ route('register') }}" style="color:inherit;text-decoration:none;">
-                            <p>新規登録</p>
-                        </a>
-                        <a href="review" style="color:inherit;text-decoration:none;">
-                            <p>評価</p>
-                        </a>
+                          </a>
+                        </div>
 
-                        <a href="" style="color:inherit;text-decoration:none;">
+                        <div>
+                          <a href="{{ route('register') }}" style="color:inherit;text-decoration:none;">
+                            <p>新規登録</p>
+                          </a>
+                        </div>
+
+                        <div>
+                          <a href="{{route('reviews')}}" style="color:inherit;text-decoration:none;">
+                            <p>評価</p>
+                          </a>
+                        </div>
+
+                        <div>
+                          <a href="" style="color:inherit;text-decoration:none;">
                             <p>保存</p>
-                        </a>
+                          </a>
+                        </div>
+                    </div>
+                 　 <div class="user_icon">
+                          <a>
+                            <img src="{{ asset('/img/ダウンロード.png')}}" class="icon_img">
+                            <p class="user_name">
+                                {{ $user }}
+                            </p>
+                          </a>
                     </div>
 
 
@@ -70,24 +89,8 @@
         </header>
     </div>
 
-
-
-        </header>
-    </div>
-
-    <main id="main">
-　　　　<div class="main_review_flex">
-　　　　    <div>
-            <h1>Rview</h1>
-            </div>
-            <div>
-            <a href="posts/create" style="color:inherit;text-decoration:none;">
-                <p>投稿する</p>
-            </a>
-            </div>
-        </div>
-            @foreach($reviews as $review)
-            <div class='post'>
+        @foreach($store->reviews as $review)
+          <div class='post'>
             <tr class="review_main">
                 <td><a href="/posts/review/{{ $review->id }} " style="color:inherit;text-decoration:none;"  >{{ $review->title }}</a></td>
                 <div class="reveiw">
@@ -110,18 +113,4 @@
             </tr>
             <br>
             </div>
-            @endforeach
-
-        <script src="https://unpkg.com/vue@next"></script>
-<script>
-    import StarRating from 'vue-star-rating'
-    Vue.component('star-rating', StarRating);
-    const app = new Vue({
-    el: '#star',
-    data: {
-        rating: 0
-    }
-    });
-</script>
-
-    </main>
+        @endforeach

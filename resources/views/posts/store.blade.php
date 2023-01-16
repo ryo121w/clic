@@ -82,27 +82,17 @@
             <h2>{{ $store->name }}</h2>
             <p>{{ $store->phone }}</p>
             <a href="/prefecture/{{ $store->prefecture->id }}">{{ $store->prefecture->name }}</a>
-            <a href="/store/format/{{ $store->store_format->id }}"><p>{{ $store->store_format->name }}</p></a>
+            <a href="/posts/format_store/{{ $store->store_format->id }}"><p>{{ $store->store_format->name }}</p></a>
           @foreach($store->brands as $brand)
-         <a href="/brand/{{ $brand->id }}"><p>{{ $brand->name }}</p></a>
-        @endforeach
-        <!--<p>{{ $store->city }}</p>-->
-        <!--<p>{{ $store->town }}</p>-->
-        <!--<p>{{ $store->building }}</p>-->
-        <p>{{ $store->body }}</p>
-         <!--star-->
-          <div class="rate-form">
-            <input id="star5" type="radio" name="rate" value="5">
-            <label for="star5">★</label>
-            <input id="star4" type="radio" name="rate" value="4">
-            <label for="star4">★</label>
-            <input id="star3" type="radio" name="rate" value="3">
-            <label for="star3">★</label>
-            <input id="star2" type="radio" name="rate" value="2">
-            <label for="star2">★</label>
-            <input id="star1" type="radio" name="rate" value="1">
-            <label for="star1">★</label>
-          </div>
+           <a href="/brand/{{ $brand->id }}"><p>{{ $brand->name }}</p></a>
+          @endforeach
+
+          <p>{{ $store->body }}</p>
+
+           <a href="/posts/store/detail/{{$store->id}}">
+               <p>詳細</p>
+           </a>
+
         </div>
 
         <div class="store_img">

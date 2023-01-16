@@ -1,11 +1,12 @@
 <?php
+
 namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Review;
+use App\Models\Sex;
 
-class ReviewSeeder extends Seeder
+class SexSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +15,12 @@ class ReviewSeeder extends Seeder
      */
     public function run()
     {
-        Review::factory()->count(10)->create();
-    }
+        DB::table('sex')->insert([
+            'sex' => 'men',
+            ]);
 
+        DB::table('sex')->insert([
+            'sex' => 'women',
+            ]);
+    }
 }

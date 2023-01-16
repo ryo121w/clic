@@ -8,7 +8,8 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="{{ asset('/css/style.css')}}">
 
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" >
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+   <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho" rel="stylesheet">
     <title>CLIC</title>
 </head>
 
@@ -34,19 +35,40 @@
 
                 <section class="header_flex">
                     <div class="header_login">
-                        <a href="{{ route('login') }}" style="color:inherit;text-decoration:none;">
-                            <p>ログイン</p>
-                        </a>
-                        <a href="{{ route('register') }}" style="color:inherit;text-decoration:none;">
-                            <p>新規登録</p>
-                        </a>
-                        <a href="review" style="color:inherit;text-decoration:none;">
-                            <p>評価</p>
-                        </a>
+                        <div>
+                            <a href="{{ route('login') }}" style="color:inherit;text-decoration:none;">
+                                <p>ログイン</p>
+                            </a>
+                        </div>
 
-                        <a href="" style="color:inherit;text-decoration:none;">
-                            <p>保存</p>
+                        <div>
+                            <a href="{{ route('register') }}" style="color:inherit;text-decoration:none;">
+                                <p>新規登録</p>
+                            </a>
+                        </div>
+
+                        <div>
+                            <a href="{{route('reviews')}}" style="color:inherit;text-decoration:none;">
+                                <p>評価</p>
+                            </a>
+                        </div>
+
+                        <div>
+                            <a href="" style="color:inherit;text-decoration:none;">
+                                <p>保存</p>
+                            </a>
+                        </div>
+                    </div>
+                    　 <div class="user_icon">
+                        @auth
+                        <a>
+                            <img src="{{ asset('/img/ダウンロード.png')}}" class="icon_img">
+                            <p class="user_name">
+                                {{ $user->name }}
+                                {{ $user->email }}
+                            </p>
                         </a>
+                        @endauth
                     </div>
 
 
@@ -56,23 +78,29 @@
 
 
             <div class="header_format">
-                <a>
-                    <h1>SELECT</h1>
-                </a>
-                <a>
-                    <h1>USED</h1>
-                </a>
-                <a>
-                    <h1>EC</h1>
-                </a>
+                <div class="header_title">
+                    <a>
+                        <h1>SELECT</h1>
+                    </a>
+                </div>
+                <div class="header_title">
+                    <a>
+                        <h1>USED</h1>
+                    </a>
+                </div>
+                <div class="header_title">
+                    <a>
+                        <h1>EC</h1>
+                    </a>
+                </div>
             </div>
 
         </header>
     </div>
 
 
-    <main id="main">
-        <div>
+    <main>
+        <div class="main">
             <div class="main_gender">
                 <ul>
                     <li class="main_gender_all">
@@ -93,24 +121,21 @@
             </div>
 
 
-
-
-
-            <body>
                 <div class="container">
                     <div class="swiper infinite-slider">
                         <div class="swiper-wrapper">
                             @foreach ($stores as $store)
-                                    <div class="swiper-slide" href="">
-                                       <img src="{{ $store->image_path }}" alt="画像が読み込めません。">
-                                       <p>{{ $store->name }}</p>
-                                    </div>
+                            <div class="swiper-slide" href="">
+                                <img src="{{ $store->image_path }}" alt="画像が読み込めません。">
+                                <div class="swiper-title">
+                                    <h2>{{ $store->prefecture->name }}</h2>
+                                    <h1>{{ $store->name }}</h1>
+                                </div>
+                            </div>
                             @endforeach
 
                         </div>
                         <div class="swiper_pagination"></div>
-
-
                     </div>
 
                     <div class="main_container">
@@ -133,59 +158,92 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<div class="flixed_flex">
+    <div class="cd-fixed-bg cd-bg-1">
+        <div class="fixed_title">
 
-                            <div class="main_rank">
-                                <h4>SELECTランキング</h4>
-                                <div class="swiper-below">
-                                    <div id="slid" class="swiper-pagination-below">
-                                                 <img src="img/22.jpeg" alt="" width="300" height="200px">
-                                    <img src="img/kitasennju.jpeg" alt="" width="300" height="200px">
-                                    <img src="img/LUIK.jpeg" alt="" width="300" height="200px">
-                                    <img src="img/sings.jpeg" alt="" width="300" height="200px">
-                                    <a class="arrow next" id="right" href=""></a>
-                                    <a class="arrow back" id="left" href=""></a>
-                                    </div>
-                                    <div class="swiper-pagination_below"></div>
-                                </div>
+        </div>
+    </div>
 
-                                <h4>USEDランキング</h4>
-                                <div class="swiper-pagination-below">
-                                    <img src="img/22.jpeg" alt="" width="300" height="200px">
-                                    <img src="img/kitasennju.jpeg" alt="" width="300" height="200px">
-                                    <img src="img/LUIK.jpeg" alt="" width="300" height="200px">
-                                    <img src="img/sings.jpeg" alt="" width="300" height="200px">
-                                    <a class="arrow next" id="right" href=""></a>
-                                    <a class="arrow back" id="left" href=""></a>
-                                </div>
-                                <h4>ECランキング</h4>
-                                <div class="swiper-pagination-below">
-                                    <img src="img/FERFETCH.png" alt="" width="300" height="200px">
-                                    <img src="img/GILT.png" alt="" width="300" height="200px">
-                                    <img src="img/YOOX.png" alt="" width="300" height="200px">
-                                    <img src="img/SSENSE.png" alt="" width="300" height="200px">
-                                    <a class="arrow next" id="right" href=""></a>
-                                    <a class="arrow back" id="left" href=""></a>
-                                </div>
-                            </div>
-                        </section>
+    <div class="cd-fixed-bg cd-bg-2">
+        <div class="fixed_title">
+
+        </div>
+    </div>
+
+</div>
+
+
+       <div class="main">
+            <div class="main_rank">
+                <h4>SELECTランキング</h4>
+                <div class="swiper-below">
+                    <div id="slid" class="swiper-pagination-below">
+                        <img src="img/22.jpeg" alt="" width="300" height="200px">
+                        <img src="img/kitasennju.jpeg" alt="" width="300" height="200px">
+                        <img src="img/LUIK.jpeg" alt="" width="300" height="200px">
+                        <img src="img/sings.jpeg" alt="" width="300" height="200px">
+                        <a class="arrow next" id="right" href=""></a>
+                        <a class="arrow back" id="left" href=""></a>
+                    </div>
+                    <div class="swiper-pagination_below"></div>
+                </div>
+
+                        <h4>USEDランキング</h4>
+                        <div class="swiper-pagination-below">
+                            <img src="img/22.jpeg" alt="" width="300" height="200px">
+                            <img src="img/kitasennju.jpeg" alt="" width="300" height="200px">
+                            <img src="img/LUIK.jpeg" alt="" width="300" height="200px">
+                            <img src="img/sings.jpeg" alt="" width="300" height="200px">
+                            <a class="arrow next" id="right" href=""></a>
+                            <a class="arrow back" id="left" href=""></a>
+                        </div>
+
+                        <h4>ECランキング</h4>
+                        <div class="swiper-pagination-below">
+                            <img src="img/FERFETCH.png" alt="" width="300" height="200px">
+                            <img src="img/GILT.png" alt="" width="300" height="200px">
+                            <img src="img/YOOX.png" alt="" width="300" height="200px">
+                            <img src="img/SSENSE.png" alt="" width="300" height="200px">
+                            <a class="arrow next" id="right" href=""></a>
+                            <a class="arrow back" id="left" href=""></a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
     </main>
 
     <footer id="footer">
-        <div class="footer_store_register">
-            <a href="/register/store" style="color:inherit;text-decoration:none;">
-                <p>店舗登録</p>
-            </a>
+        <div class="footer_element">
+            <div class="footer_store_register">
+                <a href="/register/store" style="color:inherit;text-decoration:none;">
+                    <p>店舗登録</p>
+                </a>
+            </div>
+
+            <div>
+                <a href='/register/brand' style="color:inherit;text-decoration:none;">
+                    <p>ブランド登録</p>
+                </a>
+            </div>
+
+            <div>
+                <a href='/show/brand' style="color:inherit;text-decoration:none;">
+                    <p>ブランド一覧</p>
+                </a>
+            </div>
+
+            <div>
+                <a href="/posts/store" style="color:inherit;text-decoration:none;">
+                    <p>ストア一覧</p>
+                </a>
+            </div>
         </div>
-        <a href='/register/brand' style="color:inherit;text-decoration:none;">
-            <p>ブランド登録</p>
-        </a>
-        <a href='/show/brand' style="color:inherit;text-decoration:none;">
-            <p>ブランド一覧</p>
-        </a>
-        <a href="/posts/store" style="color:inherit;text-decoration:none;">
-            <p>Search</p>
-        </a>
     </footer>
     </div>
 
@@ -199,7 +257,9 @@
 
 </body>
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+    crossorigin="anonymous"></script>
 <script src="{{ asset('/js/swiper.js') }}"></script>
-
+<script src="{{ asset('/js/index.js') }}"></script>
 
 </html>

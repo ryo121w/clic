@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Review;
-use App\Http\Requests\ReveiwRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\ReveiwRequest;
+use App\Models\Review;
+use App\Models\User;
+use App\Models\Store;
 
 class ReviewController extends Controller
 {
@@ -15,10 +17,13 @@ class ReviewController extends Controller
         return view('posts/review', ['reviews' => $reviews]);
     }
 
-    public function showDetail($id)
+    public function showDetail($id,Review $review, User $user)
     {
         $review = Review::find($id);
-        return view('posts/review_detail', ['review' => $review]);
+        $user = Auth::user();
+        $user_name = $user->name;
+        $user_icon = mb_substr($user_name,0,2);
+        return view('posts/review_detail')->with(['review' => $review, 'users' => $user_icon]);
     }
 
 
@@ -28,10 +33,13 @@ class ReviewController extends Controller
     }
 
 
-    public function exeStore (Request $request, Review $review)
+    public function exeStore (Request $request, Review $review, User $user)
     {
-      dd(Auth::user()->id);
+      $user = Auth::user();
+      $id = Auth::id();
       $input = $request['review'];
+      $input += ['user_id' => $user->id];
+      $input += ['user_name' => $user->name];
       $review->fill($input)->save();
     //   return redirect('posts/review_detail', $review->id);
     }
@@ -46,6 +54,25 @@ class ReviewController extends Controller
     $input_review = $request['review'];
     $review->fill($input_review)->save();
     // return redirect('posts/review_detail', $review->id);
+    }
+
+    public function reviewStore(User $user, Store $store)
+    {
+      return view('posts/review_store')->with(['user' => $user, 'store' => $store]);
+    }
+
+    public function detailReview(User $user, Store $store)
+    {
+        return view('posts/review_store_detail')->with(['user' => $user, 'store' => $store]);
+    }
+
+    public function exeDetailStore(Request $request, Review $review)
+    {
+       $user = Auth::user();
+       $input_review = $request['review'];
+       $input_review += ['user_id' => $user->id];
+       $input_review += ['user_name' => $user->name];
+       $review->fill($input_review)->save();
     }
 
 

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Models\Brand;
 use App\Models\StoreFormat;
+use App\Models\Review;
 
 
 class Store extends Model
@@ -19,7 +20,7 @@ class Store extends Model
         'prefecture_id',
         'body',
         'image_path',
-        'store_format_id',
+        'store_format_id'
     ];
 
     public function prefecture()
@@ -40,6 +41,11 @@ class Store extends Model
     public function store_format()
     {
         return $this->belongsTo(StoreFormat::class);
+    }
+
+    public function reviews()
+    {
+        return $this->belongsToMany(Review::class);
     }
 
 

@@ -70,24 +70,26 @@
         </header>
     </div>
     <main id="main">
-      <h2>{{ $review->title }}</h2>
-      <p>user_id</p>
+        <div class="review_detail_flex">
+            <div>
+                @if($review->stars===5)
+                  <h3 class="star_five">{{ str_repeat('★ ', $review->stars) }}</h3>
+                @elseif($review->stars!==5)
+                <div>
+                  <h3 class="star_five">{{ str_repeat('★ ', $review->stars) }}
+                     {{ str_repeat('☆ ', (5-$review->stars)) }}</h3>
+                  </div>
+                @endif
+            </div>
+          <h3>{{ $review->title }}</h3>
+        </div>
+
+      <p>{{ $users }}</p>
       <span>作成日:{{ $review->created_at }}</span>
       <span>更新日:{{ $review->updated_at }}</span>
       <p>{{ $review->body }}</p>
-      <!--rank-->
-        <div class="rate-form">
-            <input id="star5" type="radio" name="rate" value="5">
-            <label for="star5">★</label>
-            <input id="star4" type="radio" name="rate" value="4">
-            <label for="star4">★</label>
-            <input id="star3" type="radio" name="rate" value="3">
-            <label for="star3">★</label>
-            <input id="star2" type="radio" name="rate" value="2">
-            <label for="star2">★</label>
-            <input id="star1" type="radio" name="rate" value="1">
-            <label for="star1">★</label>
-        </div>
+
+
       <button type="button" onclick="location.href='/posts/review/edit/{{ $review->id }}'">EDIT</button>
       <form method="POST" action="{{ route('delete', $review->id) }}" onSubmit="returncheckDelete()">
         @csrf

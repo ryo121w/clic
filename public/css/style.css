@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    font-family: "MS Pゴシック" ;
 }
 
 ul {
@@ -18,6 +19,7 @@ ul {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    padding-top:10px;
 }
 
 .header_flex {
@@ -29,7 +31,8 @@ ul {
 }
 
 .header_login p {
-    margin-left: 10px;
+    margin:0px;
+    padding-left: 10px;
 }
 
 .header_format{
@@ -45,8 +48,25 @@ ul {
     margin-bottom:0px;
 }
 
+.header_format h1:hover{
+    opacity: 0.6;
+}
+
+.header_title {
+    width:250px;
+    margin-right: 20px;
+    margin-left: 20px;
+    border-bottom: 1px solid black;
+    text-align: center;
+}
+
+.header_title h1{
+    font-size: 20px;
+}
+
+
 /* main */
-#main {
+.main {
     max-width: 980px;
     margin: 0 auto;
 }
@@ -71,24 +91,155 @@ ul {
 
 }
 
+.main_search{
+    padding-bottom: 40px
+}
+
 .swiper-slide{
     text-align: center;
 }
 
 .swiper-slide img{
-    width:300px;
-    height: 200px;
+    width:100%;
+    height: 400px;
     object-fit: cover;
     border-radius: 10px;
+    position: relative;
 }
 
-.swiper-slide p {
-    color:#fff;
+.swiper-title{
+    width:200px;
+    height: 80px;
     position: relative;
-    bottom: 50px;
-    right: 130px;
+    bottom:100px;
+    right: 900px;
+    background-color: rgba(66, 59, 59, 0.8);
+    border-radius: 30px
+}
+
+.swiper-title h1  {
+    color: #fff;
+    margin: 0px;
+}
+
+.swiper-title h2 {
+    color: #fff;
+    margin: 0px;
 }
 
 .swiper_pagination{
     text-align: center;
+}
+
+
+
+.user_icon img{
+    width: 30px;
+    height: 30px;
+    border-radius: 170px
+}
+
+.icon_img:hover{
+   opacity: 0.7;
+}
+
+   .icon_img {
+      width: 30px;
+      height: 30px;
+      position: relative;
+    }
+    .user_name {
+      display: none;
+      width: 300px;
+      position: absolute;
+      top: 20px;
+      left: 900px;
+      padding: 16px;
+      border-radius: 5px;
+      background-color:  rgba(66, 59, 59, 0.8);
+      color: #fff;
+      font-weight: bold;
+    }
+    .user_name:after {
+      position: absolute;
+      width: 0;
+      height: 0;
+      left: 0;
+      bottom: -19px;
+      margin-left: 10px;
+      border-color: rgba(51, 204, 153, 0);
+      border-top-color: #33cc99;
+      border-width: 10px;
+      pointer-events: none;
+      content: " ";
+    }
+    .icon_img:hover + .user_name {
+      display: block;
+    }
+
+#footer{
+    background-color: rgba(201, 202, 203, 0.343);
+}
+
+.footer_element{
+    max-width:980px;
+    margin:0 auto;
+    height: 300px;
+    padding:20px;
+}
+
+.footer_element p {
+    margin-bottom: 0px;
+
+}
+
+.flixed_flex{
+    display: flex;
+    justify-content:space-between;
+}
+
+/*スクロール*/
+.cd-fixed-bg {
+    /*max-width: 1200px !important;*/
+    width: 49%;
+    height:800px;
+    position: relative;
+    min-height: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+    z-index: 2;
+}
+
+
+
+.cd-fixed-bg.cd-bg-1　h1{
+    color:#fff;
+}
+
+/*--固定背景01--*/
+.cd-fixed-bg.cd-bg-1  {
+  background-image: url('/img/yamagata-jpg-1655185796.jpeg');
+}
+
+.cd-fixed-bg.cd-bg-1 h1{
+    position:relative;
+    top:800px;
+    font-family: "Sawarabi Minchoi";
+}
+
+
+.cd-fixed-bg.cd-bg-2{
+   margin-top: 450px;
+   background-image: url('/img/tumblr_otxlwgmmzI1taz8xlo1_1280.jpeg');
+}
+
+.cd-fixed-bg.cd-bg-2 h1{
+    position: relative;
+    bottom:300px;
+}
+
+.fixed_title{
+    width:300px;
 }

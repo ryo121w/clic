@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
          ReviewSeeder::class,
          MstprefectureSeeder::class,
          StoreFormatSeeder::class,
+         SexSeeder::class,
         ]);
     }
 }

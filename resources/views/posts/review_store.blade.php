@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="{{ asset('/css/style.css')}}">
     <link rel="stylesheet"  href="{{ asset('/css/review_create.css') }}">
-    <link rel="stylesheet" href="{{ asset('/css/header.css')}}">
 
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" >
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>CLIC</title>
 </head>
 
@@ -35,19 +35,37 @@
 
                 <section class="header_flex">
                     <div class="header_login">
-                        <a href="{{ route('login') }}" style="color:inherit;text-decoration:none;">
+                        <div>
+                          <a href="{{ route('login') }}" style="color:inherit;text-decoration:none;">
                             <p>ログイン</p>
-                        </a>
-                        <a href="{{ route('register') }}" style="color:inherit;text-decoration:none;">
-                            <p>新規登録</p>
-                        </a>
-                        <a href="review" style="color:inherit;text-decoration:none;">
-                            <p>評価</p>
-                        </a>
+                          </a>
+                        </div>
 
-                        <a href="" style="color:inherit;text-decoration:none;">
+                        <div>
+                          <a href="{{ route('register') }}" style="color:inherit;text-decoration:none;">
+                            <p>新規登録</p>
+                          </a>
+                        </div>
+
+                        <div>
+                          <a href="{{route('reviews')}}" style="color:inherit;text-decoration:none;">
+                            <p>評価</p>
+                          </a>
+                        </div>
+
+                        <div>
+                          <a href="" style="color:inherit;text-decoration:none;">
                             <p>保存</p>
-                        </a>
+                          </a>
+                        </div>
+                    </div>
+                 　 <div class="user_icon">
+                          <a>
+                            <img src="{{ asset('/img/ダウンロード.png')}}" class="icon_img">
+                            <p class="user_name">
+                                {{ $user }}
+                            </p>
+                          </a>
                     </div>
 
 
@@ -70,11 +88,13 @@
 
         </header>
     </div>
-    <main id="main">
+
+  <main id="main">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <h2 class="review_title">REVIEW投稿フォーム</h2>
-            <form action='/posts/store' method="POST">
+        <p>{{ $store->id }}</p>
+            <form action='/posts/store/{{ $store->id }}' method="POST">
               @csrf
               <div class="title"><h2>Title</h2>
                   <input type="text" name="review[title]" placeholder="タイトル" size="40"/>
