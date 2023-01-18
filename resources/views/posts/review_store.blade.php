@@ -93,7 +93,6 @@
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <h2 class="review_title">REVIEW投稿フォーム</h2>
-        <p>{{ $store->id }}</p>
             <form action='/posts/store/{{ $store->id }}' method="POST">
               @csrf
               <div class="title"><h2>Title</h2>

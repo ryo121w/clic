@@ -12,9 +12,9 @@ class ReviewSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
-        Review::factory()->count(10)->create();
-    }
+    // public function run()
+    // {
+    //     Review::factory()->count(10)->create();
+    // }
 
 }

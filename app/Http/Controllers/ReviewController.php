@@ -66,13 +66,14 @@ class ReviewController extends Controller
         return view('posts/review_store_detail')->with(['user' => $user, 'store' => $store]);
     }
 
-    public function exeDetailStore(Request $request, Review $review)
+    public function exeDetailStore(Request $request, Review $review, Store $store)
     {
        $user = Auth::user();
        $input_review = $request['review'];
        $input_review += ['user_id' => $user->id];
        $input_review += ['user_name' => $user->name];
        $review->fill($input_review)->save();
+       $store->reviews()->attach($review);
     }
 
 

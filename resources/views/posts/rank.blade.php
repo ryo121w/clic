@@ -70,10 +70,12 @@
                         </a>
                         @endauth
                     </div>
-
-
                 </section>
             </div>
+
+            @foreach($reveiw_star->stores as $store)
+              <p>{{ $store->name }}</p>
+            @endforeach
 
 
 
@@ -97,34 +99,3 @@
 
         </header>
     </div>
-
-    <main>
-            <a href="/posts/review_store/{{ $store->id }}" style="color:inherit;text-decoration:none;">
-                <p>投稿</p>
-            </a>
-
-            <a href="/posts/review_detail/{{ $store->id }}">
-                <p>評価</p>
-            </a>
-
-            <h2>{{ $store->name }}</h2>
-            @if($star===5)
-                <h3 class="star_five">{{ str_repeat('★ ', $star) }}</h3>
-                @elseif($star!==5)
-                <div>
-                    <h3 class="star_five">{{ str_repeat('★ ', $star) }}
-                    {{ str_repeat('☆ ', (5-$star)) }}</h3>
-                </div>
-            @endif
-            <h4>{{ $store->phone }}</h4>
-
-            <p>{{ $store->body }}</p>
-
-            <img src="{{ $store->image_path }}">
-
-
-
-
-
-    </main>
-

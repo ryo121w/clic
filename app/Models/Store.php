@@ -8,6 +8,8 @@ use App\Models\User;
 use App\Models\Brand;
 use App\Models\StoreFormat;
 use App\Models\Review;
+use App\Models\Sex;
+use App\Models\Review_Store;
 
 
 class Store extends Model
@@ -22,6 +24,11 @@ class Store extends Model
         'image_path',
         'store_format_id'
     ];
+
+    public function store_format()
+    {
+        return $this->belongsTo(StoreFormat::class);
+    }
 
     public function prefecture()
     {
@@ -38,9 +45,9 @@ class Store extends Model
         return $this->belongsToMany(Brand::class);
     }
 
-    public function store_format()
+    public function sexes()
     {
-        return $this->belongsTo(StoreFormat::class);
+        return $this->belongsToMany(Sex::class);
     }
 
     public function reviews()

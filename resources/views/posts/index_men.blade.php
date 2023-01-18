@@ -101,24 +101,13 @@
 
     <main>
         <div class="main">
-            <div class="main_gender">
-                @foreach($sexes as $sex)
-                <a
-                @if($sex->id === 1)
-                href="/posts/store/men/{{ $sex->id }}" style="color:inherit;text-decoration:none;"
-                @elseif($sex->id == 2)
-                href="/posts/store/women/{{ $sex->id }}" style="color:inherit;text-decoration:none;"
-                @endif
-                ><p>{{ $sex->sex }}</p></a>
-                @endforeach
 
-            </div>
 
 
                 <div class="container">
                     <div class="swiper infinite-slider">
                         <div class="swiper-wrapper">
-                            @foreach ($stores as $store)
+                            @foreach ($sex_men->stores as $store)
                             <div class="swiper-slide" href="">
                                 <img src="{{ $store->image_path }}" alt="画像が読み込めません。">
                                 <div class="swiper-title">
@@ -147,7 +136,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/posts/rank" style="color:inherit;text-decoration:none;">
+                                        <a href="/search/rank" style="color:inherit;text-decoration:none;">
                                             <h3>ランキングから探す</h3>
                                         </a>
                                     </li>

@@ -10,7 +10,7 @@ use App\Http\Controllers\Store_RegisterController;
 use App\Http\Controllers\PrefectureController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\StoreFormatController;
-
+use App\Http\Controllers\RankController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -65,6 +65,14 @@ Route::post('/posts/store/{store}', [ReviewController::class, 'exeDetailStore'])
 
 // 評価一覧（店舗連携）
 Route::get('/posts/review_detail/{store}', [ReviewController::class, 'detailReview']);
+
+//メインページ（男性）
+Route::get('/posts/store/men/{sex}', [PostController::class, 'menStore']);
+
+// メインページ（女性）
+Route::get('/posts/store/women/{sex}', [PostController::class, 'womenStore']);
+
+Route::get('/posts/rank', [RankController::class, 'rankStore']);
 
 // 店舗登録フォーム
 Route::get('/register/store', [Store_RegisterController::class, 'registerStore'])->name('registerstore');

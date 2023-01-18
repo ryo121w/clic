@@ -95,7 +95,16 @@
                         <option value="{{ $storeformat->id }}">{{ $storeformat->name }}</option>
                     @endforeach
                 </select>
+
+
+                <h2>ターゲット</h2>
+                @foreach($sexes as $sex)
+                    <label>
+                        <input type="checkbox" value="{{ $sex->id }}" name="sex">{{ $sex->sex }}</input>
+                    </label>
+                @endforeach
                 </div>
+
         <div class="store_prefecture">
             <div class="address">
                 <h2>住所</h2>

@@ -9,6 +9,7 @@ use App\Models\Brand;
 use App\Models\StoreFormat;
 use App\Models\Review;
 use App\Models\User;
+use App\Models\Sex;
 use Cloudinary;
 
 class Store_RegisterController extends Controller
@@ -21,13 +22,14 @@ class Store_RegisterController extends Controller
     }
 
 // 店舗登録フォーム
-     public function registerStore(Store $store, Prefecture $prefecture, Brand $brand, StoreFormat $storeformat)
+     public function registerStore(Store $store, Prefecture $prefecture, Brand $brand, StoreFormat $storeformat, Sex $sex)
     {
         $store = Store::all();
         $prefecture = Prefecture::all();
         $brand = Brand::all();
         $storeformat = StoreFormat::all();
-        return view ('posts/shop_register')->with(['prefectures' => $prefecture , 'brands' => $brand, 'storeformats' => $storeformat]);
+        $sex = Sex::all();
+        return view ('posts/shop_register')->with(['prefectures' => $prefecture , 'brands' => $brand, 'storeformats' => $storeformat, 'sexes' => $sex]);
     }
 
 // 画像アップロード処理
@@ -35,10 +37,12 @@ class Store_RegisterController extends Controller
     {
         $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
         $input_brands = $request->brands_array;
+        $input_sex = $request->sex;
         $input = $request['store'];
         $input += ['image_path' => $image_url];
         $store->fill($input)->save();
         $store->brands()->attach($input_brands);
+        $store->sexes()->attach($input_sex);
         return redirect()->route('showStore');
     }
 
@@ -52,16 +56,19 @@ class Store_RegisterController extends Controller
        return view('posts/search_pref')->with(['stores' => $prefecture->getByPrefecture()]);
     }
 
-    public function storeSelect(StoreFormat $storeformat)
+    public function storeSelect(StoreFormat $store_format)
     {
-        $id = 1;
-        $storeformat = StoreFormat::find($id);
-        return view('posts/store_format_select')->with(['stores' => $storeformat->getByFormat()]);
+        return view('posts/store_format_select')->with(['stores' => $store_format->getByFormat()]);
+
     }
 
-    public function storeDetail(User $user,Store $store){
-        return view('posts/store_detail')->with(['store' => $store, 'user' =>$user]);
+    public function storeDetail(User $user,Store $store, Review $review){
+        $review_star = $store->reviews->avg('stars');
+        return view('posts/store_detail')->with(['store' => $store, 'user' =>$user, 'star' => $review_star]);
     }
+
+
+
 
 
 
