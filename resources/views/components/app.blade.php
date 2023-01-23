@@ -72,11 +72,6 @@
                     </div>
                 </section>
             </div>
-
-
-
-
-
             <div class="header_format">
                 <div class="header_title">
                     <a>
@@ -98,34 +93,51 @@
         </header>
     </div>
 
+    {{ $slot }}
 
-    @foreach ($stores as $store)
-        <div class="store_detail_flex">
-          <div class="store_detail">
-            <a href="/posts/store/detail/{{$store->id}}" style="color:inherit;text-decoration:none;"><h2>{{ $store->name }}</h2></a>
-            <p>{{ $store->phone }}</p>
-            <a href="/prefecture/{{ $store->prefecture->id }}" style="color:inherit;text-decoration:none;">{{ $store->prefecture->name }}</a>
-            <a href="/posts/format_store/{{ $store->store_format->id }}" style="color:inherit;text-decoration:none;"><p>{{ $store->store_format->name }}</p></a>
+        <footer id="footer">
+        <div class="footer_element">
+            <div class="footer_store_register">
+                <a href="/register/store" style="color:inherit;text-decoration:none;">
+                    <p>店舗登録</p>
+                </a>
+            </div>
 
+            <div>
+                <a href='/register/brand' style="color:inherit;text-decoration:none;">
+                    <p>ブランド登録</p>
+                </a>
+            </div>
 
-          @foreach($store->brands as $brand)
-           <a href="/brand/{{ $brand->id }}" style="color:inherit;text-decoration:none;"><p>{{ $brand->name }}</p></a>
-          @endforeach
+            <div>
+                <a href='/show/brand' style="color:inherit;text-decoration:none;">
+                    <p>ブランド一覧</p>
+                </a>
+            </div>
 
-          @foreach($store->sexes as $sex)
-          <p>{{ $sex->sex }}</p>
-          @endforeach
-
-          <p>{{ $store->body }}</p>
-
+            <div>
+                <a href="/posts/store" style="color:inherit;text-decoration:none;">
+                    <p>ストア一覧</p>
+                </a>
+            </div>
         </div>
-
-        <div class="store_img">
-            <img src="{{ $store->image_path }}" alt="画像が読み込めません。"/>
-        </div>
-          @endforeach
-      </div>
+    </footer>
+    </div>
 
 
 
+
+
+
+
+
+
+</body>
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+    crossorigin="anonymous"></script>
+<script src="{{ asset('/js/swiper.js') }}"></script>
+<script src="{{ asset('/js/index.js') }}"></script>
+
+</html>
 

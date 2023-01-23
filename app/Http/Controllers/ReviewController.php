@@ -58,7 +58,7 @@ class ReviewController extends Controller
 
     public function reviewStore(User $user, Store $store)
     {
-      return view('posts/review_store')->with(['user' => $user, 'store' => $store]);
+        return view('posts/review_store')->with(['user' => $user, 'store' => $store]);
     }
 
     public function detailReview(User $user, Store $store)
@@ -72,8 +72,13 @@ class ReviewController extends Controller
        $input_review = $request['review'];
        $input_review += ['user_id' => $user->id];
        $input_review += ['user_name' => $user->name];
+       $input_review += ['store_id' => $store->id];
        $review->fill($input_review)->save();
-       $store->reviews()->attach($review);
+
+       $review_star = $review->where('store_id', $store->id)->avg('stars');
+       $store->stars = $review_star;
+       $store->save();
+
     }
 
 

@@ -10,6 +10,7 @@ use App\Models\StoreFormat;
 use App\Models\Review;
 use App\Models\Sex;
 use App\Models\Review_Store;
+use App\Models\Prefecture;
 
 
 class Store extends Model
@@ -24,6 +25,12 @@ class Store extends Model
         'image_path',
         'store_format_id'
     ];
+
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
 
     public function store_format()
     {
@@ -50,10 +57,19 @@ class Store extends Model
         return $this->belongsToMany(Sex::class);
     }
 
-    public function reviews()
+    public function holder ()
     {
-        return $this->belongsToMany(Review::class);
+        return $this->belongsToMany(Holder::class);
     }
+
+    public function rankStar (int $limit_count = 10)
+    {
+        return $this->orderBy('stars', 'DESC')->limit($limit_count)->get();
+    }
+
+
+
+
 
 
 

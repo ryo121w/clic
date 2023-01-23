@@ -15,22 +15,24 @@ use App\Models\Sex;
 class PostController extends Controller
 {
 
-    public function view(Store $store, StoreFormat $storeformat, Sex $sex)
+    public function view(Store $store, StoreFormat $store_format, Sex $sex)
     {
+
         $user = Auth::user();
         $store = Store::all();
         $sex = Sex::all();
+        $store_format = StoreFormat::all();
         if($user===null){
         return redirect()->route('register');
         }else{
-        return view ('posts/index')->with(['stores' => $store, 'user' => $user, 'sexes' => $sex]);
+        return view ('posts/index')->with(['stores' => $store, 'user' => $user, 'sexes' => $sex, 'store_formats' => $store_format]);
         }
 
 
 
     }
 
-    public function index(Post $post)
+    public function index(Post $post, )
     {
       return view('posts/review_post')->with(['posts' => $post->get()]);
     }
@@ -39,14 +41,17 @@ class PostController extends Controller
     {
         $id = 1;
         $sex_men = Sex::find($id=1);
-        return view('posts/index_men')->with(['stores' => $store, 'user' => $user, 'sexes' => $sex, 'sex_men' => $sex_men]);
+        $sex_mens = Sex::all();
+        return view('posts/index_men')->with(['stores' => $store, 'user' => $user, 'sexes' => $sex, 'sex_men' => $sex_men, 'sex_mens' => $sex_mens]);
     }
 
     public function womenStore(User $user, Store $store, Sex $sex)
     {
         $id = 2;
         $sex_women = Sex::find($id);
-        return view('posts/index_women')->with(['stores' => $store, 'user' => $user,'sexes'=>$sex, 'sex_women' => $sex_women]);
+        $sex_womens = Sex::all();
+
+        return view('posts/index_women')->with(['stores' => $store, 'user' => $user,'sexes'=>$sex, 'sex_women' => $sex_women, 'sex_womens' => $sex_womens]);
     }
 }
 ?>

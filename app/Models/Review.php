@@ -21,10 +21,9 @@ class Review extends Model
        'body',
        'stars',
        'user_id',
-       'user_name'
+       'user_name',
+       'store_id'
     ];
-
-
 
 
     public function users()
@@ -32,10 +31,14 @@ class Review extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function stores()
+    public function store()
     {
-        return $this->belongsToMany(Store::class);
+        return $this->belongsTo(Store::class);
     }
 
+   public function avgStar()
+   {
+     return $this->stores()->with('reviews')->avg('stars');
+   }
 
 }

@@ -11,6 +11,7 @@ use App\Http\Controllers\PrefectureController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\StoreFormatController;
 use App\Http\Controllers\RankController;
+use App\Http\Controllers\SearchController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,6 +40,11 @@ Route::get('/posts/create', [ReviewController::class, 'showCreate'])->name('crea
 // 評価登録
 Route::post('/posts/store', [ReviewController::class, 'exeStore'])->name('store');
 
+
+Route::get('/posts/search',[SearchController::class, 'index']);
+
+Route::get('/posts/search_prefecture', [SearchController::class, 'indexSearch']);
+
 // 評価詳細画面表示
 Route::get('/posts/review/{id}', [ReviewController::class, 'showDetail'])->name('detail');
 
@@ -65,6 +71,12 @@ Route::post('/posts/store/{store}', [ReviewController::class, 'exeDetailStore'])
 
 // 評価一覧（店舗連携）
 Route::get('/posts/review_detail/{store}', [ReviewController::class, 'detailReview']);
+
+// 保存機能
+Route::post('/posts/holder/{store}', [Store_RegisterController::class, 'holderStore']);
+
+// 保存したストア一覧
+Route::get('/posts/holder/{user_id}', [Store_RegisterController::class, 'holdStore']);
 
 //メインページ（男性）
 Route::get('/posts/store/men/{sex}', [PostController::class, 'menStore']);

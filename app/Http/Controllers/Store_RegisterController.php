@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Store;
 use App\Models\Prefecture;
 use App\Models\Brand;
@@ -10,6 +11,7 @@ use App\Models\StoreFormat;
 use App\Models\Review;
 use App\Models\User;
 use App\Models\Sex;
+use App\Models\Holder;
 use Cloudinary;
 
 class Store_RegisterController extends Controller
@@ -64,7 +66,19 @@ class Store_RegisterController extends Controller
 
     public function storeDetail(User $user,Store $store, Review $review){
         $review_star = $store->reviews->avg('stars');
-        return view('posts/store_detail')->with(['store' => $store, 'user' =>$user, 'star' => $review_star]);
+        $user_id = Auth::id();
+        return view('posts/store_detail')->with(['store' => $store, 'user' =>$user,'user_id' => $user_id, 'star' => $review_star]);
+    }
+
+    public function holderStore(Request $request, Store $store, User $user)
+    {
+        $store->users()->attach(Auth::id());
+    }
+
+    public function holdStore(Store $store, User $user, Holder $holder)
+    {
+        $user=Auth::user();
+        return view('posts/store_holder')->with(['stores' => $store, 'user' => $user]);
     }
 
 

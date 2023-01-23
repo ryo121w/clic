@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" href="{{ asset('/css/style.css')}}">
+    <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/header.css') }}">
 
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho" rel="stylesheet">
@@ -22,47 +23,43 @@
                         <img src="img/CLIC_logo.gif" alt="" width="60px">
                     </div>
 
-                    <div class="header_search">
-                        <form action="" method="post">
-                            <input class="header_search_logo" type="image" src="img/search-e1510450486325.png"
-                                width="20" height="11" name="submit" value="search">
-                            <input class="header_search_bar" type="text" name="serch" placeholder="       すべてのストアから探す"
-                                size="50">
-                        </form>
-                    </div>
+                    <form action="/posts/search" method="GET">
+                        <div class="header_search">
+                        <div class="search_bar">
+                        <input type="text" name="cond_title" size="40">
+                        </div>
+                        <div class="search_icon">
+                        <input type="image" src="{{ asset('/img/虫眼鏡.svg')}}" border="0" width="15px" height="25px">
+                        </div>
+                        </div>
+                    </form>
                 </section>
 
 
                 <section class="header_flex">
                     <div class="header_login">
-                        <div>
+                        <div class="login">
                             <a href="{{ route('login') }}" style="color:inherit;text-decoration:none;">
                                 <p>ログイン</p>
                             </a>
                         </div>
 
-                        <div>
+                        <div class="register">
                             <a href="{{ route('register') }}" style="color:inherit;text-decoration:none;">
                                 <p>新規登録</p>
                             </a>
                         </div>
 
-                        <div>
-                            <a href="{{route('reviews')}}" style="color:inherit;text-decoration:none;">
-                                <p>評価</p>
+                        <div class="book">
+                            <a href="/posts/holder/{{ $user->id }}" style="color:inherit;text-decoration:none;">
+                                <input type="image" src="{{ asset('/img/book.gif')}}" border="0" width="10px" height="15px">
                             </a>
                         </div>
 
-                        <div>
-                            <a href="" style="color:inherit;text-decoration:none;">
-                                <p>保存</p>
-                            </a>
-                        </div>
-                    </div>
                     　 <div class="user_icon">
                         @auth
                         <a>
-                            <img src="{{ asset('/img/ダウンロード.png')}}" class="icon_img">
+                            <img src="{{ asset('/img/ダウンロード.png')}}" class="icon_img" width="10px" heith="15px">
                             <p class="user_name">
                                 {{ $user->name }}
                                 {{ $user->email }}
@@ -70,49 +67,33 @@
                         </a>
                         @endauth
                     </div>
-
-
+                  </div>
                 </section>
             </div>
-
-
-
             <div class="header_format">
-                <div class="header_title">
-                    <a>
-                        <h1>SELECT</h1>
-                    </a>
+                @foreach($store_formats as $store_format)
+                <div class="store_format">
+                <a href="/posts/format_store/{{ $store_format->id }}" style="color:inherit;text-decoration:none;"><h1>{{$store_format->name}}</h1></a>
                 </div>
-                <div class="header_title">
-                    <a>
-                        <h1>USED</h1>
-                    </a>
-                </div>
-                <div class="header_title">
-                    <a>
-                        <h1>EC</h1>
-                    </a>
-                </div>
+                @endforeach
             </div>
-
         </header>
     </div>
-
-
     <main>
         <div class="main">
-            <div class="main_gender">
-                @foreach($sexes as $sex)
-                <a
-                @if($sex->id === 1)
-                href="/posts/store/men/{{ $sex->id }}" style="color:inherit;text-decoration:none;"
-                @elseif($sex->id == 2)
-                href="/posts/store/women/{{ $sex->id }}" style="color:inherit;text-decoration:none;"
-                @endif
-                ><p>{{ $sex->sex }}</p></a>
-                @endforeach
 
-            </div>
+             <div class="main_gender">
+                @foreach($sexes as $sex)
+                  <a
+                   @if($sex->id === 1)
+                    href="/posts/store/men/{{ $sex->id }}" style="color:inherit;text-decoration:none;"
+                   @elseif ($sex->id == 2)
+                    href="/posts/store/women/{{ $sex->id }}" style="color:inherit;text-decoration:none;"
+                    @endif
+                    ><p>{{ $sex->sex }}</p></a>
+                @endforeach
+             </div>
+
 
 
                 <div class="container">
@@ -211,7 +192,7 @@
             </div>
         </div>
     </main>
-
+    </html>
     <footer id="footer">
         <div class="footer_element">
             <div class="footer_store_register">
@@ -257,3 +238,6 @@
 <script src="{{ asset('/js/index.js') }}"></script>
 
 </html>
+
+
+

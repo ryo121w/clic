@@ -50,6 +50,8 @@ class User extends Authenticatable
 
      public function stores()
     {
-        return $this->belongsToMany(Store::class, 'store_user','user_id','stores_id');
+        return $this->belongsToMany(Store::class);
     }
+
+
 }

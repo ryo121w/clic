@@ -67,15 +67,30 @@
                     <h1>EC</h1>
                 </a>
             </div>
-
         </header>
+    </div>
+    </div>
+    </div>
+
+
+
+
+ <main id="main">
+    <div class="position_flex">
+        <nav>
+            <ul>
+                <li><a href="/" style="color:inherit;text-decoration:none;"><p>TOP</p></a></li>
+                <li><p>></p></li>
+                <li><a style="color:inherit;text-decoration:none;"><p>ストア一覧</p></a></li>
+            </ul>
+        </nav>
     </div>
      <h1>全国のストア</h1>
 
 
 
 
-    <main id="main">
+
       @foreach ($stores as $store)
         <div class="store_detail_flex">
           <div class="store_detail">

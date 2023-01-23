@@ -71,8 +71,8 @@
     </div>
     <main>
         <h1>セレクトショップ</h1>
-        dd($stores)
-@foreach ($stores as $store)
+
+        @foreach ($stores as $store)
         <div class="store_detail_flex">
           <div class="store_detail">
             <a href="/posts/store/detail/{{$store->id}}" style="color:inherit;text-decoration:none;"><h2>{{ $store->name }}</h2></a>
@@ -96,7 +96,7 @@
         <div class="store_img">
             <img src="{{ $store->image_path }}" alt="画像が読み込めません。"/>
         </div>
-          @endforeach`
+        @endforeach`
     </main>
 
 <a href="/"><p>return</p></a>

@@ -18,18 +18,25 @@ ul {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    padding-top: 10px;
 }
 
 .header_flex {
+
     display: flex;
+
 }
 
 .header_login{
+    width:300px;
     display: flex;
+    justify-content:center;
 }
 
 .header_login p {
+    margin:0px;
     margin-left: 10px;
+
 }
 
 .header_format{
@@ -43,4 +50,80 @@ ul {
     border-bottom: 2px solid black;
     margin-top:30px;
     margin-bottom:0px;
+}
+
+.header_format h1:hover{
+    opacity: 0.6;
+}
+
+.header_title a {
+    margin-right: 20px;
+    margin-left: 20px;
+    border-bottom: 1px solid black;
+    text-align: center;
+
+}
+
+.header_search{
+    display: flex;
+}
+
+.search_bar input{
+    border:1px solid black;
+    border-radius: 10px;
+    padding:3px;
+}
+
+.search_icon input{
+    position:relative;
+    right: 20px;
+    width:10px;
+    height:10px;
+}
+
+
+.store_format{
+    width: 300px;
+    text-align: center;
+}
+
+.store_format h1{
+    font-size: 20px;
+}
+
+.user_icon img{
+    width: 20px;
+    height:20px;
+    border-radius: 170px;
+}
+
+.book{
+    width:8px;
+    height:10px;
+    margin-left: 20px;
+    margin-right:20px;
+    padding-top: 10px;
+}
+
+.login{
+    margin-right: 10px;
+}
+
+.login p {
+    font-size:12px;
+    padding-top: 10px;
+}
+
+.register{
+margin-left: 10px;
+margin-right: 10px;
+}
+
+.register p{
+    font-size:12px;
+    padding-top: 10px;
+}
+
+.user_icon{
+    padding-top: 11px;
 }

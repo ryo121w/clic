@@ -1,0 +1,50 @@
+#main{
+    max-width: 980px;
+    margin:0 auto;
+}
+
+.main_functions{
+    display: flex;
+
+    margin-top:40px;
+    margin-bottom: 50px;
+}
+
+.function_post{
+    margin-left:20px;
+}
+
+.function_review{
+    margin-left: 20px;
+}
+
+.book{
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+.store_info{
+    width:400px;
+}
+
+.store_detail{
+
+    display: flex;
+    justify-content:space-between;
+}
+
+.store_img img{
+    width: 500px;
+    height: 350px;
+    border-radius: 10px;
+}
+
+.star_five{
+  color: orange;
+
+}
+
+
+
+
+

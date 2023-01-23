@@ -110,6 +110,8 @@
             </tr>
             <br>
             </div>
+
+
             @endforeach
 
         <script src="https://unpkg.com/vue@next"></script>

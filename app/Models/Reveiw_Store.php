@@ -9,6 +9,8 @@ class Reveiw_Store extends Model
 {
     use HasFactory;
 
-    protected $table->'review_store';
+    protected $table = 'review_store';
+
+    protected $fillable =
 
 }

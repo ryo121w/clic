@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" href="{{ asset('/css/style.css')}}">
+    <link rel="stylesheet" href="{{ asset('/css/header.css')}}">
+    <link rel="stylesheet" href="{{ asset('/css/store.css')}}">
 
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
-   <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" >
     <title>CLIC</title>
 </head>
 
@@ -35,71 +35,48 @@
 
                 <section class="header_flex">
                     <div class="header_login">
-                        <div>
-                            <a href="{{ route('login') }}" style="color:inherit;text-decoration:none;">
-                                <p>ログイン</p>
-                            </a>
-                        </div>
-
-                        <div>
-                            <a href="{{ route('register') }}" style="color:inherit;text-decoration:none;">
-                                <p>新規登録</p>
-                            </a>
-                        </div>
-
-                        <div>
-                            <a href="{{route('reviews')}}" style="color:inherit;text-decoration:none;">
-                                <p>評価</p>
-                            </a>
-                        </div>
-
-                        <div>
-                            <a href="" style="color:inherit;text-decoration:none;">
-                                <p>保存</p>
-                            </a>
-                        </div>
-                    </div>
-                    　 <div class="user_icon">
-                        @auth
-                        <a>
-                            <img src="{{ asset('/img/ダウンロード.png')}}" class="icon_img">
-                            <p class="user_name">
-                                {{ $user->name }}
-                                {{ $user->email }}
-                            </p>
+                        <a href="{{ route('login') }}" style="color:inherit;text-decoration:none;">
+                            <p>ログイン</p>
                         </a>
-                        @endauth
+                        <a href="{{ route('register') }}" style="color:inherit;text-decoration:none;">
+                            <p>新規登録</p>
+                        </a>
+                        <a href="review" style="color:inherit;text-decoration:none;">
+                            <p>評価</p>
+                        </a>
+
+                        <a href="" style="color:inherit;text-decoration:none;">
+                            <p>保存</p>
+                        </a>
                     </div>
+
+
                 </section>
             </div>
 
 
 
-
-
             <div class="header_format">
-                <div class="header_title">
-                    <a>
-                        <h1>SELECT</h1>
-                    </a>
-                </div>
-                <div class="header_title">
-                    <a>
-                        <h1>USED</h1>
-                    </a>
-                </div>
-                <div class="header_title">
-                    <a>
-                        <h1>EC</h1>
-                    </a>
-                </div>
+                <a>
+                    <h1>SELECT</h1>
+                </a>
+                <a>
+                    <h1>USED</h1>
+                </a>
+                <a>
+                    <h1>EC</h1>
+                </a>
             </div>
 
         </header>
     </div>
+     <h1>全国のストア</h1>
 
 
-    @foreach ($stores as $store)
+
+
+    <main id="main">
+      @foreach ($user->stores as $store)
         <div class="store_detail_flex">
           <div class="store_detail">
             <a href="/posts/store/detail/{{$store->id}}" style="color:inherit;text-decoration:none;"><h2>{{ $store->name }}</h2></a>
@@ -125,7 +102,15 @@
         </div>
           @endforeach
       </div>
+    </main>
+
+    <div>
+        <a href="/show/search" style="color:inherit;text-decoration:none;"><button>search</button></a>
+    </div>
+
+<a href="/"><p>return</p></a>
+
+</body>
 
 
-
-
+</html>

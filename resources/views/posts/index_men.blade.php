@@ -101,6 +101,15 @@
 
     <main>
         <div class="main">
+                @foreach($sex_mens as $sex)
+                  <a
+                   @if($sex->id === 1)
+                    href="/posts/store/men/{{ $sex->id }}" style="color:inherit;text-decoration:none;"
+                   @elseif ($sex->id == 2)
+                    href="/posts/store/women/{{ $sex->id }}" style="color:inherit;text-decoration:none;"
+                    @endif
+                    ><p>{{ $sex->sex }}</p></a>
+                @endforeach
 
 
 

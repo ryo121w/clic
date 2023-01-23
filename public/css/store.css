@@ -1,27 +1,43 @@
 
 
 #main{
-    max-width: 570px;
+    max-width: 770px;
     margin:0 auto;
-
 }
 
 .store_detail_flex {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin:0 auto;
 }
 
 .store_detail{
     padding-bottom: 100px;
     margin-right:50px;
+    width:300px;
 }
 
 .store_img img{
     width:300px;
-    height: 200px;
+    height: 300px;
     object-fit: cover;
     border-radius: 10px;
 }
+.position_flex ul{
+    display: flex;
+}
+
+.position_flex ul {
+    display: flex;
+}
+
+.position_flex li p {
+    margin-left:10px;
+    margin-top: 0px;
+    font-size:8px;
+}
+
 
 
 
