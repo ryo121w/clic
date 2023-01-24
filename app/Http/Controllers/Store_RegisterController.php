@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StoreRequest;
 use App\Models\Store;
 use App\Models\Prefecture;
 use App\Models\Brand;
@@ -16,11 +17,13 @@ use Cloudinary;
 
 class Store_RegisterController extends Controller
 {
-    public function showStore(Store $store,Request $request)
+    public function showStore(Store $store,Request $request )
     {
         $store = Store::all();
         $store_id =Store::find('id');
-        return view ('posts/store')->with(['stores' => $store, 'store_id' => $store_id]);
+        $store_format = StoreFormat::all();
+        $user = Auth::user();
+        return view ('posts/store')->with(['stores' => $store, 'store_id' => $store_id, 'store_formats' => $store_format, 'user' => $user]);
     }
 
 // 店舗登録フォーム
@@ -31,7 +34,8 @@ class Store_RegisterController extends Controller
         $brand = Brand::all();
         $storeformat = StoreFormat::all();
         $sex = Sex::all();
-        return view ('posts/shop_register')->with(['prefectures' => $prefecture , 'brands' => $brand, 'storeformats' => $storeformat, 'sexes' => $sex]);
+        $user = Auth::user();
+        return view ('posts/shop_register')->with(['prefectures' => $prefecture , 'brands' => $brand, 'store_formats' => $storeformat, 'sexes' => $sex, 'user' => $user ]);
     }
 
 // 画像アップロード処理
@@ -48,9 +52,11 @@ class Store_RegisterController extends Controller
         return redirect()->route('showStore');
     }
 
-    public function showSarch(Request $request, Store $store)
+    public function showSarch(Request $request, Store $store,)
     {
-        return view('post/search_pref');
+        $u = Auth::user();
+        $e = StoreFormat::all();
+        return view('post/search_pref')->width(['store_formats' => $e,'user'=>$u]);
     }
 
     public function search(Prefecture $prefecture)
@@ -58,27 +64,32 @@ class Store_RegisterController extends Controller
        return view('posts/search_pref')->with(['stores' => $prefecture->getByPrefecture()]);
     }
 
-    public function storeSelect(StoreFormat $store_format)
+    public function storeSelect(StoreFormat $store_format,)
     {
-        return view('posts/store_format_select')->with(['stores' => $store_format->getByFormat()]);
+        $user = Auth::user();
+        $e = StoreFormat::all();
+        return view('posts/store_format_select')->with(['stores' => $store_format->getByFormat(),'user' => $user, 'store_formats' => $e ]);
 
     }
 
-    public function storeDetail(User $user,Store $store, Review $review){
+    public function storeDetail(User $user,Store $store, Review $review,){
         $review_star = $store->reviews->avg('stars');
-        $user_id = Auth::id();
-        return view('posts/store_detail')->with(['store' => $store, 'user' =>$user,'user_id' => $user_id, 'star' => $review_star]);
+        $user = Auth::user();
+        $store_format = StoreFormat::all();
+        return view('posts/store_detail')->with(['store' => $store, 'user' =>$user,'user' => $user, 'star' => $review_star, 'store_formats' =>$store_format]);
     }
 
     public function holderStore(Request $request, Store $store, User $user)
     {
         $store->users()->attach(Auth::id());
+        return redirect('/posts/store');
     }
 
     public function holdStore(Store $store, User $user, Holder $holder)
     {
         $user=Auth::user();
-        return view('posts/store_holder')->with(['stores' => $store, 'user' => $user]);
+        $store_format = StoreFormat::all();
+        return view('posts/store_holder')->with(['stores' => $store, 'user' => $user, 'store_formats' => $store_format]);
     }
 
 

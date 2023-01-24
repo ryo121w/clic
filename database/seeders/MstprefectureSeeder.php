@@ -16,8 +16,10 @@ class MstprefectureSeeder extends Seeder
      */
     public function run()
     {
+
          DB::table('prefecture')->insert([
                 'name' => '北海道',
+
          ]);
          DB::table('prefecture')->insert([
                 'name' => '青森県',
@@ -157,6 +159,8 @@ class MstprefectureSeeder extends Seeder
          DB::table('prefecture')->insert([
                 'name' => '沖縄県',
          ]);
+
+
 
     }
 

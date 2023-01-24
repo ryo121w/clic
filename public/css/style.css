@@ -7,11 +7,6 @@ ul {
     list-style:none;
 }
 
-
-
-
-
-
 /* main */
 .main {
     max-width: 980px;
@@ -24,16 +19,67 @@ ul {
 }
 
 .main_gender p {
-    margin-left: 10px
+    margin:0px;
+    padding-top:2px;
+    padding-left: 8px;
 }
 
-.main_gender_men p {
-    color: rgba(0, 85, 255, 0.797);
+.gender_all  {
+    font-weight: bold;
+}
+.all p:hover{
+    opacity: 0.6;
 }
 
-.main_gender_women p {
-    color: rgba(201, 7, 7, 0.774);
 
+.gender_men{
+    display: flex;
+    margin-left:30px;
+}
+
+.gender_men input:hover{
+    opacity: 0.6;
+}
+
+.gender_men p:hover{
+    opacity: 0.6;
+}
+
+.gender_men input{
+    padding-left: 10px;
+    padding-top: 6px;
+}
+
+.gender_men p {
+    margin-left: 5px;
+    font-weight: bold;
+    color:rgba(16,116,232, 0.7);
+}
+
+
+
+.gender_women{
+    display: flex;
+    margin-left:30px;
+}
+
+.gender_women input:hover{
+    opacity: 0.6;
+}
+
+.gender_women p:hover{
+    opacity: 0.6;
+}
+
+.gender_women input{
+    padding-left: 10px;
+    padding-top: 6px;
+}
+
+.gender_women p {
+    margin-left: 5px;
+    font-weight: bold;
+    color: rgba(255,64,212,0.6);
 }
 
 .main_search{
@@ -80,7 +126,7 @@ ul {
 .user_icon img{
     width: 30px;
     height: 30px;
-    border-radius: 170px
+
 }
 
 .icon_img:hover{

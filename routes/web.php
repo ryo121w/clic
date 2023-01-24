@@ -40,9 +40,10 @@ Route::get('/posts/create', [ReviewController::class, 'showCreate'])->name('crea
 // 評価登録
 Route::post('/posts/store', [ReviewController::class, 'exeStore'])->name('store');
 
-
+// 検索機能（店舗名）
 Route::get('/posts/search',[SearchController::class, 'index']);
 
+// 検索機能（地域名）
 Route::get('/posts/search_prefecture', [SearchController::class, 'indexSearch']);
 
 // 評価詳細画面表示
@@ -61,7 +62,7 @@ Route::post('/posts/delete/{id}', [ReviewController::class, 'exeDelete'])->name(
 Route::get('/posts/store',[Store_RegisterController::class, 'showStore'])->name('showStore');
 
 // 店舗詳細
-Route::get('/posts/store/detail/{store}', [Store_RegisterController::class, 'storeDetail']);
+Route::get('/posts/store/detail/{store}', [Store_RegisterController::class, 'storeDetail'])->name('storeDetail');
 
 //評価登録（店舗連携）
 Route::get('/posts/review_store/{store}', [ReviewController::class, 'reviewStore']);

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ReveiwRequest;
 use App\Models\Review;
 use App\Models\User;
+use App\Models\StoreFormat;
 use App\Models\Store;
 
 class ReviewController extends Controller
@@ -29,6 +30,7 @@ class ReviewController extends Controller
 
     public function showCreate()
     {
+
         return view('posts/review_create');
     }
 
@@ -46,7 +48,9 @@ class ReviewController extends Controller
 
     public function showEdit (Review $review)
     {
-        return view('posts/review_edit')->with(['review' => $review]);
+        $user = Auth::user();
+        $store_format = StoreFormat::all();
+        return view('posts/review_edit')->with(['review' => $review, 'user' => $user, 'store_formats' => $store_format]);
     }
 
     public function exeUpdate(Request $request, Review $review)
@@ -58,12 +62,16 @@ class ReviewController extends Controller
 
     public function reviewStore(User $user, Store $store)
     {
-        return view('posts/review_store')->with(['user' => $user, 'store' => $store]);
+        $user = Auth::user();
+        $store_format = StoreFormat::all();
+        return view('posts/review_store')->with(['user' => $user, 'store' => $store, 'store_formats' => $store_format]);
     }
 
     public function detailReview(User $user, Store $store)
     {
-        return view('posts/review_store_detail')->with(['user' => $user, 'store' => $store]);
+        $user = Auth::user();
+        $store_format = StoreFormat::all();
+        return view('posts/review_store_detail')->with(['user' => $user, 'store' => $store, 'store_formats' => $store_format]);
     }
 
     public function exeDetailStore(Request $request, Review $review, Store $store)
@@ -74,11 +82,10 @@ class ReviewController extends Controller
        $input_review += ['user_name' => $user->name];
        $input_review += ['store_id' => $store->id];
        $review->fill($input_review)->save();
-
        $review_star = $review->where('store_id', $store->id)->avg('stars');
        $store->stars = $review_star;
        $store->save();
-
+       return redirect('/posts/store');
     }
 
 
