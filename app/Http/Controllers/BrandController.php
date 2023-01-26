@@ -3,20 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Brand;
 use App\Models\Store;
+use App\Models\StoreFormat;
 
 class BrandController extends Controller
 {
     public function showBrand(Brand $brand)
     {
         $brand = Brand::all();
-        return view('posts/brand')->with(['brands' => $brand]);
+        $u = Auth::user();
+        $e = StoreFormat::all();
+        return view('posts/brand')->with(['brands' => $brand,'store_formats' => $e,'user'=>$u]);
     }
 
     public function formBrand ()
     {
-      return view ('posts/brand_form');
+      $u = Auth::user();
+      $e = StoreFormat::all();
+      return view ('posts/brand_form')->with(['store_formats' => $e,'user'=>$u]);
     }
 
     public function storeBrand (Request $request, Brand $brand)
@@ -28,7 +34,9 @@ class BrandController extends Controller
 
     public function detailBrand (Store $store, Brand $brand)
     {
-        return view('posts/brand_detail')->with(['stores' => $brand->getByBrand()]);
+        $u = Auth::user();
+        $e = StoreFormat::all();
+        return view('posts/brand_detail')->with(['stores' => $brand->getByBrand(),'store_formats' => $e,'user'=>$u]);
 
     }
 

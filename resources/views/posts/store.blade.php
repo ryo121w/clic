@@ -30,7 +30,7 @@
                 </div>
             @endif
             <p>{{ $store->phone }}</p>
-            <a href="/prefecture/{{ $store->prefecture->id }}" style="color:inherit;text-decoration:none;">{{ $store->prefecture->name }}</a>
+            <a href="/prefecture/{{ $store->prefecture->id }}" style="color:inherit;text-decoration:none;"><p>{{ $store->pref }}{{ $store->city }}{{ $store->town}}{{ $store->building }}</p></a>
             <a href="/posts/format_store/{{ $store->store_format->id }}" style="color:inherit;text-decoration:none;"><p>{{ $store->store_format->name }}</p></a>
 
 

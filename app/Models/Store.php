@@ -23,7 +23,13 @@ class Store extends Model
         'prefecture_id',
         'body',
         'image_path',
-        'store_format_id'
+        'store_format_id',
+        'zip',
+        'pref',
+        'city',
+        'town',
+        'house_number',
+        'building'
     ];
 
 

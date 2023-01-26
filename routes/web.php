@@ -93,6 +93,7 @@ Route::get('/register/store', [Store_RegisterController::class, 'registerStore']
 // 店舗登録
 Route::post('/posts/upload', [Store_RegisterController::class, 'upStore'])->name('upload');
 
+Route::get('/postal-code/{postal_code}/address', [Store_RegisterController::class, 'getAddressByPostalCode']);
 
 Route::get('/prefecture/{prefecture}', [Store_RegisterController::class, 'search'])->name('search');
 
@@ -108,6 +109,9 @@ Route::get('/brand/{brand}', [BrandController::class, 'detailBrand']);
 
 Route::get('/posts/format_store/{store_format}', [Store_RegisterController::class, 'storeSelect']);
 
+
+
+Route::get('/posts/search/detail/prefecture', [Store_RegisterController::class, 'detailPrefecture']);
 
 
 

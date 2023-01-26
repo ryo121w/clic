@@ -28,7 +28,9 @@ class StoreRequest extends FormRequest
            'store.body' =>'required | max:500',
            'image' => 'required',
            'sex' => 'required',
+           'image' => 'required',
            'store.phone' => 'required | max:12',
+           'store.bulding' => 'unrequired',
 
         ];
 

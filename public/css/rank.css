@@ -1,0 +1,27 @@
+#main{
+    margin:0 auto;
+    max-width:980px;
+}
+
+.store_detail_flex{
+    display: flex;
+    justify-content:center;
+    flex-wrap:wrap;
+        padding-top: 50px;
+
+}
+.store_detail{
+
+    padding-bottom: 60px;
+}
+
+.store_img img{
+    width:400px;
+    height:300px;
+    margin-left: 50px;
+    border-radius:20px;
+}
+
+.star_five{
+    color:orange;
+}

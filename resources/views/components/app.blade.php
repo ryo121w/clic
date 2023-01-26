@@ -20,7 +20,7 @@
             <div class="header">
                 <section class="header_flex">
                     <div class="header_logo">
-                        <img src="img/CLIC_logo.gif" alt="" width="60px">
+                        <img  alt="" width="60px">
                     </div>
 
                     <form action="/posts/search" method="GET">
@@ -123,7 +123,6 @@
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
     crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/fetch-jsonp@1.1.3/build/fetch-jsonp.min.js"></script>
 <script src="{{ asset('/js/swiper.js') }}"></script>
 <script src="{{ asset('/js/index.js') }}"></script>
 

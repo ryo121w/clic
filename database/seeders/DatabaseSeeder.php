@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
          MstprefectureSeeder::class,
          StoreFormatSeeder::class,
          SexSeeder::class,
-        //  AddressSeeder::class,
+         AddressSeeder::class,
         ]);
     }
 }

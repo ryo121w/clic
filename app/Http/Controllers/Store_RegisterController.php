@@ -13,6 +13,8 @@ use App\Models\Review;
 use App\Models\User;
 use App\Models\Sex;
 use App\Models\Holder;
+use App\Models\Address;
+use App\Models\Product;
 use Cloudinary;
 
 class Store_RegisterController extends Controller
@@ -35,13 +37,23 @@ class Store_RegisterController extends Controller
         $storeformat = StoreFormat::all();
         $sex = Sex::all();
         $user = Auth::user();
-        return view ('posts/shop_register')->with(['prefectures' => $prefecture , 'brands' => $brand, 'store_formats' => $storeformat, 'sexes' => $sex, 'user' => $user ]);
+        return view ('posts/shop_register')->with(['prefectures' => $prefecture , 'brands' => $brand,
+        'store_formats' => $storeformat, 'sexes' => $sex, 'user' => $user ]);
     }
 
 // 画像アップロード処理
-    public function upStore(Request $request, Store $store,StoreFormat $storeformat, Brand $brand)
+    public function upStore(Request $request, Store $store,StoreFormat $storeformat, Brand $brand, Product $product)
     {
         $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+
+        // $files = $request->file('images');
+        // foreach($files as $file){
+        //     $images_url = Cloudinary::upload($request->file('images')->getRealPath())->getSecurePath();
+        //     $inputs = $request->input('images');
+        //     $product->fill($inputs)->save();
+        // }
+
+
         $input_brands = $request->brands_array;
         $input_sex = $request->sex;
         $input = $request['store'];
@@ -66,9 +78,9 @@ class Store_RegisterController extends Controller
 
     public function storeSelect(StoreFormat $store_format,)
     {
-        $user = Auth::user();
+        $u = Auth::user();
         $e = StoreFormat::all();
-        return view('posts/store_format_select')->with(['stores' => $store_format->getByFormat(),'user' => $user, 'store_formats' => $e ]);
+        return view('posts/store_format_select')->with(['stores' => $store_format->getByFormat(),'user' => $u, 'store_formats' => $e ]);
 
     }
 
@@ -91,6 +103,22 @@ class Store_RegisterController extends Controller
         $store_format = StoreFormat::all();
         return view('posts/store_holder')->with(['stores' => $store, 'user' => $user, 'store_formats' => $store_format]);
     }
+
+    public function getAddressByPostalCode($postalcode)
+    {
+        $addresses = Address::where('zip', $postalcode)->first();
+
+        return response()->json($addresses);
+    }
+
+
+    // public function getAddressByPostalCode($postalcode)
+    // {
+    //     $addresses = Address::where('zip', $postalcode)->first();
+
+    //     return response()->json($addresses);
+    // }
+
 
 
 

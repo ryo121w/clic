@@ -89,3 +89,22 @@ button{
   opacity: 1;
   transform: scale(1, 1);
 }
+
+.form-group input{
+    border-radius: 20px;
+    border:1px solid black;
+    padding:1px;
+    text-align: center;
+}
+.form_address{
+    padding-top: 20px;
+}
+
+
+.form-prefecture input{
+    border-radius: 20px;
+    border:1px solid black;
+    padding:1px;
+    text-align: center;
+}
+
