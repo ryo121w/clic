@@ -75,15 +75,24 @@
                     <input type="text" id="addressCity" name="store[city]" value="" size="20">
                     <input type="text" id="addressTown" name="store[town]" value="" size="20">
                 </div>
-
             <div>
                 <p>番地</p>
                 <input type="text" name="store[house_number]">
             </div>
 
-                <div>
+            <div>
                 <p>建物</p>
                 <input type="text" name="store[building]">
+            </div>
+
+            <div>
+                <p>最寄り駅・バス停</p>
+                <input type="text" name="store[station]"　placeholder="〜駅、〜バス停">
+            </div>
+
+            <div>
+                <p>駅から徒歩でかかる時間</p>
+                <input type="text" name="store[min]"　placeholder="分単位で書いてください">
             </div>
             </div>
 
@@ -92,7 +101,15 @@
                 <div><p style="color:red">{{ $errors->first('store.prefecture_id') }}</p></div>
                 @endif
 
-                <h2>ブランド登録</h1>
+                <div class="brand_flex">
+                    <h2>ブランド一覧</h1>
+                    <p>もしかしてブランドがない？</p>
+                    <div class="store_brand">
+                        <a href='/register/brand' style="color:inherit;text-decoration:none;">
+                            <p>ブランド登録</p>
+                        </a>
+                　　</div>
+            　　</div>
                 @foreach($brands as $brand)
                 <label>
                     <input type="checkbox" value="{{ $brand->id }}" name="brands_array[]">{{ $brand->name }}</input>
@@ -114,6 +131,18 @@
 
         </div>
         </div>
+
+    <!--<div class="form-group">-->
+    <!--　　<input type="file" id="image1" name="images0" accept=".png, .jpg, .jpeg, .pdf, .doc">-->
+    <!--　　<input type="text" name="name0">-->
+    <!--　　<input type="file" id="image2" name="images1" accept=".png, .jpg, .jpeg, .pdf, .doc">-->
+    <!--　　<input type="text" name="name1">-->
+    <!--　　<input type="file" id="image3" name="images2" accept=".png, .jpg, .jpeg, .pdf, .doc">-->
+    <!--　　<input type="text" name="name2">-->
+    <!--　　<input type="file" id="image4" name="images3" accept=".png, .jpg, .jpeg, .pdf, .doc">-->
+    <!--　　<input type="text" name="name3">-->
+    <!--</div>-->
+
         <div class="button021">
 　　　　<button type="submit">
 　　　　ストア登録

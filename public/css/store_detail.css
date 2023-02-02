@@ -2,14 +2,16 @@
     max-width: 980px;
     margin:0 auto;
 }
+.main_function_flex{
+    display: flex;
+    justify-content:space-between;
+    height:80px;
+    margin-bottom: 40px;
+}
 
 .main_functions{
     display: flex;
-
-    margin-top:40px;
-    margin-bottom: 50px;
 }
-
 .function_post{
     margin-left:20px;
 }
@@ -18,9 +20,15 @@
     margin-left: 20px;
 }
 
-.book{
+.book_mark{
     margin-left: 20px;
     margin-top: 15px;
+}
+
+
+
+.store_name h2{
+    margin:0px;
 }
 
 .store_info{
@@ -40,9 +48,82 @@
 }
 
 .star_five{
+  margin-top:0px;
   color: orange;
 
 }
+
+.btn-container {
+
+  position: relative;
+  bottom:8px;
+  height:56px;
+  width:130px;
+  margin-left: 20px;
+
+}
+
+#btn {
+  width: 120px;
+  height: 15px;
+  font-size: 15px;
+  color: blue;
+  font-weight: bold;
+  cursor: pointer;
+
+}
+
+button{
+    border: none;
+    background: transparent;
+}
+
+button:hover {
+ opacity: 0.7;
+}
+
+.hidden {
+  display: none;
+}
+
+#mask {
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}
+
+#modal {
+  background: #fff;
+  width: 50%;
+  padding: 24px;
+  border-radius: 10px;
+  position: fixed;
+  top: 20%;
+  left: 10%;
+  right: 10%;
+  text-align: center;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+#map{
+    border-radius: 10px;
+    width:400px;
+    height:400px;
+    margin-right:30px;
+}
+
+
+.map_flex{
+    display: flex;
+    justify-content:center;
+}
+
+
 
 
 

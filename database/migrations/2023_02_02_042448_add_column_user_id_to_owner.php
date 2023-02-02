@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('stores', function (Blueprint $table) {
-            $table->foreignId('product_id')->constrained('product');
+        Schema::table('owner', function (Blueprint $table) {
+         $table->foreignId('user_id')->constrained('users')->nullable(true);
         });
     }
 
@@ -25,7 +25,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('stores', function (Blueprint $table) {
+        Schema::table('owner', function (Blueprint $table) {
             //
         });
     }

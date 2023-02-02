@@ -20,7 +20,9 @@
             <div class="header">
                 <section class="header_flex">
                     <div class="header_logo">
-                        <img  alt="" width="60px">
+                        <a href="/" style="color:inherit;text-decoration:none;">
+                        <p>CLIC</p>
+                        </a>
                     </div>
 
                     <form action="/posts/search" method="GET">
@@ -91,8 +93,14 @@
             </div>
 
             <div>
-                <a href='/register/brand' style="color:inherit;text-decoration:none;">
-                    <p>ブランド登録</p>
+                <a href="/posts/owner/register/{{ $user->id }}" style="color:inherit;text-decoration:none;">
+                   <p>店舗会員登録</p>
+                </a>
+            </div>
+
+            <div>
+                <a href="/posts/owners" style="color:inherit;text-decoration:none;">
+                    <p>店舗登録予定</p>
                 </a>
             </div>
 

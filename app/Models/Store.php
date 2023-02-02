@@ -11,6 +11,7 @@ use App\Models\Review;
 use App\Models\Sex;
 use App\Models\Review_Store;
 use App\Models\Prefecture;
+use App\Models\Product;
 
 
 class Store extends Model
@@ -29,7 +30,9 @@ class Store extends Model
         'city',
         'town',
         'house_number',
-        'building'
+        'building',
+        'station',
+        'min',
     ];
 
 
@@ -63,6 +66,11 @@ class Store extends Model
         return $this->belongsToMany(Sex::class);
     }
 
+    public function products()
+    {
+        return $this->belongsToMany(Product::class);
+    }
+
     public function holder ()
     {
         return $this->belongsToMany(Holder::class);
@@ -71,6 +79,11 @@ class Store extends Model
     public function rankStar (int $limit_count = 10)
     {
         return $this->orderBy('stars', 'DESC')->limit($limit_count)->get();
+    }
+
+    public function owner()
+    {
+        return $this->belongsToMany(Owner::class);
     }
 
 

@@ -1,5 +1,6 @@
 <x-app :store-formats="$store_formats" :user="$user">
-        <main>
+    <link rel="stylesheet" href="{{ asset('/css/brand_form.css') }}">
+        <main id="main">
             <form method="POST" action="/store/brand">
                 @csrf
             <h1>ブランド登録</h1>

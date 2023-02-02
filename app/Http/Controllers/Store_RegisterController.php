@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StoreRequest;
 use App\Models\Store;
 use App\Models\Prefecture;
@@ -15,6 +16,7 @@ use App\Models\Sex;
 use App\Models\Holder;
 use App\Models\Address;
 use App\Models\Product;
+use App\Models\Owner;
 use Cloudinary;
 
 class Store_RegisterController extends Controller
@@ -37,8 +39,14 @@ class Store_RegisterController extends Controller
         $storeformat = StoreFormat::all();
         $sex = Sex::all();
         $user = Auth::user();
-        return view ('posts/shop_register')->with(['prefectures' => $prefecture , 'brands' => $brand,
-        'store_formats' => $storeformat, 'sexes' => $sex, 'user' => $user ]);
+        if($user->owner = 1)
+        {
+            return view ('posts/shop_register')->with(['prefectures' => $prefecture , 'brands' => $brand,
+            'store_formats' => $storeformat, 'sexes' => $sex, 'user' => $user ]);
+        }elseif($user->owner = null){
+            return redirect('/posts/owner/register/{{ $user->id }}');
+        }
+
     }
 
 // 画像アップロード処理
@@ -46,14 +54,23 @@ class Store_RegisterController extends Controller
     {
         $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
 
-        // $files = $request->file('images');
-        // foreach($files as $file){
-        //     $images_url = Cloudinary::upload($request->file('images')->getRealPath())->getSecurePath();
-        //     $inputs = $request->input('images');
-        //     $product->fill($inputs)->save();
+
+
+        // for($i=0; $i<5; $i++){
+        //     $product  = new Product;
+        //     $files = $request->file('images'.$i);
+        //     $img = $files->getRealPath();
+        // 	$image = Cloudinary::upload($img)->getSecurePath();
+        // 	$name = 'name' . $i;
+        // 	$product->name = $request->$name;
+        // 	$product->image_path = $img;
+        // // 	$inputss += ['image_path' => $file];
+        //     $product->save();
         // }
 
+        $product = Product::all();
 
+        $input_product = $request->input($product);
         $input_brands = $request->brands_array;
         $input_sex = $request->sex;
         $input = $request['store'];
@@ -61,6 +78,7 @@ class Store_RegisterController extends Controller
         $store->fill($input)->save();
         $store->brands()->attach($input_brands);
         $store->sexes()->attach($input_sex);
+        $store->products()->attach($input_product);
         return redirect()->route('showStore');
     }
 
@@ -88,7 +106,8 @@ class Store_RegisterController extends Controller
         $review_star = $store->reviews->avg('stars');
         $user = Auth::user();
         $store_format = StoreFormat::all();
-        return view('posts/store_detail')->with(['store' => $store, 'user' =>$user,'user' => $user, 'star' => $review_star, 'store_formats' =>$store_format]);
+        return view('posts/store_detail')->with(['store' => $store, 'user' =>$user,'user' => $user, 'star' => $review_star,
+                                                 'store_formats' =>$store_format]);
     }
 
     public function holderStore(Request $request, Store $store, User $user)
@@ -111,13 +130,42 @@ class Store_RegisterController extends Controller
         return response()->json($addresses);
     }
 
+    public function userStore()
+    {
+        $u = Auth::user();
+        $e = StoreFormat::all();
+        return view('posts/register_owner')->with(['store_formats' => $e, 'user' => $u]);
 
-    // public function getAddressByPostalCode($postalcode)
-    // {
-    //     $addresses = Address::where('zip', $postalcode)->first();
+    }
 
-    //     return response()->json($addresses);
-    // }
+    public function storeOwner(Request $request, Owner $owner)
+    {
+        $user = Auth::user();
+        $input = $request['owner'];
+        $input += ['user_id' => $user->id];
+        $owner->fill($input)->save();
+        return redirect('/');
+    }
+
+
+    public function allOwner(Owner $owner,User $user)
+    {
+        $u = Auth::user();
+        $e = StoreFormat::all();
+        $owner = Owner::all();
+        return view('/posts/owner_register')->with(['owners' => $owner,'store_formats' => $e, 'user' => $u,'users'=>$user]);
+    }
+
+
+    public function conectOwner(Request $request,Owner $owner)
+    {
+       $user_id = $owner->user->id;
+       $user = User::find($user_id);
+       $user->owner = 1;
+       $user->save();
+    }
+
+
 
 
 

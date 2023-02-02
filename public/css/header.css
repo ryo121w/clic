@@ -27,6 +27,13 @@ ul {
 
 }
 
+.header_logo p{
+    padding-top: 2px;
+    padding-right: 10px;
+    margin: 0px;
+    font-weight:bold;
+}
+
 .header_login{
     width:300px;
     display: flex;

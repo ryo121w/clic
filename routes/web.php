@@ -31,6 +31,8 @@ Route::get('/', [PostController::class, 'view'])->name('mainView');
 //     return view(‘welcome');
 // });
 
+Route::get('/brand/{brand}', [BrandController::class, 'detailBrand']);
+
 // 評価一覧ページ
 Route::get('/posts/review',[ReviewController::class, 'showList'])->name('reviews');
 
@@ -73,11 +75,23 @@ Route::post('/posts/store/{store}', [ReviewController::class, 'exeDetailStore'])
 // 評価一覧（店舗連携）
 Route::get('/posts/review_detail/{store}', [ReviewController::class, 'detailReview']);
 
+Route::get('/posts/format_store/{store_format}', [Store_RegisterController::class, 'storeSelect']);
+
 // 保存機能
 Route::post('/posts/holder/{store}', [Store_RegisterController::class, 'holderStore']);
 
 // 保存したストア一覧
 Route::get('/posts/holder/{user_id}', [Store_RegisterController::class, 'holdStore']);
+
+
+Route::get('/posts/rank', [RankController::class, 'rankStore']);
+
+
+Route::get('/posts/owner/register/{user}', [Store_RegisterController::class, 'userStore']);
+
+Route::post('/posts/owner/{user}',[Store_RegisterController::class, 'storeOwner']);
+
+Route::post('/posts/posts/posts/owners/{owner}',[Store_RegisterController::class, 'conectOwner']);
 
 //メインページ（男性）
 Route::get('/posts/store/men/{sex}', [PostController::class, 'menStore']);
@@ -85,7 +99,11 @@ Route::get('/posts/store/men/{sex}', [PostController::class, 'menStore']);
 // メインページ（女性）
 Route::get('/posts/store/women/{sex}', [PostController::class, 'womenStore']);
 
-Route::get('/posts/rank', [RankController::class, 'rankStore']);
+Route::get('/posts/owners', [Store_RegisterController::class, 'allOwner']);
+
+
+
+
 
 // 店舗登録フォーム
 Route::get('/register/store', [Store_RegisterController::class, 'registerStore'])->name('registerstore');
@@ -105,9 +123,17 @@ Route::get('/register/brand', [BrandController::class, 'formBrand']);
 
 Route::post('/store/brand', [BrandController::class, 'storeBrand']);
 
-Route::get('/brand/{brand}', [BrandController::class, 'detailBrand']);
+Route::get('/city/{prefecture}', [PrefectureController::class, 'searchDetail']);
 
-Route::get('/posts/format_store/{store_format}', [Store_RegisterController::class, 'storeSelect']);
+
+
+
+
+
+
+
+
+
 
 
 

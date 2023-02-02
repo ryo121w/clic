@@ -28,5 +28,6 @@ class AddressController extends Controller
       $response = $client->request('POST', $url, $option);
 
       $result = json_decode($response->getBody()->getContents(), true);
-}
+        }
+    }
 }

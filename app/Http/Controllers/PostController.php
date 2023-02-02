@@ -11,11 +11,12 @@ use App\Models\StoreFormat;
 use App\Models\User;
 use App\Models\Review;
 use App\Models\Sex;
+use App\Models\Owner;
 
 class PostController extends Controller
 {
 
-    public function view(Store $store, StoreFormat $store_format, Sex $sex)
+    public function view(Store $store, StoreFormat $store_format, Sex $sex,Owner $owner)
     {
 
         $user = Auth::user();
@@ -25,11 +26,12 @@ class PostController extends Controller
         $store_format = StoreFormat::all();
 
 
+
         if($user===null){
         return redirect()->route('register');
         }else{
         return view ('posts/index')->with(['stores' => $store, 'user' => $user,'store_formats' => $store_format,'sex_mens' => $sex_men,
-        'sex_womens' => $sex_women]);
+        'sex_womens' => $sex_women,'owner'=>$owner]);
         }
 
 
