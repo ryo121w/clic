@@ -77,6 +77,8 @@ Route::get('/posts/review_detail/{store}', [ReviewController::class, 'detailRevi
 
 Route::get('/posts/format_store/{store_format}', [Store_RegisterController::class, 'storeSelect']);
 
+Route::get('/posts/format_store/rank/{store_format}', [RankController::class, 'storeFormatRank']);
+
 // 保存機能
 Route::post('/posts/holder/{store}', [Store_RegisterController::class, 'holderStore']);
 
@@ -106,16 +108,18 @@ Route::get('/posts/owners', [Store_RegisterController::class, 'allOwner']);
 
 
 // 店舗登録フォーム
-Route::get('/register/store', [Store_RegisterController::class, 'registerStore'])->name('registerstore');
+Route::get('/register/store/{user}', [Store_RegisterController::class, 'registerStore'])->name('registerstore');
 
 // 店舗登録
-Route::post('/posts/upload', [Store_RegisterController::class, 'upStore'])->name('upload');
+Route::post('/posts/upload/{user}', [Store_RegisterController::class, 'upStore'])->name('upload');
 
 Route::get('/postal-code/{postal_code}/address', [Store_RegisterController::class, 'getAddressByPostalCode']);
 
 Route::get('/prefecture/{prefecture}', [Store_RegisterController::class, 'search'])->name('search');
 
 Route::get('/search/area', [PrefectureController::class, 'searchArea']);
+
+Route::get('/search/category', [BrandController::class, 'showBrand']);
 
 Route::get('/show/brand',[BrandController::class, 'showBrand'])->name('shBrand');
 
@@ -124,6 +128,8 @@ Route::get('/register/brand', [BrandController::class, 'formBrand']);
 Route::post('/store/brand', [BrandController::class, 'storeBrand']);
 
 Route::get('/city/{prefecture}', [PrefectureController::class, 'searchDetail']);
+
+Route::get('/posts/store/{brand}/brand-array', [Store_RegisterController::class, 'getStoreBrand']);
 
 
 

@@ -186,6 +186,7 @@ ul {
 .flixed_flex{
     display: flex;
     justify-content:space-between;
+    margin-bottom:40px;
 }
 
 /*スクロール*/

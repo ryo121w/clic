@@ -1,8 +1,8 @@
 
 <x-app :store-formats="$store_formats" :user="$user">
-<link rel="stylesheet" href="{{ asset('/css/store.css') }}">
- <main id="main">
-    <div class="position_flex">
+    <link rel="stylesheet" href="{{ asset('/css/store.css')}}">
+<main id="main">
+        <div class="position_flex">
         <nav>
             <ul>
                 <li><a href="/" style="color:inherit;text-decoration:none;"><p>TOP</p></a></li>
@@ -11,12 +11,7 @@
             </ul>
         </nav>
     </div>
-     <h1>全国のストア</h1>
-
-
-
-
-
+     <h1>ストアランキング</h1>
       @foreach ($stores as $store)
         <div class="store_flex">
           <div class="store_detail">
@@ -70,5 +65,5 @@
         </div>
           @endforeach
       </div>
-    </main>
+</main>
 </x-app>

@@ -20,16 +20,16 @@ class BrandController extends Controller
 
     public function formBrand ()
     {
-      $u = Auth::user();
-      $e = StoreFormat::all();
-      return view ('posts/brand_form')->with(['store_formats' => $e,'user'=>$u]);
+        $u = Auth::user();
+        $e = StoreFormat::all();
+        return view ('posts/brand_form')->with(['store_formats' => $e,'user'=>$u]);
     }
 
     public function storeBrand (Request $request, Brand $brand)
     {
         $input = $request['brand'];
         $brand->fill($input)->save();
-        return redirect()->route('shBrand');
+        return redirect('/');
     }
 
     public function detailBrand (Store $store, Brand $brand)

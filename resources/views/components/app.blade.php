@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/header.css') }}">
@@ -64,7 +65,7 @@
                             <img src="{{ asset('/img/ダウンロード.png')}}" class="icon_img" width="10px" heith="15px">
                             <p class="user_name">
                                 {{ $user->name}}
-                                {{ $user->email }}
+                                {{ $user->email}}
                             </p>
                         </a>
                         @endauth
@@ -78,6 +79,7 @@
                 <a href="/posts/format_store/{{ $store_format->id }}" style="color:inherit;text-decoration:none;"><h1>{{$store_format->name}}</h1></a>
                 </div>
                 @endforeach
+
             </div>
         </header>
     </div>
@@ -87,7 +89,7 @@
     <footer id="footer">
         <div class="footer_element">
             <div class="footer_store_register">
-                <a href="/register/store" style="color:inherit;text-decoration:none;">
+                <a href="/register/store/{{ $user->id }}" style="color:inherit;text-decoration:none;">
                     <p>店舗登録</p>
                 </a>
             </div>
@@ -117,7 +119,7 @@
             </div>
         </div>
     </footer>
-    </div>
+</div>
 
 
 

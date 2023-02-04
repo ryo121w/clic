@@ -4,9 +4,11 @@
 }
 .store_features{
     width:400px;
+    height:800px;
 }
 .store_prefecture{
     width:400px;
+    height:800px;
 }
 
 .store_register{
@@ -24,6 +26,7 @@
 
 .brand_flex{
     display: flex;
+    height: 50px;
 
 }
 
@@ -123,3 +126,72 @@ button{
     text-align: center;
 }
 
+.hidden {
+  display: none;
+
+}
+
+#mask {
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+
+}
+
+
+#modal {
+  background: #fff;
+  width:20%;
+  padding: 24px;
+  border-radius: 10px;
+  position: fixed;
+  top: 5%;
+  left: 15%;
+  right: 10%;
+  text-align: center;
+  margin: 0 auto;
+  z-index: 2;
+
+
+}
+
+#map{
+    border-radius: 10px;
+    width:400px;
+    height:400px;
+    margin-right:30px;
+}
+
+.phone{
+    margin:0px;
+}
+
+.shop_register{
+    height: 30px;
+}
+
+.show_brandd{
+    margin-bottom: 0px;
+    height:30px;
+}
+
+.check_brand{
+    padding-top: 20px;
+    width:100%;
+    border-bottom:1px solid black;
+
+
+
+}
+.register_brand_show{
+    text-align: left;
+}
+
+.modal_scroll{
+     height:1000px;
+     overflow: scroll;
+}

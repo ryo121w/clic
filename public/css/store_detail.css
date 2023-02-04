@@ -27,8 +27,10 @@
 
 
 
-.store_name h2{
-    margin:0px;
+.store_name h1{
+    margin-top:0px;
+    margin-bottom: 0px;
+    margin-right: 20px;
 }
 
 .store_info{
@@ -48,7 +50,9 @@
 }
 
 .star_five{
+  font-size:25px;
   margin-top:0px;
+  padding-top: 3px;
   color: orange;
 
 }
@@ -123,7 +127,84 @@ button:hover {
     justify-content:center;
 }
 
+.phone_flex{
+    display: flex;
+    padding-top: 20px;
+    margin-left: 20px;
+}
 
+.phone_flex img{
+    width:30px;
+    height:25px;
+    position:relative;
+    bottom:2px;
+}
+
+.phone_flex p{
+    font-size: 15px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.brand_flex{
+    display: flex;
+    flex-wrap:wrap;
+}
+
+.brand{
+    margin-top: 3px;
+    margin-bottom: 3px;
+    padding-right: 10px;
+}
+
+.etc {
+    font-size: 10px;
+    margin-top:10px;
+    margin-bottom: 0px;
+
+}
+
+.store_access{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.detail_star{
+    display: flex;
+    height:40px;
+}
+
+.star_math h1{
+    font-size: 30px;
+    font-weight: bold;
+    margin:0px;
+}
+
+.detail_address{
+    margin-top:20px;
+    margin-bottom: 20px;
+    font-weight: lighter;
+}
+
+.detail_brand{
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.show_gender{
+    margin-bottom: 0px;
+}
+
+.sex{
+    margin-top: 0px;
+}
+
+.store_format_detail{
+    padding-top: 20px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-size: 15px;
+}
 
 
 

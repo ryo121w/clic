@@ -26,4 +26,24 @@ class RankController extends Controller
 
         return view('posts/rank')->with(['user' => $u,'stores' => $store->rankStar(), 'reviews' => $review, 'store_formats' => $e ]);
     }
+
+    public function storeFormatRank(Store $s, Review $review, StoreFormat $store_format)
+    {
+
+        $u = Auth::user();
+        $e = StoreFormat::all();
+        $stores = Store::all();
+        $review_stars = [];
+        foreach($stores as $store)
+        {
+            $review_stars[] = $review->where('store_id', $store->id)->avg('stars');
+        }
+
+        $storeRank = $store->rankStar();
+        $storeFormatRank = $storeRank->where('store_format_id', $store_format->id)->all();
+
+
+
+        return view('posts/rank_format')->with(['user' => $u,'stores' => $storeFormatRank, 'reviews' => $review, 'store_formats' => $e ]);
+    }
 }

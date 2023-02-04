@@ -16,7 +16,7 @@ use App\Models\Owner;
 class PostController extends Controller
 {
 
-    public function view(Store $store, StoreFormat $store_format, Sex $sex,Owner $owner)
+    public function view(Store $store, StoreFormat $store_format, Sex $sex,Owner $owner,Review $review)
     {
 
         $user = Auth::user();
@@ -24,14 +24,24 @@ class PostController extends Controller
         $sex_men = Sex::find($id=1);
         $sex_women = Sex::find($id=2);
         $store_format = StoreFormat::all();
+        foreach($store as $s)
+        {
+            $review_stars[] = $review->where('store_id', $s->id)->avg('stars');
+        }
 
-
+        $storeRank = $s->rankStar();
+        $store_format_select = $storeRank->where('store_format_id', 1)->all();
+        $store_format_used = $storeRank->where('store_format_id', 2)->all();
+        $store_format_ec = $storeRank->where('store_format_id', 3)->all();
 
         if($user===null){
         return redirect()->route('register');
         }else{
         return view ('posts/index')->with(['stores' => $store, 'user' => $user,'store_formats' => $store_format,'sex_mens' => $sex_men,
-        'sex_womens' => $sex_women,'owner'=>$owner]);
+        'sex_womens' => $sex_women,'owner'=>$owner, 'select' => $store_format_select,'used' => $store_format_used,
+        'ec' => $store_format_ec]);
+
+
         }
 
 

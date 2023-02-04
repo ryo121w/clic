@@ -4,7 +4,7 @@
 
 <main id="main">
     <h2 class="store_register">店舗登録フォーム</h2>
-    <form action="/posts/upload" method="POST" enctype="multipart/form-data">
+    <form action="/posts/upload/{{ $user->id }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="store_register_flex">
             <div class="store_features">
@@ -102,7 +102,7 @@
                 @endif
 
                 <div class="brand_flex">
-                    <h2>ブランド一覧</h1>
+                    <h2 class="show_brandd">ブランド</h1>
                     <p>もしかしてブランドがない？</p>
                     <div class="store_brand">
                         <a href='/register/brand' style="color:inherit;text-decoration:none;">
@@ -110,11 +110,35 @@
                         </a>
                 　　</div>
             　　</div>
-                @foreach($brands as $brand)
-                <label>
-                    <input type="checkbox" value="{{ $brand->id }}" name="brands_array[]">{{ $brand->name }}</input>
-                </label>
-                @endforeach
+
+            <div class="btn-container">
+                <button id="btn" type="button">ブランド選択</button>
+            </div>
+
+            <div id="mask" class="hidden"></div>
+                <section id="modal" class="hidden">
+                    <div class="modal_scroll">
+                        <h3 class="register_brand_show">ブランド一覧</h3>
+                        @foreach($brands as $brand)
+                        <div class="check_brand">
+                            <label>
+                            <input type="checkbox" id="brand_array" value="{{ $brand->id }}" name="brands_array[]" class="content_list" onchange="displaySelectedBrand()">{{ $brand->name }}</input>
+                            <label for="brand_array" class="hidden">{{ $brand->name }}</label>
+                            </input>
+                            </label>
+                        </div>
+                        @endforeach
+                        <button type="button" id="test" >store</button>
+                    </div>
+                </section>
+
+                <div id="extracted_words">
+
+                </div>
+
+
+
+
                 <br>
                 @if($errors->has('brands_array[]'))
                 <div><p style="color:red">{{ $errors->first('brands_array[]') }}</p></div>
@@ -122,7 +146,7 @@
             </div>
 
 
-        <h2>電話番号</h2>
+        <h2 class="phone">電話番号</h2>
         <input type="text" name="store[phone]"  placeholder="123-456-7890">
         @if($errors->has('store[phone]'))
         <div><p style="color:red">{{ $errors->first('store[phone]') }}</p></div>
@@ -151,6 +175,8 @@
    </form>
 
 </main>
+　　<script src="{{ asset('/js/address.js') }}"></script>
+</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
        <script >
             $('#get_address').on('click', function(){
@@ -172,6 +198,30 @@
 
                     var AddressTown = document.getElementById("addressTown");
                     AddressTown.value = data.town;
+                });
+
+
+                request.fail(function(){
+                    alert("通信に失敗しました");
+                });
+
+            });
+       </script>
+
+       <script>
+               $('#brand_store').on('click', function(){
+               var brand = [];
+               var brand =$('#brand_array').val();
+                var request = $.ajax({
+                    type: 'GET',
+                    url: '/posts/store/' + brand + '/brand-array',
+                    cache: false,
+                    dataType: 'json',
+                    timeout: 3000
+                });
+
+                request.done(function(data){
+
                 });
 
 

@@ -8,6 +8,7 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     *
      * @return void
      */
     public function up()
@@ -18,6 +19,17 @@ return new class extends Migration
             $table->string('phone', 16);
             $table->string('body');
             $table->string('image_path');
+            $table->foreignId('store_format_id')->constrained();
+            $table->foreignId('prefecture_id')->constrained('prefecture');
+            $table->double('stars', 3 , 2)->nullable(true);
+            $table->integer('zip');
+            $table->string('pref');
+            $table->string('city');
+            $table->string('town');
+            $table->string('building');
+            $table->string('house_number');
+            $table->string('station');
+            $table->integer('min');
             $table->timestamps();
         });
     }

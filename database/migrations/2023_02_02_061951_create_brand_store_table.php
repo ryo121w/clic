@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('reviews', function (Blueprint $table) {
+        Schema::create('brand_store', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 30);
-            $table->string('body');
-            $table->foreignId('store_id')->constrained('stores');
+            $table->foreignId('store_id')->references('id')->on('stores')->onUpdate('cascade')->onDelete('cascade')->comment('');
+            $table->foreignId('brand_id')->references('id')->on('brands')->onUpdate('cascade')->onDelete('cascade')->comment('');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reviews');
+        Schema::dropIfExists('brand_store');
     }
 };

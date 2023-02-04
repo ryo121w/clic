@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
          StoreFormatSeeder::class,
          SexSeeder::class,
          AddressSeeder::class,
+         BrandSeeder::class,
         ]);
     }
 }

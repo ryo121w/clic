@@ -3,6 +3,8 @@
     @foreach($owners as $owner)
     <div class="main">
 
+
+
     <div>
         <p>店舗名</p>
         <p>{{ $owner->store_name }}</p>

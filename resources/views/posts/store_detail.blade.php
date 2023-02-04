@@ -34,18 +34,19 @@
 
         　　  　  <div id="mask" class="hidden"></div>
         　　　          <section id="modal" class="hidden">
-        　　      <div>
-            　　　     <h1>アクセスマップ</h1>
-            　　　   <div  class="map_flex">
-                    <div id="map" ></div>
-                    <div>
-                        <h2>{{ $store->name }}</h2>
-            　　　         <h3>{{ $store->pref }}{{ $store->city }}{{ $store->town}}{{ $store->house_number }}{{ $store->building }}</h3>
-            　　　         <h3>{{ $store->station }}から徒歩{{ $store->min}}分</h3>
-            　　　     </div>
-                  </div>
-         　　     </div>
-        　　　</section>
+                　　      <div>
+                    　　　     <h1>アクセスマップ</h1>
+                    　　　   <div class="map_flex">
+                            <div id="map" ></div>
+                            <div>
+                                <h2>{{ $store->name }}</h2>
+                    　　　         <h3>{{ $store->pref }}{{ $store->city }}{{ $store->town}}{{ $store->house_number }}{{ $store->building }}</h3>
+                    　　　         <h3>{{ $store->station }}から徒歩{{ $store->min}}分</h3>
+                    　　　     </div>
+                          </div>
+                 　　     </div>
+
+　　          　　　</section>
         　　</div>
 
             <div class="function_holder">
@@ -63,25 +64,59 @@
         <div class="store_info">
             <div class="store_access">
                 <div class="store_name">
-                    <h2>{{ $store->name }}</h2>
+                    <h1>{{ $store->name }}</h1>
+                </div>
+
+                <a href="/posts/format_store/{{ $store->store_format->id }}" style="color:inherit;text-decoration:none;"><p class="store_format_detail">{{ $store->store_format->name }}</p></a>
+                <div class="phone_flex">
+                    <img src="{{ asset('/img/ifn0811.png')}}">
+                    <p>{{ $store->phone }}</p>
                 </div>
             </div>
-            @if($star===5)
-                <h3 class="star_five">{{ str_repeat('★ ', $star) }}</h3>
-                @elseif($star!==5)
+
+
+
+            <div class="detail_star">
                 <div>
-                    <h3 class="star_five">{{ str_repeat('★ ', $star) }}
-                    {{ str_repeat('☆ ', (5-$star)) }}</h3>
+                @if($store->stars===5)
+                    <h3 class="star_five">{{ str_repeat('★ ', $store->stars) }}</h3>
+                    @elseif($store->stars!==5)
+                    <div>
+                        <h3 class="star_five">{{ str_repeat('★ ', $store->stars) }}
+                        {{ str_repeat('☆ ', (5-$store->stars)) }}</h3>
+                    </div>
+                @endif
                 </div>
-            @endif
-            <h3>{{ $store->pref }}{{ $store->city }}{{ $store->town}}{{ $store->house_number }}{{ $store->building }}</h3>
-            <h4>{{ $store->phone }}</h4>
-            <p>{{ $store->body }}</p>
+                <div class="star_math">
+                <h1>{{$store->stars}}</h1>
+                </div>
+            </div>
+
+
+            <h3 class="detail_address">{{ $store->pref }}{{ $store->city }}{{ $store->town}}{{ $store->house_number }}{{ $store->building }}</h3>
+
+            <p class="detail_brand">取り扱いブランド</p>
+            <div class="brand_flex">
+            @foreach($store->brands->take(5) as $brand)
+            <a href="/brand/{{ $brand->id }}" style="color:inherit;text-decoration:none;"><p class="brand">{{ $brand->name }}</p></a>
+            @endforeach
+            <p class="etc">...etc</p>
         </div>
+
+
+
+            @foreach($store->sexes as $sex)
+                <p class="show_gender">gender</p>
+                <p class="sex">{{ $sex->sex }}</p>
+            @endforeach
+        </div>
+
         <div class="store_img">
             <img src="{{ $store->image_path }}">
         </div>
     </div>
+
+    <p>{{ $store->body }}</p>
 
 　　<script src="{{ asset('/js/address.js') }}"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyAusOJIKGrHp7iHGSHSnM-jCvBl6Zm1B3k&callback=initMap" async defer></script>

@@ -39,18 +39,18 @@ class Store_RegisterController extends Controller
         $storeformat = StoreFormat::all();
         $sex = Sex::all();
         $user = Auth::user();
-        if($user->owner = 1)
+        if($user->owner === 1)
         {
             return view ('posts/shop_register')->with(['prefectures' => $prefecture , 'brands' => $brand,
             'store_formats' => $storeformat, 'sexes' => $sex, 'user' => $user ]);
-        }elseif($user->owner = null){
-            return redirect('/posts/owner/register/{{ $user->id }}');
+        }elseif($user->owner ===null){
+            return redirect('/posts/owner/register/{user->id}');
         }
 
     }
 
 // 画像アップロード処理
-    public function upStore(Request $request, Store $store,StoreFormat $storeformat, Brand $brand, Product $product)
+    public function upStore(Request $request, Store $store,StoreFormat $storeformat, Brand $brand, Product $product,User $user)
     {
         $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
 
@@ -68,17 +68,18 @@ class Store_RegisterController extends Controller
         //     $product->save();
         // }
 
-        $product = Product::all();
-
         $input_product = $request->input($product);
         $input_brands = $request->brands_array;
         $input_sex = $request->sex;
+        $owner_id = $user->owner;
+
         $input = $request['store'];
         $input += ['image_path' => $image_url];
         $store->fill($input)->save();
         $store->brands()->attach($input_brands);
         $store->sexes()->attach($input_sex);
         $store->products()->attach($input_product);
+        $store->owner()->attach($owner_id);
         return redirect()->route('showStore');
     }
 
@@ -91,14 +92,22 @@ class Store_RegisterController extends Controller
 
     public function search(Prefecture $prefecture)
     {
-       return view('posts/search_pref')->with(['stores' => $prefecture->getByPrefecture()]);
+        $u = Auth::user();
+        $e = StoreFormat::all();
+       return view('posts/search_pref')->with(['stores' => $prefecture->getByPrefecture(),'store_formats' => $e,'user'=>$u]);
     }
 
     public function storeSelect(StoreFormat $store_format,)
     {
         $u = Auth::user();
         $e = StoreFormat::all();
-        return view('posts/store_format_select')->with(['stores' => $store_format->getByFormat(),'user' => $u, 'store_formats' => $e ]);
+        if($store_format->id === 1){
+            return view('posts/store_format_select')->with(['stores' => $store_format->getByFormat(),'user' => $u, 'store_formats' => $e ]);}
+        elseif($store_format->id === 2){
+            return view('posts/store_format_used')->with(['stores' => $store_format->getByFormat(),'user' => $u, 'store_formats' => $e ]);
+        }elseif($store_format->id === 3){
+            return view('posts/store_format_ec')->with(['stores' => $store_format->getByFormat(),'user' => $u, 'store_formats' => $e ]);
+        }
 
     }
 
@@ -129,6 +138,17 @@ class Store_RegisterController extends Controller
 
         return response()->json($addresses);
     }
+
+
+
+
+    public function getStoreBrand($brand)
+    {
+        dd($brand);
+
+    }
+
+
 
     public function userStore()
     {
@@ -161,7 +181,7 @@ class Store_RegisterController extends Controller
     {
        $user_id = $owner->user->id;
        $user = User::find($user_id);
-       $user->owner = 1;
+       $user->owner = $owner->id;
        $user->save();
     }
 
