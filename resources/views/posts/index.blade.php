@@ -60,25 +60,105 @@
                                         </a>
                                     </li>
                                 </ul>
-                        </div>
+                           </div>
                     </div>
                 </div>
             </div>
-<div class="flixed_flex">
-    <div class="cd-fixed-bg cd-bg-1">
-        <div class="fixed_title">
+            <div class="scroll_flex">
+                <div class="scroll_up">
+                    <div class="title_clic">
+                        <h1>CLIC</h1>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <ul>
+                        <li><h2 class="scroll_up clothing"><span class="red">CL</span>OTHING</h2></li>
+                        <li><h2 class="scroll_up information"><span class="red">I</span>NFORMATION</h2></li>
+                        <li><h2 class="scroll_up center"><span class="red">C</span>ENTER</h2></li>
+                    </ul>
+                </div>
+              </div>
 
-        </div>
+
+
+
+<div class="scroll_main">
+    <div class="flex_1">
+            <div class="cd-fixed-bg cd-bg-1">
+                <div class="fixed_title"></div>
+            </div>
+
+
+
+
+            <div class="scroll_flex_2">
+              <h1 class="scroll_up clic_title">クリックは、<br>皆様に"お気に入りストア"<br>を届ける</h1>
+              <h2 class="scroll_up clic_title_2">クリックは全国にあるファッションストアをまとめ、<br>皆様のお気に入りストア探しのお手伝いをさせていただきます</h2></h2>
+              <ul>
+                    <li>
+                        <a href="/search/area" style="color:inherit;text-decoration:none;">
+                            <h3>エリアから探す</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/search/category" style="color:inherit;text-decoration:none;">
+                            <h3>ブランドから探す</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/posts/rank" style="color:inherit;text-decoration:none;">
+                            <h3>ランキングから探す</h3>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+
+
     </div>
 
-    <div class="cd-fixed-bg cd-bg-2">
-        <div class="fixed_title">
 
-        </div>
-    </div>
-    </div>
 
-           <div class="main">
+<div class="flex_2">
+            <div class="scroll_flex_3">
+                  <h2 class="scroll_up clic_title_4">あんなストア<br>やこんなストアさあ始めよう</h2>
+                  <h1 class="scroll_up clic_title_3">全国には<br>あなたの知らない<br>ストアがたくさん</h1>
+                 <ul>
+                    <li>
+                        <a href="/search/area" style="color:inherit;text-decoration:none;">
+                            <h3>エリアから探す</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/search/category" style="color:inherit;text-decoration:none;">
+                            <h3>ブランドから探す</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/posts/rank" style="color:inherit;text-decoration:none;">
+                            <h3>ランキングから探す</h3>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+
+                <div class="cd-fixed-bg cd-bg-2">
+                    <div class="fixed_title"></div>
+                </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+           <div class="main_2">
             <div class="main_rank">
                  @foreach($store_formats as $store_format)
                 <div class="store_format_rank">
@@ -123,7 +203,7 @@
             </div>
         </div>
 
-</div>
+
 
 
 

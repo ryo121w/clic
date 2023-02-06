@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\ReveiwRequest;
+use App\Http\Requests\ReviewRequest;
 use App\Models\Review;
 use App\Models\User;
 use App\Models\StoreFormat;
@@ -18,13 +18,12 @@ class ReviewController extends Controller
         return view('posts/review', ['reviews' => $reviews]);
     }
 
-    public function showDetail($id,Review $review, User $user)
+    public function showDetail(Review $review, User $user,Store $store)
     {
-        $review = Review::find($id);
         $user = Auth::user();
+        $store_format = StoreFormat::all();
         $user_name = $user->name;
-        $user_icon = mb_substr($user_name,0,2);
-        return view('posts/review_detail')->with(['review' => $review, 'users' => $user_icon]);
+        return view('posts/review_detail')->with(['review' => $review, 'user'=>$user,'store_formats' => $store_format]);
     }
 
 
@@ -35,7 +34,7 @@ class ReviewController extends Controller
     }
 
 
-    public function exeStore (Request $request, Review $review, User $user)
+    public function exeStore (ReviewRequest $request, Review $review, User $user)
     {
       $user = Auth::user();
       $id = Auth::id();
@@ -53,18 +52,24 @@ class ReviewController extends Controller
         return view('posts/review_edit')->with(['review' => $review, 'user' => $user, 'store_formats' => $store_format]);
     }
 
-    public function exeUpdate(Request $request, Review $review)
+    public function exeUpdate(ReviewRequest $request, Review $review)
     {
     $input_review = $request['review'];
     $review->fill($input_review)->save();
-    // return redirect('posts/review_detail', $review->id);
+    return redirect('/posts/review/'.$review->id);
+    }
+
+    public function exeDelete(Review $review)
+    {
+        $review->delete();
+        return redirect('/posts/store');
     }
 
     public function reviewStore(User $user, Store $store)
     {
         $user = Auth::user();
         $store_format = StoreFormat::all();
-        return view('posts/review_store')->with(['user' => $user, 'store' => $store, 'store_formats' => $store_format]);
+        return view('posts/review_store')->with(['user' => $user, 'store' => $store, 'store_formats' => $store_format, 'store' => $store]);
     }
 
     public function detailReview(User $user, Store $store)
@@ -74,7 +79,7 @@ class ReviewController extends Controller
         return view('posts/review_store_detail')->with(['user' => $user, 'store' => $store, 'store_formats' => $store_format]);
     }
 
-    public function exeDetailStore(Request $request, Review $review, Store $store)
+    public function exeDetailStore(ReviewRequest $request, Review $review, Store $store)
     {
        $user = Auth::user();
        $input_review = $request['review'];

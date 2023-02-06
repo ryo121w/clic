@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ReveiwRequest extends FormRequest
+class ReviewRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,20 @@ class ReveiwRequest extends FormRequest
     public function rules()
     {
         return [
-            'titel' => 'required | max:100',
-            'content' => 'required'
+
+            'review.title' => 'required | min:1 | max:20',
+            'review.body' => 'required | min:10 | max: 300',
+
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+        'review.title' => 'タイトル',
+        'review.body' => 'レビュー',
+
+
         ];
     }
 }

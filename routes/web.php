@@ -31,6 +31,8 @@ Route::get('/', [PostController::class, 'view'])->name('mainView');
 //     return view(‘welcome');
 // });
 
+Route::get('/select',[PostController::class,'logSelect']);
+
 Route::get('/brand/{brand}', [BrandController::class, 'detailBrand']);
 
 // 評価一覧ページ
@@ -49,22 +51,25 @@ Route::get('/posts/search',[SearchController::class, 'index']);
 Route::get('/posts/search_prefecture', [SearchController::class, 'indexSearch']);
 
 // 評価詳細画面表示
-Route::get('/posts/review/{id}', [ReviewController::class, 'showDetail'])->name('detail');
+Route::get('/posts/review/{review}', [ReviewController::class, 'showDetail'])->name('detail');
 
 // 評価編集ページ
-Route::get('/posts/review/edit/{id}', [ReviewController::class, 'showEdit'])->name('edit');
+Route::get('/posts/review/edit/{review}', [ReviewController::class, 'showEdit'])->name('edit');
 
 // 評価編集後の登録
-Route::get('/posts/update', [ReviewController::class, 'exeUpdate'])->name('update');
+Route::put('/posts/update/{review}', [ReviewController::class, 'exeUpdate'])->name('update');
 
 // 評価の削除
-Route::post('/posts/delete/{id}', [ReviewController::class, 'exeDelete'])->name('delete');
+Route::delete('/posts/delete/{review}', [ReviewController::class, 'exeDelete'])->name('delete');
 
 // 店舗一覧
 Route::get('/posts/store',[Store_RegisterController::class, 'showStore'])->name('showStore');
 
 // 店舗詳細
 Route::get('/posts/store/detail/{store}', [Store_RegisterController::class, 'storeDetail'])->name('storeDetail');
+
+
+Route::get('/posts/store/edit/{user}',[Store_RegisterController::class, 'showOwnerStore']);
 
 //評価登録（店舗連携）
 Route::get('/posts/review_store/{store}', [ReviewController::class, 'reviewStore']);
@@ -74,6 +79,13 @@ Route::post('/posts/store/{store}', [ReviewController::class, 'exeDetailStore'])
 
 // 評価一覧（店舗連携）
 Route::get('/posts/review_detail/{store}', [ReviewController::class, 'detailReview']);
+
+Route::get('/posts/store/edit/owner/{store}',[Store_RegisterController::class, 'ownerEditStore']);
+
+Route::put('/posts/update/store/{store}',[Store_RegisterController::class, 'ownerUpdateStore']);
+
+
+Route::delete('/posts/store/delete/{store}',[Store_RegisterController::class, 'ownerDeleteStore']);
 
 Route::get('/posts/format_store/{store_format}', [Store_RegisterController::class, 'storeSelect']);
 
@@ -89,11 +101,13 @@ Route::get('/posts/holder/{user_id}', [Store_RegisterController::class, 'holdSto
 Route::get('/posts/rank', [RankController::class, 'rankStore']);
 
 
-Route::get('/posts/owner/register/{user}', [Store_RegisterController::class, 'userStore']);
+
 
 Route::post('/posts/owner/{user}',[Store_RegisterController::class, 'storeOwner']);
 
 Route::post('/posts/posts/posts/owners/{owner}',[Store_RegisterController::class, 'conectOwner']);
+
+Route::get('/posts/owner/register/{user}', [Store_RegisterController::class, 'userStore']);
 
 //メインページ（男性）
 Route::get('/posts/store/men/{sex}', [PostController::class, 'menStore']);
@@ -115,7 +129,7 @@ Route::post('/posts/upload/{user}', [Store_RegisterController::class, 'upStore']
 
 Route::get('/postal-code/{postal_code}/address', [Store_RegisterController::class, 'getAddressByPostalCode']);
 
-Route::get('/prefecture/{prefecture}', [Store_RegisterController::class, 'search'])->name('search');
+Route::get('/prefecture/{prefecture}', [Store_RegisterController::class, 'searchPrefecture'])->name('search');
 
 Route::get('/search/area', [PrefectureController::class, 'searchArea']);
 

@@ -35,7 +35,7 @@ class PostController extends Controller
         $store_format_ec = $storeRank->where('store_format_id', 3)->all();
 
         if($user===null){
-        return redirect()->route('register');
+        return redirect('/select');
         }else{
         return view ('posts/index')->with(['stores' => $store, 'user' => $user,'store_formats' => $store_format,'sex_mens' => $sex_men,
         'sex_womens' => $sex_women,'owner'=>$owner, 'select' => $store_format_select,'used' => $store_format_used,
@@ -46,6 +46,12 @@ class PostController extends Controller
 
 
 
+    }
+
+
+    public function logSelect()
+    {
+        return view('posts/select_log');
     }
 
     public function index(Post $post, )

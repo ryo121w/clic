@@ -1,6 +1,6 @@
 
-    <x-app :store-formats="$store_formats" :user="$user">
-    <link rel="stylesheet"  href="{{ asset('/css/review_create.css') }}">
+<x-app :store-formats="$store_formats" :user="$user">
+<link rel="stylesheet"  href="{{ asset('/css/review_create.css') }}">
     <main id="main">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
@@ -33,5 +33,5 @@
             </form>
       </div>
     </div>
-    </main>
-    </x-app>
+</main>
+</x-app>

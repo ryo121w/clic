@@ -11,7 +11,7 @@
             </ul>
         </nav>
     </div>
-     <h1>オンラインストア</h1>
+     <h1 class="title">ECストア</h1>
 
 
 

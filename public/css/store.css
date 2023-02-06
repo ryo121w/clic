@@ -3,6 +3,11 @@
 #main{
     max-width: 770px;
     margin:0 auto;
+    padding-top: 150px;
+}
+
+.title{
+    font-size:20px;
 }
 
 .store_flex {
@@ -141,6 +146,8 @@
     margin-bottom: 0px;
 
 }
+
+
 
 
 

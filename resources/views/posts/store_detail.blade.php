@@ -68,10 +68,7 @@
                 </div>
 
                 <a href="/posts/format_store/{{ $store->store_format->id }}" style="color:inherit;text-decoration:none;"><p class="store_format_detail">{{ $store->store_format->name }}</p></a>
-                <div class="phone_flex">
-                    <img src="{{ asset('/img/ifn0811.png')}}">
-                    <p>{{ $store->phone }}</p>
-                </div>
+
             </div>
 
 
@@ -103,7 +100,10 @@
             <p class="etc">...etc</p>
         </div>
 
-
+            <div class="phone_flex">
+                <img src="{{ asset('/img/ifn0811.png')}}">
+                <p>{{ $store->phone }}</p>
+            </div>
 
             @foreach($store->sexes as $sex)
                 <p class="show_gender">gender</p>

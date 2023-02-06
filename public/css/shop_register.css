@@ -1,14 +1,34 @@
 #main{
     max-width:880px;
     margin:0 auto;
+    padding-top: 150px;
+}
+
+.store_name{
+    text-align: center;
+    border-radius: 20px;
+    border:1px solid black;
+    padding:4px;
 }
 .store_features{
-    width:400px;
+    width:450px;
     height:800px;
 }
+
+.store_features h2 {
+    margin-bottom: 10px;
+    margin-top: 20px;
+    font-size:20px;
+}
 .store_prefecture{
-    width:400px;
-    height:800px;
+    width:450px;
+    height:900px;
+}
+
+.store_prefecture h2{
+    margin-bottom: 10px;
+    margin-top: 20px;
+    font-size:20px;
 }
 
 .store_register{
@@ -27,6 +47,7 @@
 .brand_flex{
     display: flex;
     height: 50px;
+    margin-bottom:20px;
 
 }
 
@@ -34,16 +55,20 @@
     font-size:10px;
     margin-top: 35px;
     margin-left: 10px;
+    position: relative;
+    bottom:5px;
 }
 
 .store_brand{
-    color:blue;
+    color: rgba(0,105,255,0.9);
 }
 
 .store_textarea{
     resize:none;
     width: 300px;
     height: 200px;
+    border-radius: 20px;
+    padding: 10px;
 }
 
 .store_register_flex{
@@ -121,7 +146,7 @@ button{
 
 .form-prefecture input{
     border-radius: 20px;
-    border:1px solid black;
+    border:1px dashed black;
     padding:1px;
     text-align: center;
 }
@@ -145,11 +170,11 @@ button{
 
 #modal {
   background: #fff;
-  width:20%;
+  width:400px;
   padding: 24px;
   border-radius: 10px;
   position: fixed;
-  top: 5%;
+  top: 10%;
   left: 15%;
   right: 10%;
   text-align: center;
@@ -174,15 +199,17 @@ button{
     height: 30px;
 }
 
-.show_brandd{
+.shop_register_show_brand{
     margin-bottom: 0px;
     height:30px;
 }
 
+
+
 .check_brand{
     padding-top: 20px;
     width:100%;
-    border-bottom:1px solid black;
+    border-bottom:1px solid rgba(0,0,0,0.7);
 
 
 
@@ -194,4 +221,97 @@ button{
 .modal_scroll{
      height:1000px;
      overflow: scroll;
+}
+
+.shop_register_detail_address input{
+    border-radius: 20px;
+    border:1px solid black;
+    padding:4px;
+    text-align: center;
+
+}
+.shop_register_detail_address p{
+    margin-bottom:0px;
+    margin-top:15px;
+
+}
+
+.shop_register_pref{
+    margin-bottom: 0px;
+    font-size: 15px;
+}
+
+
+.shop_register_staition{
+    display: flex;
+}
+
+.zip{
+    font-size:10px;
+}
+
+.form-prefecture p{
+    margin-bottom:0px;
+    margin-top: 10px;
+    font-size: 10px;
+}
+
+.shop_register_search_address{
+    display:flex;
+}
+
+.shop_register_detail_address p{
+    font-size: 15px;
+}
+
+.shop_register_search{
+    width:40px;
+    height: 20px;
+    border-radius: 20px;
+    background-color: rgba(182,182,182,0.5);
+    position: relative;
+    top:27px;
+    left: 10px;
+    font-size: 10px;
+
+
+}
+
+.extracted_words p{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.staition_mins{
+    padding-left: 10px;
+    padding-top: 20px;
+    font-size: 10px;
+    margin: 0px;
+}
+
+.phone_text{
+    border-radius: 20px;
+    border:1px solid black;
+    padding: 4px;
+    text-align: center;
+}
+
+.error {
+    font-size:10px;
+}
+
+.house_number_error p{
+    font-size: 10px;
+}
+
+.phone_flex{
+    display: flex;
+}
+
+.phone_flex p {
+    margin:0px;
+    font-size:10px;
+    position: relative;
+    top:32px;
+    font-weight:bold;
 }

@@ -1,12 +1,14 @@
 #main{
     max-width: 980px;
     margin:0 auto;
+    height:800px;
+    padding-top: 150px;
 }
 .main_function_flex{
     display: flex;
     justify-content:space-between;
     height:80px;
-    margin-bottom: 40px;
+
 }
 
 .main_functions{
@@ -71,7 +73,7 @@
   width: 120px;
   height: 15px;
   font-size: 15px;
-  color: blue;
+  color: rgba(0,105,255,0.9);
   font-weight: bold;
   cursor: pointer;
 
@@ -130,7 +132,8 @@ button:hover {
 .phone_flex{
     display: flex;
     padding-top: 20px;
-    margin-left: 20px;
+    position: relative;
+    right: 20px;
 }
 
 .phone_flex img{
@@ -138,6 +141,7 @@ button:hover {
     height:25px;
     position:relative;
     bottom:2px;
+    left: 10px;
 }
 
 .phone_flex p{
@@ -145,6 +149,8 @@ button:hover {
     margin-bottom: 0px;
     margin-top: 0px;
 }
+
+
 
 .brand_flex{
     display: flex;
@@ -167,6 +173,8 @@ button:hover {
 .store_access{
     display: flex;
     margin-bottom: 20px;
+    border-bottom:1px solid black;
+
 }
 
 .detail_star{
@@ -178,6 +186,7 @@ button:hover {
     font-size: 30px;
     font-weight: bold;
     margin:0px;
+    padding-left: 25px;
 }
 
 .detail_address{

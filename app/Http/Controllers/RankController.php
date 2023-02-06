@@ -44,6 +44,6 @@ class RankController extends Controller
 
 
 
-        return view('posts/rank_format')->with(['user' => $u,'stores' => $storeFormatRank, 'reviews' => $review, 'store_formats' => $e ]);
+        return view('posts/rank_format')->with(['user' => $u,'stores' => $storeFormatRank, 'reviews' => $review, 'store_formats' => $e, 'store_format' => $store_format]);
     }
 }

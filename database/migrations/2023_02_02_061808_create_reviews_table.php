@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('title', 30);
             $table->string('body');
-            $table->foreignId('store_id')->constrained('stores');
+            $table->foreignId('store_id')->constrained('stores')->onDelete('cascade');
             $table->integer('stars');
-            $table->foreignId('user_id')->consrained('users');
-            $table->string('user_name')->constrained('users');
+            $table->foreignId('user_id')->consrained('users')->onDelete('cascade');
+            $table->string('user_name')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -1,13 +1,11 @@
 
 
 <x-app :store-formats="$store_formats" :user="$user">
-    <link rel="stylesheet" href="{{ asset('/css/index_men.css')}}">
+    <link rel="stylesheet" href="{{ asset('/css/index_women.css')}}">
     <main>
         <div class="main">
              <div class="main_gender">
-                 <div class="all">
                  <a href="/" style="color:inherit;text-decoration:none;"><p class="gender_all">ALL</p></a>
-                 </div>
                  <div class="gender_men">
                  <a href="/posts/store/men/{{$sex_mens->id}}"><input type="image" src="{{asset('/img/boy_2.png')}}" width="10px" heith="15px"></a>
                  <a href="/posts/store/men/{{$sex_mens->id}}" style="color:inherit;text-decoration:none;"><p>MEN</p></a>

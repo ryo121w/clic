@@ -5,18 +5,29 @@
   <main id="main">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-        <h2 class="review_title">REVIEW投稿フォーム</h2>
-            <form action='/posts/store/{{ $store->id }}' method="POST">
+        <h2 class="review_title">{{ $store->name }} レビューフォーム</h2>
+            <form action='/posts/store/{{ $store->id }}' method="POST" class="review_form">
               @csrf
-              <div class="title"><h2>Title</h2>
-                  <input type="text" name="review[title]" placeholder="タイトル" size="40"/>
+              <div class="title"><h2>タイトル</h2>
+                  <input type="text" name="review[title]" placeholder="タイトル" size="40" value="{{ old('review.title')}}"/>
               </div>
+              @if($errors->has('review.title'))
+                <div><p style="color:red" class="error">{{ $errors->first('review.title') }}</p></div>
+              @endif
+
               <div class="body">
-                  <h2>Body</h2>
+                  <h2>レビュー</h2>
                   <div>
-                    <textarea name="review[body]" placeholder="REVIEW" class="review_textarea"></textarea>
+                    <textarea name="review[body]" placeholder="レビュー" class="review_textarea" >{{ old('review.body')}}</textarea>
                   </div>
               </div>
+            @if($errors->has('review.body'))
+            <div><p style="color:red" class="error">{{ $errors->first('review.body') }}</p></div>
+            @endif
+
+
+
+
             <div class="rate-form">
             <input id="star5" type="radio" name="review[stars]" value="5">
             <label for="star5">★</label>
@@ -29,8 +40,11 @@
             <input id="star1" type="radio" name="review[stars]" value="1">
             <label for="star1">★</label>
             </div>
+            @if($errors->has('review.star'))
+            <div><p style="color:red" class="error">{{ $errors->first('review.star') }}</p></div>
+            @endif
 
-            <input type="submit" value="store" >
+            <input type="submit" value="レビューする" class="store_review">
             </form>
       </div>
     </div>

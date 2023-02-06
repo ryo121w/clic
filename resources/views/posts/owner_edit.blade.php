@@ -9,7 +9,7 @@
         <div class="store_register_flex">
             <div class="store_features">
                 <h2>店舗名</h2>
-                <input type="text" name="store[name]" value="{{old('store.name')}}" placeholder="店舗名"  class="store_name" size="40">
+                <input type="text" name="store[name]" value="{{$store->name}}" placeholder="店舗名"  class="store_name" size="40">
 
                 @if($errors->has('store.name'))
                 <div><p style="color:red" class="error">{{ $errors->first('store.name') }}</p></div>
@@ -17,7 +17,7 @@
 
 
                 <h2>店舗の特徴</h2>
-                <textarea name="store[body]" placeholder="お店の特徴やこだわっている部分をお書きください" class="store_textarea">{{old('store.body')}}</textarea>
+                <textarea name="store[body]" placeholder="お店の特徴やこだわっている部分をお書きください" class="store_textarea">{{$store->body}}</textarea>
                 @if($errors->has('store.body'))
                     <div><p style="color:red" class="error">{{ $errors->first('store.body') }}</p></div>
                 @endif
@@ -111,7 +111,7 @@
                 <div class="shop_register_search_address">
                     <div class="form-group">
                        <label for="postal_code" class="zip" >郵便番号(ハイフンなし)</label><br>
-                       <input type="text" id="postal_code" name="store[zip]"  placeholder="123456" value="{{old('store.zip')}}">
+                       <input type="text" id="postal_code" name="store[zip]"  placeholder="123456" value="{{$store->zip}}">
                     </div>
                     <button type="button" id="get_address" class="shop_register_search">検索</button>
                 </div>
@@ -134,7 +134,7 @@
                 <div class="shop_register_detail_address">
                     <div>
                         <p>番地</p>
-                        <input type="text" name="store[house_number]" placeholder="○-○-○-" size="40"value="{{old('store.house_number')}}">
+                        <input type="text" name="store[house_number]" placeholder="○-○-○-" size="40"value="{{$store->house_number}}">
                     </div>
                     @if($errors->has('store.house_number'))
                     <div class="house_number_error"><p style="color:red" class="error">{{ $errors->first('store.house_number') }}</p></div>
@@ -142,12 +142,12 @@
 
                     <div>
                         <p>建物</p>
-                        <input type="text" name="store[building]" placeholder="CLICヒルズ 〜階" size="40" value="{{old('store.building')}}">
+                        <input type="text" name="store[building]" placeholder="CLICヒルズ 〜階" size="40" value="{{$store->building}}">
                     </div>
 
                     <div>
                         <p>最寄り駅・バス停</p>
-                        <input type="text" name="store[station]" placeholder="〜駅・〜バス停" size="40" value="{{old('store.station')}}">
+                        <input type="text" name="store[station]" placeholder="〜駅・〜バス停" size="40" value="{{$store->station}}">
                     </div>
 
                     <div>
@@ -155,7 +155,7 @@
                         <p>駅・バス停から徒歩でかかる時間</p>
                         <h1 class="staition_mins">(分単位で数字のみ書いてください)</h1>
                         </div>
-                        <input type="text" name="store[min]" placeholder="25" size="40" value="{{old('store.min')}}">
+                        <input type="text" name="store[min]" placeholder="25" size="40" value="{{$store->min}}">
                     </div>
                 </div>
             </div>
@@ -176,11 +176,12 @@
                 @endif
             </div>
 
+
         <div class="phone_flex">
             <h2 class="phone">電話番号</h2>
             <p>（ハイフンなし）</p>
         </div>
-        <input type="text" name="store[phone]"  placeholder="08012345678" class="phone_text" size="20" value="{{old('store.phone')}}" >
+        <input type="text" name="store[phone]"  placeholder="08012345678" class="phone_text" size="20" value="{{$store->phone}}" >
         @if($errors->has('store.phone'))
         <div><p style="color:red" class="error">{{ $errors->first('store.phone') }}</p></div>
         @endif

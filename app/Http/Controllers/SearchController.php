@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\StoreFormat;
 use App\Models\Store;
 use App\Models\Prefecture;
 
 class SearchController extends Controller
 {
     public function index (Request $request,Store $store,Prefecture $prefecture)
-    {
+{        $user = Auth::user();
+        $store_format = StoreFormat::all();
         $keyword = $request->input('cond_title');
         $spaceConversion = mb_convert_kana($keyword, 's');
         $wordArraySearched = preg_split('/[\s,]+/', $spaceConversion, -1, PREG_SPLIT_NO_EMPTY);
@@ -37,7 +40,7 @@ class SearchController extends Controller
             }
         }
 
-        return view('posts/search')->with(['stores' => $stores, 'prefectures' => $prefecture]);
+        return view('posts/search')->with(['stores' => $stores, 'prefectures' => $prefecture,'user'=>$user,'store_formats' => $store_format]);
 
     }
 

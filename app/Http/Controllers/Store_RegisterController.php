@@ -50,7 +50,7 @@ class Store_RegisterController extends Controller
     }
 
 // 画像アップロード処理
-    public function upStore(Request $request, Store $store,StoreFormat $storeformat, Brand $brand, Product $product,User $user)
+    public function upStore(StoreRequest $request, Store $store,StoreFormat $storeformat, Brand $brand, Product $product,User $user)
     {
         $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
 
@@ -90,11 +90,11 @@ class Store_RegisterController extends Controller
         return view('post/search_pref')->width(['store_formats' => $e,'user'=>$u]);
     }
 
-    public function search(Prefecture $prefecture)
+    public function searchPrefecture(Prefecture $prefecture)
     {
         $u = Auth::user();
         $e = StoreFormat::all();
-       return view('posts/search_pref')->with(['stores' => $prefecture->getByPrefecture(),'store_formats' => $e,'user'=>$u]);
+       return view('posts/search_pref')->with(['stores' => $prefecture->getByPrefecture(),'store_formats' => $e,'user'=>$u,'prefecture'=>$prefecture]);
     }
 
     public function storeSelect(StoreFormat $store_format,)
@@ -140,16 +140,6 @@ class Store_RegisterController extends Controller
     }
 
 
-
-
-    public function getStoreBrand($brand)
-    {
-        dd($brand);
-
-    }
-
-
-
     public function userStore()
     {
         $u = Auth::user();
@@ -185,6 +175,49 @@ class Store_RegisterController extends Controller
        $user->save();
     }
 
+    public function showOwnerStore(Owner $owner, User $user,Store $store)
+    {
+       $u = Auth::user();
+       $e = StoreFormat::all();
+       $owner_id =  $user->owner;
+       $user_owner = Owner::where('id',$owner_id)->get();
+       $store_owner = Owner::find($owner_id)->stores()->get();
+
+       return view('posts/store_edit')->with(['stores'=> $store_owner,'store_formats' => $e, 'user' => $u]);
+    }
+
+
+    public function ownerEditStore(Store $store)
+    {
+        $prefecture = Prefecture::all();
+        $brand = Brand::all();
+        $storeformat = StoreFormat::all();
+        $sex = Sex::all();
+        $user = Auth::user();
+        return view('posts/owner_edit')->with(['prefectures' => $prefecture , 'brands' => $brand,
+            'store_formats' => $storeformat, 'sexes' => $sex, 'user' => $user,'store' => $store ]);
+    }
+
+
+    public function ownerUpdateStore(StoreRequest $request, Store $store,StoreFormat $storeformat, Brand $brand, Product $product,User $user)
+    {
+        $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+        $input_brands = $request->brands_array;
+        $input_sex = $request->sex;
+        $input = $request['store'];
+        $input += ['image_path' => $image_url];
+        $store->fill($input)->save();
+        $store->brands()->sync($input_brands);
+        $store->sexes()->sync($input_sex);
+
+        return redirect('/');
+    }
+
+    public function ownerDeleteStore(Store $store)
+    {
+        $store->delete();
+        return redirect('/posts/store');
+    }
 
 
 

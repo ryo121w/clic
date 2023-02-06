@@ -55,25 +55,32 @@
 
                         <div class="book">
                             <a href="/posts/holder/{{ $user->id }}" style="color:inherit;text-decoration:none;">
-                                <input type="image" src="{{ asset('/img/book.gif')}}" border="0" width="10px" height="15px">
+                                <input type="image" src="{{ asset('/img/ei-bookmark.png')}}" border="0" width="10px" height="15px">
                             </a>
                         </div>
 
                     　 <div class="user_icon">
-                        @auth
-                        <a>
-                            <img src="{{ asset('/img/ダウンロード.png')}}" class="icon_img" width="10px" heith="15px">
-                            <p class="user_name">
-                                {{ $user->name}}
-                                {{ $user->email}}
-                            </p>
-                        </a>
-                        @endauth
-                    </div>
+                            @auth
+                            <a>
+                                <img src="{{ asset('/img/ダウンロード.png')}}" class="icon_img" width="10px" heith="15px">
+                                <p class="user_name">
+                                    {{ $user->name}}
+                                    {{ $user->email}}
+                                </p>
+                            </a>
+    　                      @if($user->owner!=null)
+                                <p class="owner_user">OWNER</p>
+                            @endif
+                            @if($user->owner=null)
+                                <p class="owner_user">USER</p>
+                            @endif
+                            @endauth
+                        </div>
+
                   </div>
                 </section>
             </div>
-            <div class="header_format">
+            <div class="header_format" id="store">
                 @foreach($store_formats as $store_format)
                 <div class="store_format">
                 <a href="/posts/format_store/{{ $store_format->id }}" style="color:inherit;text-decoration:none;"><h1>{{$store_format->name}}</h1></a>
@@ -100,11 +107,15 @@
                 </a>
             </div>
 
+            @if($user->id ===1)
             <div>
                 <a href="/posts/owners" style="color:inherit;text-decoration:none;">
                     <p>店舗登録予定</p>
                 </a>
+
+
             </div>
+            @endif
 
             <div>
                 <a href='/show/brand' style="color:inherit;text-decoration:none;">
@@ -117,6 +128,15 @@
                     <p>ストア一覧</p>
                 </a>
             </div>
+
+
+            @if($user->owner !=null)
+                <div>
+                    <a href="/posts/store/edit/{{$user->id}}" style="color:inherit;text-decoration:none;">
+                        <p>運営店舗編集</p>
+                    </a>
+                </div>
+            @endif
         </div>
     </footer>
 </div>

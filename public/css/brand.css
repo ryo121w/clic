@@ -1,5 +1,17 @@
 #main{
     max-width:980px;
     margin: 0px auto;
-    height:600px;
+    height:3000px;
+    padding-top: 150px;
+}
+
+.brand_flex{
+    display: flex;
+    flex-wrap:wrap;
+}
+
+.brand_flex p {
+
+    margin: 0px;
+    padding-right: 20px;
 }

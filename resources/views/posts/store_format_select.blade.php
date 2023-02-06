@@ -11,7 +11,7 @@
             </ul>
         </nav>
     </div>
-     <h1>全国のセレクトショップ</h1>
+     <h1 class="title">全国のSELCTストア</h1>
 
 
 

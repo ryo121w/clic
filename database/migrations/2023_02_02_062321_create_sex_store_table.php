@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('sex_store', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('sex_id')->constrained('sex');
-            $table->foreignId('store_id')->constrained('stores');
+            $table->foreignId('sex_id')->constrained('sex')->onDelete('cascade');
+            $table->foreignId('store_id')->constrained('stores')->onDelete('cascade');
             $table->timestamps();
         });
     }

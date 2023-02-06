@@ -11,7 +11,7 @@
             </ul>
         </nav>
     </div>
-     <h1>全国のストア</h1>
+     <h1 class="title">{{ $prefecture->name }}のストア</h1>
 
 
 

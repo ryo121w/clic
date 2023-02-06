@@ -10,7 +10,31 @@ ul {
 
 /* header */
 #header {
-    background-color: rgba(201, 202, 203, 0.343);
+    background-color: rgba(239, 239, 239,1);
+    position: fixed;
+    width:100%;
+    box-sizing: border-box;
+    z-index: 999;
+    top: 0;
+    left: 0;
+}
+
+#header.scroll {
+  position: fixed;
+  height: 80px;
+}
+#store.scroll{
+    position: relative;
+    bottom:45px;
+}
+
+@keyframes anime {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .header {
@@ -35,7 +59,7 @@ ul {
 }
 
 .header_login{
-    width:300px;
+    width:400px;
     display: flex;
     justify-content:center;
 }
@@ -110,6 +134,13 @@ ul {
     margin-left: 20px;
     margin-right:20px;
     padding-top: 10px;
+    position: relative;
+    right:5px;
+}
+
+.book input{
+    width:15px;
+    font-weight: bold;
 }
 
 .login{
@@ -119,6 +150,7 @@ ul {
 .login p {
     font-size:12px;
     padding-top: 10px;
+    font-weight: bold
 }
 
 .register{
@@ -129,8 +161,18 @@ margin-right: 10px;
 .register p{
     font-size:12px;
     padding-top: 10px;
+    font-weight:bold;
 }
 
 .user_icon{
     padding-top: 11px;
+}
+
+.owner_user{
+    margin:0px;
+    font-weight: bold;
+    position: relative;
+    bottom:10px;
+    right:20px;
+    font-size:5px;
 }

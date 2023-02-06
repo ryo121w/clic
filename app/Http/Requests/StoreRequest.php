@@ -28,9 +28,11 @@ class StoreRequest extends FormRequest
            'store.body' =>'required | max:500',
            'image' => 'required',
            'sex' => 'required',
-           'image' => 'required',
-           'store.phone' => 'required | max:12',
-           'store.bulding' => 'unrequired',
+           'image' => 'required|max:1600|mimes:jpeg,png,jpg,pdf',
+           'store.phone' => 'required | min:10|max:12',
+           'store.bulding' => 'nullable',
+           'store.zip' => 'required | max:7',
+           'store.house_number' => 'required',
 
         ];
 
@@ -45,6 +47,8 @@ class StoreRequest extends FormRequest
         'sex' => 'ターゲットの性別',
         'brands_array[]' => 'ブランド',
         'store.phone' => '電話番号',
+        'store.zip' => '郵便番号',
+        'store.house_number' => '番地',
 
     ];
    }

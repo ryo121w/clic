@@ -8,8 +8,19 @@ ul {
 }
 
 /* main */
+
+.red{
+    color:red;
+}
 .main {
     max-width: 980px;
+    margin: 0 auto;
+    padding-top: 150px;
+
+}
+.main_2{
+    max-width: 980px;
+    margin-top: 100px;
     margin: 0 auto;
 }
 .main_gender  {
@@ -29,6 +40,164 @@ ul {
 }
 .all p:hover{
     opacity: 0.6;
+}
+
+.main_search{
+    margin-bottom: 60px;
+    margin-top: 60px;
+}
+
+.scroll_main{
+    margin:0 auto;
+    position: relative;
+    width:100%;
+    height:140vw;
+    top:400px;
+}
+
+.scroll_flex_2{
+    width:50%;
+    position: relative;
+    bottom:300px;
+}
+
+.scroll_flex_2 h1 {
+    font-size:4vw;
+    margin:0px;
+}
+
+.scroll_flex_2 h2{
+    font-size:3vw;
+    margin:0px;
+}
+
+.scroll_flex_2 ul li{
+    margin-bottom: 40px;
+    text-align: center;
+    border-radius: 50px;
+    border:2px solid rgba(0,255,141,1);
+    position: relative;
+    left: 40%;
+    width:200px;
+}
+
+.scroll_flex_2 ul li h3{
+    margin:0 auto;
+    padding: 13px;
+}
+
+.scroll_flex_3{
+    width:50%;
+}
+
+.scroll_flex_3{
+    width:50%;
+}
+
+.scroll_flex_3 h1 {
+    font-size:4vw;
+    margin:0px;
+
+}
+
+.scroll_flex_3 h2{
+    font-size:3vw;
+    margin:0px;
+
+}
+
+.scroll_flex_3 ul li{
+    margin-bottom: 40px;
+    text-align: center;
+    border-radius: 50px;
+    border:2px solid rgba(0,255,141,1);
+    position: relative;
+    left: 40%;
+    width:200px;
+}
+
+.scroll_flex_2 ul li h3{
+    margin:0 auto;
+    padding: 13px;
+}
+
+.flex_1{
+    display: flex;
+    justify-content:space-between;
+}
+
+.flex_2{
+    display: flex;
+    justify-content:space-between;
+}
+
+
+
+
+
+
+
+.scroll_flex{
+    display: flex;
+    justify-content:center;
+    height:500px;
+    margin-bottom: 200px;
+}
+
+.scroll_up {
+  width:100%;
+  transition: 0.8s ease-in-out;
+  transform: translateY(30px);
+  opacity: 0;
+  bottom:300px;
+  margin-bottom: 300px;
+
+}
+.scroll_up.on {
+  transform: translateY(0);
+  opacity: 1.0;
+}
+
+.title_clic h1{
+    font-size: 20vw;
+    position: relative;
+    margin:0px;
+}
+
+.explanation h2{
+    font-size: 5vw;
+    margin-bottom: 30px;
+    margin-top: 30px
+}
+
+.clothing{
+    transition-delay: .2s;
+}
+
+.information{
+    transition-delay: .4s;
+}
+
+.center{
+    transition-delay: .6s;
+}
+
+.clic_title{
+    transition-delay: 1.2s;
+}
+
+.clic_title_2{
+    transition-delay: 1.4s;
+}
+.clic_title_3{
+    transition-delay: 1.6s;
+}
+
+.clic_title_4{
+    transition-delay: 1.8s;
+}
+.title_clic{
+    max-width:100%;
 }
 
 
@@ -99,12 +268,12 @@ ul {
 }
 
 .swiper-title{
-    width:200px;
-    height: 80px;
+    width:100%;
+    height: 95px;
     position: relative;
     bottom:100px;
-    background-color: rgba(66, 59, 59, 0.8);
-    border-radius: 30px
+    background-color: rgba(1,1,1,0.7);
+    border-radius: 0px 0px 10px 10px;
 }
 
 .swiper-title h1  {
@@ -115,6 +284,10 @@ ul {
 .swiper-title h2 {
     color: #fff;
     margin: 0px;
+    font-family: "MSゴシック";
+    position: relative;
+    top:10px;
+    font-size:20px;
 }
 
 .swiper_pagination{
@@ -186,14 +359,17 @@ ul {
 .flixed_flex{
     display: flex;
     justify-content:space-between;
-    margin-bottom:40px;
+
+
+
+
 }
 
 /*スクロール*/
 .cd-fixed-bg {
     /*max-width: 1200px !important;*/
     width: 49%;
-    height:800px;
+    height:50vw;
     position: relative;
     min-height: 100%;
     background-size: cover;
@@ -211,19 +387,22 @@ ul {
 
 /*--固定背景01--*/
 .cd-fixed-bg.cd-bg-1  {
+
   background-image: url('/img/yamagata-jpg-1655185796.jpeg');
 }
 
 .cd-fixed-bg.cd-bg-1 h1{
     position:relative;
-    top:800px;
+
     font-family: "Sawarabi Minchoi";
 }
 
 
 .cd-fixed-bg.cd-bg-2{
-   margin-top: 450px;
    background-image: url('/img/tumblr_otxlwgmmzI1taz8xlo1_1280.jpeg');
+   position:relative;
+   bottom:300px;
+
 }
 
 .cd-fixed-bg.cd-bg-2 h1{
@@ -248,3 +427,5 @@ ul {
     margin-top: 0px;
     font-size:8px;
 }
+
+
