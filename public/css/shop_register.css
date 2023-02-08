@@ -174,14 +174,12 @@ button{
   padding: 24px;
   border-radius: 10px;
   position: fixed;
-  top: 10%;
+  top: 15%;
   left: 15%;
   right: 10%;
   text-align: center;
   margin: 0 auto;
   z-index: 2;
-
-
 }
 
 #map{
@@ -219,7 +217,7 @@ button{
 }
 
 .modal_scroll{
-     height:1000px;
+     height:800px;
      overflow: scroll;
 }
 

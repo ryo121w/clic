@@ -1,8 +1,11 @@
 
 <x-app :store-formats="$store_formats" :user="$user">
 <link rel="stylesheet" href="{{ asset('/css/shop_register.css')}}">
-
+    <div class="back_button">
+        <button type="button" onClick="history.back()" class="back"><img src="{{ asset('/img/left.png')}}" width="20px" height="20px"></button>
+    </div>
 <main id="main">
+
     <h2 class="store_register">店舗登録フォーム</h2>
     <form action="/posts/upload/{{ $user->id }}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -159,21 +162,6 @@
                     </div>
                 </div>
             </div>
-
-
-                @if($errors->has('store.prefecture_id'))
-                <div><p style="color:red">{{ $errors->first('store.prefecture_id') }}</p></div>
-                @endif
-
-
-
-
-
-
-                <br>
-                @if($errors->has('brands_array[]'))
-                <div><p style="color:red">{{ $errors->first('brands_array[]') }}</p></div>
-                @endif
             </div>
 
         <div class="phone_flex">
@@ -182,8 +170,9 @@
         </div>
         <input type="text" name="store[phone]"  placeholder="08012345678" class="phone_text" size="20" value="{{old('store.phone')}}" >
         @if($errors->has('store.phone'))
-        <div><p style="color:red" class="error">{{ $errors->first('store.phone') }}</p></div>
+            <div class="house_number_error"><p style="color:red" class="error">{{ $errors->first('store.phone') }}</p></div>
         @endif
+
         <br>
 
         </div>
@@ -242,26 +231,6 @@
        </script>
 
        <script>
-               $('#brand_store').on('click', function(){
-               var brand = [];
-               var brand =$('#brand_array').val();
-                var request = $.ajax({
-                    type: 'GET',
-                    url: '/posts/store/' + brand + '/brand-array',
-                    cache: false,
-                    dataType: 'json',
-                    timeout: 3000
-                });
 
-                request.done(function(data){
-
-                });
-
-
-                request.fail(function(){
-                    alert("通信に失敗しました");
-                });
-
-            });
        </script>
 </x-app>

@@ -23,10 +23,12 @@ class Store_RegisterController extends Controller
 {
     public function showStore(Store $store,Request $request )
     {
-        $store = Store::all();
+        $store = Store::paginate(5);
+
         $store_id =Store::find('id');
         $store_format = StoreFormat::all();
         $user = Auth::user();
+
         return view ('posts/store')->with(['stores' => $store, 'store_id' => $store_id, 'store_formats' => $store_format, 'user' => $user]);
     }
 
@@ -119,10 +121,25 @@ class Store_RegisterController extends Controller
                                                  'store_formats' =>$store_format]);
     }
 
-    public function holderStore(Request $request, Store $store, User $user)
+    public function holderStore(Store $store)
     {
-        $store->users()->attach(Auth::id());
-        return redirect('/posts/store');
+        $user_id = Auth::id();
+        if($store->users($user_id)->exists()){
+
+        }else{
+            $store->users()->attach(Auth::id());
+        }
+
+    }
+
+    public function holderDeleteStore(Store $store)
+    {
+        $user_id = Auth::id();
+        if($store->users($user_id)){
+        $store->users()->detach(Auth::id());
+        }else{
+
+        }
     }
 
     public function holdStore(Store $store, User $user, Holder $holder)

@@ -97,6 +97,8 @@ Route::post('/posts/holder/{store}', [Store_RegisterController::class, 'holderSt
 // 保存したストア一覧
 Route::get('/posts/holder/{user_id}', [Store_RegisterController::class, 'holdStore']);
 
+Route::post('/posts/holder/delete/{store}',[Store_RegisterController::class, 'holderDeleteStore']);
+
 
 Route::get('/posts/rank', [RankController::class, 'rankStore']);
 

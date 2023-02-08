@@ -1,8 +1,13 @@
 
-    <x-app :store-formats="$store_formats" :user="$user">
-    <link rel="stylesheet" href="{{ asset('/css/store_detail.css')}}">
+<x-app :store-formats="$store_formats" :user="$user">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/2b0c0a97c9.css" crossorigin="anonymous">
+<link rel="stylesheet" href="{{ asset('/css/store_detail.css')}}">
+<div class="back_button">
+    <button type="button" onClick="history.back()" class="back"><img src="{{ asset('/img/left.png')}}" width="20px" height="20px"></button>
+</div>
 
     <main id="main">
+
         <div class="position_flex">
            <nav>
                 <ul>
@@ -49,15 +54,63 @@
 　　          　　　</section>
         　　</div>
 
+
+
+        <div class="function_holder_share">
             <div class="function_holder">
-                <form method="POST" action="/posts/holder/{{ $store->id }}" >
-                     @csrf
+
                     <div class="book_mark">
-                        <input type="image" src="{{ asset('/img/book.gif')}}" border="0" width="15px" height="25px">
+                        <button type="button" id="add_star" class="star_before">
+                            <img src="{{ asset('/img/star_close_24.png')}}" border="0" width="25px" height="25px">
+                        </button>
+
+                        <button type="button" id="remove_star" class="star_hide">
+                            <img src="{{ asset('/img/star_close_24.png')}}" border="0" width="25px" height="25px">
+                        </button>
                     </div>
-               </form>
-           </div>
-       </div>
+
+            </div>
+
+            <!--<form method="POST" action="/posts/holder/{{ $store->id }}" >-->
+            <!--</form>-->
+
+
+
+
+
+
+
+        <div class="modal_wrapper">
+            <div class="btn-container2">
+                <button id="btn2" type="button"><img src="{{ asset('/img/share_icon_124864.png')}}" width="25px" height="25px"></button>
+            </div>
+
+            <div id="mask2" class="hidden"></div>
+                <section id="modal2" class="hidden">
+                    <div class="show_share">
+                        <ul>
+                            <!--フェイスブック-->
+                            <li>
+                                <a href="http://www.facebook.com/share.php?u={URL}" rel="nofollow noopener" target="_blank" style="color:inherit;text-decoration:none;"><i class="fa-brands fa-facebook"></i></a>
+                            </li>
+                            <!--ツイッター-->
+                            <li>
+                                <a href="https://twiter.com/share?url={URL}" rel="nofollow noopener" target="_blank" style="color:inherit;text-decoration:none;"><i class="fa-brands fa-twitter"></i></a>
+                            </li>
+                            <!--ライン-->
+                            <li>
+                                <a href="http://line.me/R/msg/text/?{URL}%0a{ページのタイトルなど表示したいテキスト}" target="_blank" rel="nofollow noopener" style="color:inherit;text-decoration:none;"><i class="fa-brands fa-line"></i></a>
+                            </li>
+                            <!--ポケット-->
+                            <li>
+                                <a href="http://getpocket.com/edit?url={URL}&title={ページのタイトル}" rel="nofollow" rel="nofollow" target="_blank" style="color:inherit;text-decoration:none;"><i class="fa-brands fa-get-pocket"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
 
 
     <div class="store_detail">
@@ -118,7 +171,11 @@
 
     <p>{{ $store->body }}</p>
 
-　　<script src="{{ asset('/js/address.js') }}"></script>
+
+
+　　<script src="{{ asset('/js/detail.js') }}"></script>
+　　<script src="https://kit.fontawesome.com/2b0c0a97c9.js" crossorigin="anonymous"></script>
+　　<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyAusOJIKGrHp7iHGSHSnM-jCvBl6Zm1B3k&callback=initMap" async defer></script>
 	<script >
          function initMap() {
@@ -158,7 +215,56 @@
           });
         }
 	</script>
+	<script>
+	    const before = document.getElementById('add_star');
+	    const after = document.getElementById('remove_star');
 
+	    before.addEventListener('click', () => {
+	        after.classList.remove('star_hide');
+	        before.classList.add('star_hide');
+	    })
+
+	    after.addEventListener('click', () => {
+	        before.classList.remove('star_hide');
+	        after.classList.add('star_hide');
+	    })
+
+
+	</script>
+	<script>
+               $('#add_star').on('click', function(){
+               var store = {{ $store->id }}
+               var request = $.ajax({
+                    type: 'POST',
+                    headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                                'Content-Type': 'application/json'
+                                },
+                    url: '/posts/holder/' + store ,
+                    cache: false,
+                    dataType: 'json',
+                    timeout: 3000
+                });
+
+            });
+	</script>
+	<script>
+               $('#remove_star').on('click', function(){
+               var store = {{ $store->id }}
+               var request = $.ajax({
+                    type: 'POST',
+                    headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                                'Content-Type': 'application/json'
+                                },
+                    url: '/posts/holder/delete/' + store ,
+                    cache: false,
+                    dataType: 'json',
+                    timeout: 3000
+                });
+
+            });
+    </script>
     </main>
     </x-app>
 

@@ -1,8 +1,11 @@
 
 <x-app :store-formats="$store_formats" :user="$user">
 <link rel="stylesheet" href="{{ asset('/css/store.css') }}">
+<div class="back_button">
+    <button type="button" onClick="history.back()" class="back"><img src="{{ asset('/img/left.png')}}" width="20px" height="20px"></button>
+</div>
  <main id="main">
-    <div class="position_flex">
+   <div class="position_flex">
         <nav>
             <ul>
                 <li><a href="/" style="color:inherit;text-decoration:none;"><p>TOP</p></a></li>

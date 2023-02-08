@@ -55,7 +55,7 @@
 
                         <div class="book">
                             <a href="/posts/holder/{{ $user->id }}" style="color:inherit;text-decoration:none;">
-                                <input type="image" src="{{ asset('/img/star_close_24.png')}}" border="0" width="10px" height="15px">
+                                <input type="image" src="{{ asset('/img/ei-bookmark.png')}}" border="0" width="10px" height="15px">
                             </a>
                         </div>
 
@@ -90,8 +90,6 @@
             </div>
         </header>
     </div>
-
-
 
 
     {{ $slot }}

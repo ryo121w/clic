@@ -64,6 +64,8 @@
                     </div>
                 </div>
             </div>
+
+
             <div class="scroll_flex">
                 <div class="scroll_up">
                     <div class="title_clic">
@@ -95,17 +97,17 @@
               <h1 class="scroll_up clic_title">クリックは、<br>皆様に"お気に入りストア"<br>を届ける</h1>
               <h2 class="scroll_up clic_title_2">クリックは全国にあるファッションストアをまとめ、<br>皆様のお気に入りストア探しのお手伝いをさせていただきます</h2></h2>
               <ul>
-                    <li>
+                    <li class="scroll_up a">
                         <a href="/search/area" style="color:inherit;text-decoration:none;">
                             <h3>エリアから探す</h3>
                         </a>
                     </li>
-                    <li>
+                    <li class="scroll_up b">
                         <a href="/search/category" style="color:inherit;text-decoration:none;">
                             <h3>ブランドから探す</h3>
                         </a>
                     </li>
-                    <li>
+                    <li class="scroll_up c">
                         <a href="/posts/rank" style="color:inherit;text-decoration:none;">
                             <h3>ランキングから探す</h3>
                         </a>
@@ -121,20 +123,21 @@
 
 <div class="flex_2">
             <div class="scroll_flex_3">
-                  <h2 class="scroll_up clic_title_4">あんなストア<br>やこんなストアさあ始めよう</h2>
-                  <h1 class="scroll_up clic_title_3">全国には<br>あなたの知らない<br>ストアがたくさん</h1>
+                  <h2 class="scroll_up clic_title_3">初めていくストアはどこか入りにくいと感じる<br>そんな経験をしたことはありませんか？<br>クリックはそんな不安をなくし、”最高のストア選択体験を”</h2>
+
+                  <h1 class="scroll_up clic_title_4">さあ、始めよう</h1>
                  <ul>
-                    <li>
+                    <li class="scroll_up w">
                         <a href="/search/area" style="color:inherit;text-decoration:none;">
                             <h3>エリアから探す</h3>
                         </a>
                     </li>
-                    <li>
+                    <li class="scroll_up q">
                         <a href="/search/category" style="color:inherit;text-decoration:none;">
                             <h3>ブランドから探す</h3>
                         </a>
                     </li>
-                    <li>
+                    <li class="scroll_up l">
                         <a href="/posts/rank" style="color:inherit;text-decoration:none;">
                             <h3>ランキングから探す</h3>
                         </a>

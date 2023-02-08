@@ -51,28 +51,36 @@ ul {
     margin:0 auto;
     position: relative;
     width:100%;
-    height:140vw;
-    top:400px;
+
 }
 
 .scroll_flex_2{
     width:50%;
+    height:10vw;
     position: relative;
-    bottom:300px;
+    bottom:15vw;
+    padding:20px;
+
 }
 
 .scroll_flex_2 h1 {
+
     font-size:4vw;
     margin:0px;
 }
 
 .scroll_flex_2 h2{
-    font-size:3vw;
+    color:rgba(70,70,70,1);
+    font-size:2vw;
     margin:0px;
 }
 
+.scroll_flex_2 ul{
+    height:3vw;
+}
+
 .scroll_flex_2 ul li{
-    margin-bottom: 40px;
+    margin-bottom: 1vw;
     text-align: center;
     border-radius: 50px;
     border:2px solid rgba(0,255,141,1);
@@ -88,6 +96,8 @@ ul {
 
 .scroll_flex_3{
     width:50%;
+    height:10vw;
+    padding:20px;
 }
 
 .scroll_flex_3{
@@ -101,13 +111,18 @@ ul {
 }
 
 .scroll_flex_3 h2{
-    font-size:3vw;
+    color:rgba(70,70,70,1);
+    font-size:2vw;
     margin:0px;
 
 }
 
+.scroll_flex_3 ul {
+    height:3vw;
+}
+
 .scroll_flex_3 ul li{
-    margin-bottom: 40px;
+    margin-bottom: 1vw;
     text-align: center;
     border-radius: 50px;
     border:2px solid rgba(0,255,141,1);
@@ -141,15 +156,13 @@ ul {
     display: flex;
     justify-content:center;
     height:500px;
-    margin-bottom: 200px;
+    margin-bottom: 25vw;
 }
 
 .scroll_up {
-  width:100%;
   transition: 0.8s ease-in-out;
   transform: translateY(30px);
   opacity: 0;
-  bottom:300px;
   margin-bottom: 300px;
 
 }
@@ -159,8 +172,10 @@ ul {
 }
 
 .title_clic h1{
-    font-size: 20vw;
+    width:50%;
+    font-size: 15vw;
     position: relative;
+    top:4vw;
     margin:0px;
 }
 
@@ -187,15 +202,70 @@ ul {
 }
 
 .clic_title_2{
-    transition-delay: 1.4s;
+    transition-delay: 1.2s;
 }
 .clic_title_3{
-    transition-delay: 1.6s;
+    transition-delay: 1.4s;
 }
 
 .clic_title_4{
-    transition-delay: 1.8s;
+    transition-delay: 1.6s;
 }
+
+.a{
+    transition-delay: .4s;
+}
+
+.a:hover{
+    background-color: rgba(0,255,141,1)
+}
+
+.b{
+    transition-delay: .6s;
+}
+
+.b:hover{
+    background-color: rgba(0,255,141,1)
+}
+
+.c{
+    transition-delay: .8s;
+}
+
+.c:hover{
+    background-color: rgba(0,255,141,1)
+}
+
+
+.w{
+    transition-delay: .4s;
+}
+
+.w:hover{
+    background-color: rgba(0,255,141,1)
+}
+
+.q{
+    transition-delay: .6s;
+}
+
+.q:hover{
+    background-color: rgba(0,255,141,1)
+}
+
+
+.l{
+    transition-delay: .8s;
+}
+
+.l:hover{
+    background-color: rgba(0,255,141,1)
+}
+
+
+
+
+
 .title_clic{
     max-width:100%;
 }
@@ -401,13 +471,12 @@ ul {
 .cd-fixed-bg.cd-bg-2{
    background-image: url('/img/tumblr_otxlwgmmzI1taz8xlo1_1280.jpeg');
    position:relative;
-   bottom:300px;
+   bottom: 15vw;
 
 }
 
 .cd-fixed-bg.cd-bg-2 h1{
-    position: relative;
-    bottom:300px;
+
 }
 
 .fixed_title{
@@ -426,6 +495,19 @@ ul {
     margin-left:10px;
     margin-top: 0px;
     font-size:8px;
+}
+
+.back_button{
+    width:100%;
+    margin:0 auto;
+    max-width: 980px;
+}
+
+.back{
+    position: relative;
+    top:140px;
+    border: none;
+    background: transparent;
 }
 
 

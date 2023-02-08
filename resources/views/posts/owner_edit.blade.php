@@ -1,7 +1,9 @@
 
 <x-app :store-formats="$store_formats" :user="$user">
 <link rel="stylesheet" href="{{ asset('/css/shop_register.css')}}">
-
+<div class="back_button">
+    <button type="button" onClick="history.back()" class="back"><img src="{{ asset('/img/left.png')}}" width="20px" height="20px"></button>
+</div>
 <main id="main">
     <h2 class="store_register">店舗登録フォーム</h2>
     <form action="/posts/upload/{{ $user->id }}" method="POST" enctype="multipart/form-data">

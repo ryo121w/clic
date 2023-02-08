@@ -15,6 +15,9 @@
 
 <body>
      <main id="main">
+                     <div class="back_button">
+                <button type="button" onClick="history.back()" class="back"><img src="{{ asset('/img/left.png')}}" width="20px" height="20px"></button>
+            </div>
     <div class="position_flex">
         <nav>
             <ul>

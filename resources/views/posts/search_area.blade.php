@@ -3,7 +3,9 @@
     <link rel="stylesheet" href="{{ asset('/css/store.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/search_area.css') }}">
 
-
+<div class="back_button">
+    <button type="button" onClick="history.back()" class="back"><img src="{{ asset('/img/left.png')}}" width="20px" height="20px"></button>
+</div>
 <main id="main">
     <div class="allPref">
         <div class="hokkido">

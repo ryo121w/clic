@@ -87,6 +87,17 @@ class Store extends Model
     }
 
 
+    public function isLike($postId)
+    {
+      return $this->users()->where('store_id',$storeId)->exists();
+    }
+
+   public function getByLimit(int $limit_count = 5)
+   {
+       return $this->limit($limit_count)->get();
+   }
+
+
 
 
 
