@@ -12,7 +12,7 @@ class BrandController extends Controller
 {
     public function showBrand(Brand $brand)
     {
-        $brand = Brand::all();
+        $brand = Brand::paginate(100);
         $u = Auth::user();
         $e = StoreFormat::all();
         return view('posts/brand')->with(['brands' => $brand,'store_formats' => $e,'user'=>$u]);

@@ -147,6 +147,8 @@ Route::get('/city/{prefecture}', [PrefectureController::class, 'searchDetail']);
 
 Route::get('/posts/store/{brand}/brand-array', [Store_RegisterController::class, 'getStoreBrand']);
 
+Route::get('/posts/thank', [Store_RegisterController::class, 'thank']);
+
 
 
 

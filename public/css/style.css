@@ -510,4 +510,20 @@ ul {
     background: transparent;
 }
 
+.page-link{
+    padding:10px;
+    font-size:25px;
+}
+.pagination{
+    width:500px;
+    display: flex;
+    justify-content:center;
+    max-width:980px;
+    margin:0 auto;
 
+}
+
+.pagination a {
+    color:inherit;
+    text-decoration: none;
+}

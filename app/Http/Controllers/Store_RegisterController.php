@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StoreRequest;
+use App\Http\Requests\OwnerRequest;
 use App\Models\Store;
 use App\Models\Prefecture;
 use App\Models\Brand;
@@ -24,7 +25,6 @@ class Store_RegisterController extends Controller
     public function showStore(Store $store,Request $request )
     {
         $store = Store::paginate(5);
-
         $store_id =Store::find('id');
         $store_format = StoreFormat::all();
         $user = Auth::user();
@@ -82,7 +82,7 @@ class Store_RegisterController extends Controller
         $store->sexes()->attach($input_sex);
         $store->products()->attach($input_product);
         $store->owner()->attach($owner_id);
-        return redirect()->route('showStore');
+        return redirect('/posts/thank');
     }
 
     public function showSarch(Request $request, Store $store,)
@@ -125,11 +125,9 @@ class Store_RegisterController extends Controller
     {
         $user_id = Auth::id();
         if($store->users($user_id)->exists()){
-
         }else{
             $store->users()->attach(Auth::id());
         }
-
     }
 
     public function holderDeleteStore(Store $store)
@@ -138,7 +136,6 @@ class Store_RegisterController extends Controller
         if($store->users($user_id)){
         $store->users()->detach(Auth::id());
         }else{
-
         }
     }
 
@@ -146,13 +143,13 @@ class Store_RegisterController extends Controller
     {
         $user=Auth::user();
         $store_format = StoreFormat::all();
+        $store = Store::paginate(5);
         return view('posts/store_holder')->with(['stores' => $store, 'user' => $user, 'store_formats' => $store_format]);
     }
 
     public function getAddressByPostalCode($postalcode)
     {
         $addresses = Address::where('zip', $postalcode)->first();
-
         return response()->json($addresses);
     }
 
@@ -165,13 +162,13 @@ class Store_RegisterController extends Controller
 
     }
 
-    public function storeOwner(Request $request, Owner $owner)
+    public function storeOwner(OwnerRequest $request, Owner $owner)
     {
         $user = Auth::user();
         $input = $request['owner'];
         $input += ['user_id' => $user->id];
         $owner->fill($input)->save();
-        return redirect('/');
+        return redirect('/posts/thank');
     }
 
 
@@ -238,7 +235,11 @@ class Store_RegisterController extends Controller
 
 
 
-
+    public function thank ()
+{       $u = Auth::user();
+        $e = StoreFormat::all();
+        return view('posts/thank')->with(['user' => $u, 'store_formats' => $e]);
+    }
 
 
 

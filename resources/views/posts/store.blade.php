@@ -73,8 +73,11 @@
         </div>
           @endforeach
       </div>
-      <div>
-      {{ $stores->links() }}
-      </div>
+      <br>
+
+
+        <div class="bootstrap">
+            {{ $stores->links() }}
+        </div>
     </main>
 </x-app>
