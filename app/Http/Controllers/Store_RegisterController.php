@@ -24,12 +24,12 @@ class Store_RegisterController extends Controller
 {
     public function showStore(Store $store,Request $request )
     {
-        $store = Store::paginate(5);
-        $store_id =Store::find('id');
+        $store = Store::paginate(1);
+        $store_id = Store::find('id');
         $store_format = StoreFormat::all();
         $user = Auth::user();
-
-        return view ('posts/store')->with(['stores' => $store, 'store_id' => $store_id, 'store_formats' => $store_format, 'user' => $user]);
+        return view ('posts/store')->with(['stores' => $store, 'store_id' => $store_id, 'store_formats' => $store_format,
+                                            'user' => $user]);
     }
 
 // 店舗登録フォーム
@@ -115,10 +115,11 @@ class Store_RegisterController extends Controller
 
     public function storeDetail(User $user,Store $store, Review $review,){
         $review_star = $store->reviews->avg('stars');
+        $review_math = floor($review_star);
         $user = Auth::user();
         $store_format = StoreFormat::all();
         return view('posts/store_detail')->with(['store' => $store, 'user' =>$user,'user' => $user, 'star' => $review_star,
-                                                 'store_formats' =>$store_format]);
+                                                 'store_formats' =>$store_format,'review_math' => $review_math]);
     }
 
     public function holderStore(Store $store)
@@ -143,7 +144,7 @@ class Store_RegisterController extends Controller
     {
         $user=Auth::user();
         $store_format = StoreFormat::all();
-        $store = Store::paginate(5);
+        $store = Store::paginate(2);
         return view('posts/store_holder')->with(['stores' => $store, 'user' => $user, 'store_formats' => $store_format]);
     }
 

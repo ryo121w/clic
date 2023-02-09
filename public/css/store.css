@@ -57,6 +57,7 @@
     font-size: 10px;
     margin-bottom: 0px;
     margin-top: 0px;
+    font-weight:bold;
 }
 
 .detailAddress{
@@ -85,6 +86,7 @@
     font-size: 10px;
     margin-bottom: 0px;
     margin-top: 0px;
+    font-weight:bold;
 }
 
 
@@ -93,6 +95,7 @@
     font-size: 10px;
     margin-bottom: 0px;
     margin-top: 10px;
+    font-weight:bold;
 }
 
 .sex{

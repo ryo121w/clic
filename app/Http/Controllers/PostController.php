@@ -40,8 +40,6 @@ class PostController extends Controller
         return view ('posts/index')->with(['stores' => $store, 'user' => $user,'store_formats' => $store_format,'sex_mens' => $sex_men,
         'sex_womens' => $sex_women,'owner'=>$owner, 'select' => $store_format_select,'used' => $store_format_used,
         'ec' => $store_format_ec]);
-
-
         }
 
 
@@ -59,25 +57,44 @@ class PostController extends Controller
       return view('posts/review_post')->with(['posts' => $post->get()]);
     }
 
-    public function menStore(User $user, Store $store, Sex $sex)
+    public function menStore(User $user, Store $store, Sex $sex, Review $review)
     {
         $sex_men = Sex::find($id=1);
         $sex_women = Sex::find($id=2);
         $user = Auth::user();
         $store_format = StoreFormat::all();
+        $store = Store::all();
+        foreach($store as $s)
+        {
+            $review_stars[] = $review->where('store_id', $s->id)->avg('stars');
+        }
+
+        $storeRank = $s->rankStar();
+        $store_format_select = $storeRank->where('store_format_id', 1)->all();
+        $store_format_used = $storeRank->where('store_format_id', 2)->all();
+        $store_format_ec = $storeRank->where('store_format_id', 3)->all();
         return view('posts/index_men')->with(['stores' => $store, 'user' => $user,'store_formats' => $store_format,'sex_mens' => $sex_men,
-        'sex_womens' => $sex_women]);
+        'sex_womens' => $sex_women,'sex' => $sex, 'select' => $store_format_select,'used' => $store_format_used,'ec' => $store_format_ec]);
     }
 
-    public function womenStore(User $user, Store $store, Sex $sex)
+    public function womenStore(User $user, Store $store, Sex $sex, Review $review)
     {
         $sex_men = Sex::find($id=1);
         $sex_women = Sex::find($id=2);
         $user = Auth::user();
         $store_format = StoreFormat::all();
+        $store = Store::all();
+        foreach($store as $s)
+        {
+            $review_stars[] = $review->where('store_id', $s->id)->avg('stars');
+        }
 
+        $storeRank = $s->rankStar();
+        $store_format_select = $storeRank->where('store_format_id', 1)->all();
+        $store_format_used = $storeRank->where('store_format_id', 2)->all();
+        $store_format_ec = $storeRank->where('store_format_id', 3)->all();
         return view('posts/index_women')->with(['stores' => $store, 'user' => $user,'store_formats' => $store_format,'sex_mens' => $sex_men,
-        'sex_womens' => $sex_women]);
+        'sex_womens' => $sex_women,'sex' => $sex, 'select' => $store_format_select,'used' => $store_format_used,'ec' => $store_format_ec]);
     }
 }
 ?>

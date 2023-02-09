@@ -42,11 +42,12 @@
 
                 <section class="header_flex">
                     <div class="header_login">
-                        <div class="login">
-                            <a href="{{ route('login') }}" style="color:inherit;text-decoration:none;">
-                                <p>ログイン</p>
-                            </a>
-                        </div>
+                        @auth
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button >ログアウト</button>
+                        </form>
+                        @endauth
 
                         <div class="register">
                             <a href="{{ route('register') }}" style="color:inherit;text-decoration:none;">
@@ -99,25 +100,19 @@
 
     <footer id="footer">
         <div class="footer_element">
-            <div class="footer_store_register">
-                <a href="/register/store/{{ $user->id }}" style="color:inherit;text-decoration:none;">
-                    <p>店舗登録</p>
-                </a>
-            </div>
-
-            <div>
-                <a href="/posts/owner/register/{{ $user->id }}" style="color:inherit;text-decoration:none;">
-                   <p>店舗会員登録</p>
-                </a>
-            </div>
+            @if($user->owner = null)
+                <div>
+                    <a href="/posts/owner/register/{{ $user->id }}" style="color:inherit;text-decoration:none;">
+                       <p>店舗会員登録</p>
+                    </a>
+                </div>
+            @endif
 
             @if($user->id ===1)
             <div>
                 <a href="/posts/owners" style="color:inherit;text-decoration:none;">
                     <p>店舗登録予定</p>
                 </a>
-
-
             </div>
             @endif
 
@@ -133,8 +128,14 @@
                 </a>
             </div>
 
+            <div class="footer_store_register">
+                <a href="/register/store/{{ $user->id }}" style="color:inherit;text-decoration:none;">
+                    <p>店舗登録</p>
+                </a>
+            </div>
 
-            @if($user->owner !=null)
+
+            @if($user->owner = 1)
                 <div>
                     <a href="/posts/store/edit/{{$user->id}}" style="color:inherit;text-decoration:none;">
                         <p>運営店舗編集</p>

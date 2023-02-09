@@ -18,7 +18,7 @@
 
 
                 <div class="gender_women">
-                 <a href="/posts/store/men/{{$sex_womens->id}}"><input type="image" src="{{asset('/img/girl_2.png')}}" width="10px" heith="15px"></a>
+                 <a href="/posts/store/women/{{$sex_womens->id}}"><input type="image" src="{{asset('/img/girl_2.png')}}" width="10px" heith="15px"></a>
                  <a href="/posts/store/women/{{$sex_womens->id}}" style="color:inherit;text-decoration:none;"><p>WOMEN</p></a>
                  </div>
 
@@ -26,14 +26,19 @@
                 <div class="container">
                     <div class="swiper infinite-slider">
                         <div class="swiper-wrapper">
+
                             @foreach ($stores as $store)
+
                             <div class="swiper-slide" href="">
                                 <img src="{{ $store->image_path }}" alt="画像が読み込めません。">
                                 <div class="swiper-title">
+                                    <a href="/posts/store/detail/{{$store->id}}" style="color:inherit;text-decoration:none;">
                                     <h2>{{ $store->prefecture->name }}</h2>
                                     <h1>{{ $store->name }}</h1>
+                                    </a>
                                 </div>
                             </div>
+
                             @endforeach
 
                         </div>
@@ -170,31 +175,37 @@
                 @if($store_format->id === 1)
                 <div class="flex_format">
                     @foreach($select as $store)
+                    <a href="/posts/store/detail/{{$store->id}}" style="color:inherit;text-decoration:none;">
                     <div class="select">
                     <img src="{{ $store->image_path }}" alt="画像が読み込めません。">
                     <p class="select_name">{{ $store->name }}</p>
                     <p>{{ $store->pref }}{{ $store->city }}</p>
                     </div>
+                    </a>
                     @endforeach
                 </div>
                 @elseif($store_format->id === 2)
                 <div class="flex_format">
                     @foreach($used as $store)
+                    <a href="/posts/store/detail/{{$store->id}}" style="color:inherit;text-decoration:none;">
                     <div class="select">
                     <img src="{{ $store->image_path }}" alt="画像が読み込めません。">
                     <p class="select_name">{{ $store->name }}</p>
                     <p>{{ $store->pref }}{{ $store->city }}</p>
                     </div>
+                     </a>
                     @endforeach
                 </div>
                 @elseif($store_format->id === 3)
                 <div class="flex_format">
                     @foreach($ec as $store)
+                    <a href="/posts/store/detail/{{$store->id}}" style="color:inherit;text-decoration:none;">
                     <div class="select">
                     <img src="{{ $store->image_path }}" alt="画像が読み込めません。">
                     <p class="select_name">{{ $store->name }}</p>
                     <p>{{ $store->pref }}{{ $store->city }}</p>
                     </div>
+                     </a>
                     @endforeach
                 </div>
                 @endif

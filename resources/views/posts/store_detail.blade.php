@@ -65,7 +65,7 @@
                         </button>
 
                         <button type="button" id="remove_star" class="star_hide">
-                            <img src="{{ asset('/img/star_close_24.png')}}" border="0" width="25px" height="25px">
+                            <img src="{{ asset('/img/red.png')}}" border="0" width="25px" height="25px">
                         </button>
                     </div>
 
@@ -128,12 +128,12 @@
 
             <div class="detail_star">
                 <div>
-                @if($store->stars===5)
-                    <h3 class="star_five">{{ str_repeat('★ ', $store->stars) }}</h3>
-                    @elseif($store->stars!==5)
+                @if($review_math===5)
+                    <h3 class="star_five">{{ str_repeat('★ ', $review_math) }}</h3>
+                    @elseif($review_math!==5)
                     <div>
-                        <h3 class="star_five">{{ str_repeat('★ ', $store->stars) }}
-                        {{ str_repeat('☆ ', (5-$store->stars)) }}</h3>
+                        <h3 class="star_five">{{ str_repeat('★ ', $review_math) }}
+                        {{ str_repeat('☆ ', (5-$review_math)) }}</h3>
                     </div>
                 @endif
                 </div>

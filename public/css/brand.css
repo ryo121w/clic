@@ -27,3 +27,7 @@
     margin:0px auto;
     max-width: 980px
 }
+
+.ifBrand p{
+    font-size:8px;
+}

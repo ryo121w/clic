@@ -54,9 +54,9 @@ class ReviewController extends Controller
 
     public function exeUpdate(ReviewRequest $request, Review $review)
     {
-    $input_review = $request['review'];
-    $review->fill($input_review)->save();
-    return redirect('/posts/review/'.$review->id);
+        $input_review = $request['review'];
+        $review->fill($input_review)->save();
+        return redirect('/posts/review/'.$review->id);
     }
 
     public function exeDelete(Review $review)
@@ -90,7 +90,7 @@ class ReviewController extends Controller
        $review_star = $review->where('store_id', $store->id)->avg('stars');
        $store->stars = $review_star;
        $store->save();
-       return redirect('/posts/store');
+       return redirect('/posts/thank');
     }
 
 
