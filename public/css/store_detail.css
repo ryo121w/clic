@@ -1,0 +1,310 @@
+#main{
+    max-width: 980px;
+    margin:0 auto;
+    height:800px;
+    padding-top: 150px;
+}
+.main_function_flex{
+    display: flex;
+    justify-content:space-between;
+    height:80px;
+
+}
+
+.main_functions{
+    display: flex;
+}
+.function_post{
+    margin-left:20px;
+}
+
+.function_review{
+    margin-left: 20px;
+}
+
+#add_star{
+    position:relative;
+    top:17px;
+    border-radius:20px;
+}
+#remove_star{
+    position:relative;
+    top:17px;
+    border-radius:20px;
+    background-color: red;
+}
+
+
+.foo{
+    background-color: #3fb811;
+
+}
+
+
+.store_name h1{
+    margin-top:0px;
+    margin-bottom: 0px;
+    margin-right: 20px;
+}
+
+.store_info{
+    width:400px;
+}
+
+.store_detail{
+
+    display: flex;
+    justify-content:space-between;
+}
+
+.store_img img{
+    width: 500px;
+    height: 350px;
+    border-radius: 10px;
+}
+
+.star_five{
+  font-size:25px;
+  margin-top:0px;
+  padding-top: 3px;
+  color: orange;
+
+}
+
+.btn-container {
+
+  position: relative;
+  bottom:8px;
+  height:56px;
+  width:130px;
+  margin-left: 20px;
+
+}
+
+#btn {
+  width: 120px;
+  height: 15px;
+  font-size: 15px;
+  color: rgba(0,105,255,0.9);
+  font-weight: bold;
+  cursor: pointer;
+
+}
+
+button{
+    border: none;
+    background: transparent;
+}
+
+button:hover {
+ opacity: 0.7;
+}
+
+.hidden {
+  display: none;
+}
+
+#mask {
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}
+
+#modal {
+  background: #fff;
+  width: 50%;
+  padding: 24px;
+  border-radius: 10px;
+  position: fixed;
+  top: 20%;
+  left: 10%;
+  right: 10%;
+  text-align: center;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+#map{
+    border-radius: 10px;
+    width:400px;
+    height:400px;
+    margin-right:30px;
+}
+
+
+.map_flex{
+    display: flex;
+    justify-content:center;
+}
+
+.phone_flex{
+    display: flex;
+    padding-top: 20px;
+    position: relative;
+    right: 20px;
+}
+
+.phone_flex img{
+    width:30px;
+    height:25px;
+    position:relative;
+    bottom:2px;
+    left: 10px;
+}
+
+.phone_flex p{
+    font-size: 15px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+
+
+.brand_flex{
+    display: flex;
+    flex-wrap:wrap;
+}
+
+.brand{
+    margin-top: 3px;
+    margin-bottom: 3px;
+    padding-right: 10px;
+}
+
+.etc {
+    font-size: 10px;
+    margin-top:10px;
+    margin-bottom: 0px;
+
+}
+
+.store_access{
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom:1px solid black;
+
+}
+
+.detail_star{
+    display: flex;
+    height:40px;
+}
+
+.star_math h1{
+    font-size: 30px;
+    font-weight: bold;
+    margin:0px;
+    padding-left: 25px;
+}
+
+.detail_address{
+    margin-top:20px;
+    margin-bottom: 20px;
+    font-weight: lighter;
+}
+
+.detail_brand{
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.show_gender{
+    margin-bottom: 0px;
+}
+
+.sex{
+    margin-top: 0px;
+}
+
+.store_format_detail{
+    padding-top: 20px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-size: 15px;
+}
+
+
+/*share_modal*/
+.hide{
+    display: none;
+}
+
+#mask2 {
+  background: rgba(0, 0, 0, 0);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+
+}
+
+
+#modal2 {
+  background: #fff;
+  width:100px;
+  height:20px;
+  border-radius: 10px;
+  position: fixed;
+  top:16%;
+  text-align: center;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+
+.show_share{
+    max-width: 980px;
+    margin:0 auto;
+    position:relative;
+    left:80px;
+    border-radius:20px;
+}
+
+.show_share ul {
+    display: flex;
+    position: relative;
+    border-radius: 20px;
+    border:1px solid rgba(0,255,141,1);
+    padding-left: 10px;
+
+}
+
+.show_share:hover{
+    background-color:rgba(0,255,141,1);
+}
+
+.show_share li {
+    margin-right: 5px;
+}
+
+.modal_wrapper{
+    width:300px;
+}
+
+.function_holder_share{
+    display:flex;
+    position:relative;
+    left:200px;
+
+
+
+}
+.btn-container2{
+    margin-left:10px;
+    position: relative;
+    top:16px;
+}
+
+
+
+.star_hide{
+    display: none;
+}
+
+

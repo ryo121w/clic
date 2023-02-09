@@ -1,0 +1,61 @@
+.main{
+    max-width: 980px;
+    margin:0 auto;
+    text-align: center;
+    position: relative;
+    height: 800px;
+    top:300px;
+}
+
+
+body{
+    background-color: rgba(231,231,231,0.8)
+}
+
+.main h1 {
+    font-weight: bold;
+    font-size: 70px;
+    margin-bottom: 0px;
+}
+
+.title{
+    margin-top: 10px;
+}
+
+.sub_title{
+    margin-bottom: 0px;
+}
+
+.main h4{
+    margin-top:0px;
+    position: relative;
+    bottom:20px;
+    margin-bottom: 50px;
+}
+
+.flex {
+    display: flex;
+    justify-content:center;
+}
+
+.login{
+    margin-right: 20px;
+}
+
+.login p{
+    margin-bottom: 0px;
+}
+
+.login_title{
+    font-size:15px;
+    border-bottom:1px solid black;
+}
+
+.new_user{
+    margin-top:10px;
+}
+
+.register{
+    margin-left:20px;
+}
+

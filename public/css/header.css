@@ -1,0 +1,179 @@
+body {
+    margin: 0;
+}
+
+ul {
+    list-style:none;
+}
+
+
+
+/* header */
+#header {
+    background-color: rgba(239, 239, 239,1);
+    position: fixed;
+    width:100%;
+    box-sizing: border-box;
+    z-index: 999;
+    top: 0;
+    left: 0;
+}
+
+#header.scroll {
+  position: fixed;
+  height: 80px;
+}
+#store.scroll h1{
+  margin-top:0px;
+  position:relative;
+  bottom:14px;
+}
+
+@keyframes anime {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.header {
+    max-width: 980px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+
+.header_flex {
+
+    display: flex;
+
+}
+
+.header_logo p{
+    padding-top: 2px;
+    padding-right: 10px;
+    margin: 0px;
+    font-weight:bold;
+}
+
+.header_login{
+    width:400px;
+    display: flex;
+    justify-content:center;
+}
+
+.header_login p {
+    margin:0px;
+    margin-left: 10px;
+
+}
+
+.header_format{
+    max-width: 980px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header_format h1{
+    border-bottom: 2px solid black;
+    margin-top:30px;
+    margin-bottom:0px;
+}
+
+.header_format h1:hover{
+    opacity: 0.6;
+}
+
+.header_title a {
+    margin-right: 20px;
+    margin-left: 20px;
+    border-bottom: 1px solid black;
+    text-align: center;
+
+}
+
+.header_search{
+    display: flex;
+}
+
+.search_bar input{
+    border:1px solid black;
+    border-radius: 10px;
+    padding:3px;
+}
+
+.search_icon input{
+    position:relative;
+    right: 20px;
+    width:10px;
+    height:10px;
+}
+
+
+.store_format{
+    width: 300px;
+    text-align: center;
+}
+
+.store_format h1{
+    font-size: 20px;
+}
+
+.user_icon img{
+    width: 20px;
+    height:20px;
+    border-radius: 170px;
+}
+
+.book{
+    width:8px;
+    height:10px;
+    margin-left: 20px;
+    margin-right:20px;
+    padding-top: 10px;
+    position: relative;
+    right:5px;
+}
+
+.book input{
+    width:15px;
+    font-weight: bold;
+}
+
+.login{
+    margin-right: 10px;
+}
+
+.login p {
+    font-size:12px;
+    padding-top: 10px;
+    font-weight: bold
+}
+
+.register{
+margin-left: 10px;
+margin-right: 10px;
+}
+
+.register p{
+    font-size:12px;
+    padding-top: 10px;
+    font-weight:bold;
+}
+
+.user_icon{
+    padding-top: 11px;
+}
+
+.owner_user{
+    margin:0px;
+    font-weight: bold;
+    position: relative;
+    bottom:10px;
+    right:20px;
+    font-size:5px;
+}

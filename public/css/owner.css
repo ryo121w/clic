@@ -1,0 +1,14 @@
+.main {
+    max-width:980px;
+    margin:0 auto;
+    display:flex;
+    height:60px;
+    padding-top: 150px;
+}
+
+.main p {
+    padding-left: 20px;
+    border:1px solid black;
+    margin-top:0px;
+    margin-bottom:0px;
+}

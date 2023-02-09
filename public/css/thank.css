@@ -1,0 +1,25 @@
+#main{
+    height:800px;
+    max-width: 980px;
+    margin:0 auto;
+    position:relative;
+    top:200px;
+    text-align: center;
+}
+
+#main h1{
+    font-size:100px;
+}
+
+#main h2{
+    font-size:40px;
+    margin:0px;
+}
+
+#main h3{
+    margin:0px;
+}
+
+.sub_title{
+    margin-bottom: 50px;
+}

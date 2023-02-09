@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="./resources/views/css/style.css">
+    <link rel="stylesheet"  href="{{ asset('/css/review.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/header.css')}}">
 
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" >
     <title>CLIC</title>
 </head>
 
@@ -34,38 +34,96 @@
 
                 <section class="header_flex">
                     <div class="header_login">
-                        <a href="login" style="color:inherit;text-decoration:none;">
+                        <a href="{{ route('login') }}" style="color:inherit;text-decoration:none;">
                             <p>ログイン</p>
                         </a>
-                        <a href="profile">
+                        <a href="{{ route('register') }}" style="color:inherit;text-decoration:none;">
                             <p>新規登録</p>
                         </a>
+                        <a href="review" style="color:inherit;text-decoration:none;">
+                            <p>評価</p>
+                        </a>
 
+                        <a href="" style="color:inherit;text-decoration:none;">
+                            <p>保存</p>
+                        </a>
                     </div>
 
-                    <div class="header_holder">
-                        <a href=""><img src="" alt="保存" width="20" height="20"></a>
-                    </div>
+
                 </section>
             </div>
 
 
-            <ul class="header_menu">
-                <li>
-                    <a href="" style="color:inherit;text-decoration:none;">
-                        <h1>SELECT</h1>
-                    </a>
-                </li>
-                <li>
-                    <a href="" style="color:inherit;text-decoration:none;">
-                        <h1>USED</h1>
-                    </a>
-                </li>
-                <li>
-                    <a href="" style="color:inherit;text-decoration:none;">
-                        <h1>EC</h1>
-                    </a>
-                </li>
-            </ul>
+
+            <div class="header_format">
+                <a>
+                    <h1>SELECT</h1>
+                </a>
+                <a>
+                    <h1>USED</h1>
+                </a>
+                <a>
+                    <h1>EC</h1>
+                </a>
+            </div>
+
         </header>
     </div>
+
+
+
+        </header>
+    </div>
+
+    <main id="main">
+　　　　<div class="main_review_flex">
+　　　　    <div>
+            <h1>Rview</h1>
+            </div>
+            <div>
+            <a href="posts/create" style="color:inherit;text-decoration:none;">
+                <p>投稿する</p>
+            </a>
+            </div>
+        </div>
+            @foreach($reviews as $review)
+            <div class='post'>
+            <tr class="review_main">
+                <td><a href="/posts/review/{{ $review->id }} " style="color:inherit;text-decoration:none;"  >{{ $review->title }}</a></td>
+                <div class="reveiw">
+                    <td>{{ $review->id }}</td>
+                </div>
+                <td>{{ $review->updated_at}}</td>
+                <br>
+                <div>
+                  @if($review->stars===5)
+                    <h3 class="star_five">{{ str_repeat('★ ', $review->stars) }}</h3>
+                  @elseif($review->stars!==5)
+                    <div>
+                      <h3 class="star_five">{{ str_repeat('★ ', $review->stars) }}
+                      {{ str_repeat('☆ ', (5-$review->stars)) }}</h3>
+                    </div>
+                  @endif
+            </div>
+                <br>
+                <td class="body">{{ $review->body }}</td>
+            </tr>
+            <br>
+            </div>
+
+
+            @endforeach
+
+        <script src="https://unpkg.com/vue@next"></script>
+<script>
+    import StarRating from 'vue-star-rating'
+    Vue.component('star-rating', StarRating);
+    const app = new Vue({
+    el: '#star',
+    data: {
+        rating: 0
+    }
+    });
+</script>
+
+    </main>

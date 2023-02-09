@@ -1,118 +1,42 @@
-<!DOCTYPE html>
-<html lang="ja">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="./resources/views/css/style.css">
-
-    <link rel="stylesheet" href="">
-    <title>CLIC</title>
-</head>
-
-<body>
-    <div class="conteiner">
-        <header id="header">
-            <div class="header">
-                <section class="header_flex">
-                    <div class="header_logo">
-                        <img src="img/CLIC_logo.gif" alt="" width="60px">
-                    </div>
-
-                    <div class="header_search">
-                        <form action="" method="post">
-                            <input class="header_search_logo" type="image" src="img/search-e1510450486325.png"
-                                width="20" height="11" name="submit" value="search">
-                            <input class="header_search_bar" type="text" name="serch" placeholder="       すべてのストアから探す"
-                                size="50">
-                        </form>
-                    </div>
-                </section>
 
 
-                <section class="header_flex">
-                    <div class="header_login">
-                        <a href="login" style="color:inherit;text-decoration:none;">
-                            <p>ログイン</p>
-                        </a>
-                        <a href="profile">
-                            <p>新規登録</p>
-                        </a>
-                        <a href="review">
-                            <p>評価</p>
-                        </a>
-                        <a href="post">
-                            <p>投稿</p>
-                        </a>
-
-                    </div>
-
-                    <div class="header_holder">
-                        <a href=""><img src="" alt="保存" width="20" height="20"></a>
-                    </div>
-                </section>
-            </div>
-
-
-            <ul class="header_menu">
-                <li>
-                    <a href="" style="color:inherit;text-decoration:none;">
-                        <h1>SELECT</h1>
-                    </a>
-                </li>
-                <li>
-                    <a href="" style="color:inherit;text-decoration:none;">
-                        <h1>USED</h1>
-                    </a>
-                </li>
-                <li>
-                    <a href="" style="color:inherit;text-decoration:none;">
-                        <h1>EC</h1>
-                    </a>
-                </li>
-            </ul>
-        </header>
-    </div>
-
-
+<x-app :store-formats="$store_formats" :user="$user">
+    <link rel="stylesheet" href="{{ asset('/css/index.css')}}">
     <main>
-        <div>
-            <div class="main_gender">
-                <ul>
-                    <li class="main_gender_all">
-                        <a href="" style="color:inherit;text-decoration:none;">
-                            <p>すべて</p>
-                        </a>
-                    </li>
-                    <li class="main_gender_icon">
-                        <a href="" style="color:inherit;text-decoration:none;"><img src="img/gender12_man.png" alt="メンズ"
-                                width="30px" height="30px"></a>
-                    </li>
-                    <li class="main_gender_icon">
-                        <a href="" style="color:inherit;text-decoration:none;"><img src="img/woman.jpeg" alt="ウィメンズ"
-                                width="30px" height="30px"></a>
-                    </li>
-            </div>
+        <div class="main">
+
+             <div class="main_gender">
+                 <div class="all">
+                 <a href="/" style="color:inherit;text-decoration:none;"><p class="gender_all">ALL</p></a>
+                 </div>
+                 <div class="gender_men">
+                 <a href="/posts/store/men/{{$sex_mens->id}}"><input type="image" src="{{asset('/img/boy_2.png')}}" width="10px" heith="15px"></a>
+                 <a href="/posts/store/men/{{$sex_mens->id}}" style="color:inherit;text-decoration:none;"><p>MEN</p></a>
+                 </div>
 
 
 
-            <body>
+
+                <div class="gender_women">
+                 <a href="/posts/store/men/{{$sex_womens->id}}"><input type="image" src="{{asset('/img/girl_2.png')}}" width="10px" heith="15px"></a>
+                 <a href="/posts/store/women/{{$sex_womens->id}}" style="color:inherit;text-decoration:none;"><p>WOMEN</p></a>
+                 </div>
+
+             </div>
                 <div class="container">
                     <div class="swiper infinite-slider">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img
-                                    src="img/CDG_AOYAMA_2019_SS_COMME_des_GARCONS_HOMME_PLUS_Installation_1.jpeg"
-                                    alt="画像1" /></div>
-                            <div class="swiper-slide"><img src="img/graf.jpeg" alt="" /></div>
-                            <div class="swiper-slide"><img src="img/kolor.jpeg" alt="画像3" /></div>
-                            <div class="swiper-slide"><img src="img/jilsander.jpeg" alt="画像4" /></div>
-                            <div class="swiper-slide"><img src="img/LUIK.jpeg" alt="画像4" /></div>
-                            <div class="swiper-slide"><img src="img/sings.jpeg" alt="画像4" /></div>
-                            <div class="swiper-slide"><img src="img/kitasennju.jpeg" alt="画像4" /></div>
-                        </div>
+                            @foreach ($stores as $store)
+                            <div class="swiper-slide" href="">
+                                <img src="{{ $store->image_path }}" alt="画像が読み込めません。">
+                                <div class="swiper-title">
+                                    <h2>{{ $store->prefecture->name }}</h2>
+                                    <h1>{{ $store->name }}</h1>
+                                </div>
+                            </div>
+                            @endforeach
 
+                        </div>
                         <div class="swiper_pagination"></div>
                     </div>
 
@@ -121,71 +45,174 @@
                             <div class="main_search">
                                 <ul>
                                     <li>
-                                        <h3>エリアから探す</h3>
+                                        <a href="/search/area" style="color:inherit;text-decoration:none;">
+                                            <h3>エリアから探す</h3>
+                                        </a>
                                     </li>
                                     <li>
-                                        <h3>カテゴリーから探す</h3>
+                                        <a href="/search/category" style="color:inherit;text-decoration:none;">
+                                            <h3>ブランドから探す</h3>
+                                        </a>
                                     </li>
                                     <li>
-                                        <h3>ランキングから探す</h3>
+                                        <a href="/posts/rank" style="color:inherit;text-decoration:none;">
+                                            <h3>ランキングから探す</h3>
+                                        </a>
                                     </li>
                                 </ul>
-                            </div>
+                           </div>
+                    </div>
+                </div>
+            </div>
 
-                            <div class="main_rank">
-                                <h4>SELECTランキング</h4>
-                                <div class="swiper-below">
-                                    <div id="slid" class="swiper-pagination-below">
-                                        <img src="img/graf.jpeg" alt="" width="300" height="200px">
-                                        <img src="img/kolor.jpeg" alt="" width="300" height="200px">
-                                        <img src="img/jilsander.jpeg" alt="" width="300" height="200px">
-                                        <img src="img/CDG_AOYAMA_2019_SS_COMME_des_GARCONS_HOMME_PLUS_Installation_1.jpeg"
-                                            alt="" width="300" height="200px">
-                                    </div>
-                                    <div class="swiper-pagination_below"></div>
-                                </div>
 
-                                <h4>USEDランキング</h4>
-                                <div class="swiper-pagination-below">
-                                    <img src="img/22.jpeg" alt="" width="300" height="200px">
-                                    <img src="img/kitasennju.jpeg" alt="" width="300" height="200px">
-                                    <img src="img/LUIK.jpeg" alt="" width="300" height="200px">
-                                    <img src="img/sings.jpeg" alt="" width="300" height="200px">
-                                    <a class="arrow next" id="right" href=""></a>
-                                    <a class="arrow back" id="left" href=""></a>
-                                </div>
-                                <h4>ECランキング</h4>
-                                <div class="swiper-pagination-below">
-                                    <img src="img/FERFETCH.png" alt="" width="300" height="200px">
-                                    <img src="img/GILT.png" alt="" width="300" height="200px">
-                                    <img src="img/YOOX.png" alt="" width="300" height="200px">
-                                    <img src="img/SSENSE.png" alt="" width="300" height="200px">
-                                    <a class="arrow next" id="right" href=""></a>
-                                    <a class="arrow back" id="left" href=""></a>
-                                </div>
-                            </div>
-                        </section>
-    </main>
+            <div class="scroll_flex">
+                <div class="scroll_up">
+                    <div class="title_clic">
+                        <h1>CLIC</h1>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <ul>
+                        <li><h2 class="scroll_up clothing"><span class="red">CL</span>OTHING</h2></li>
+                        <li><h2 class="scroll_up information"><span class="red">I</span>NFORMATION</h2></li>
+                        <li><h2 class="scroll_up center"><span class="red">C</span>ENTER</h2></li>
+                    </ul>
+                </div>
+              </div>
 
-    <footer id="footer">
-        <div class="footer_store_register">
-            <a href="">
-                <p>店舗登録</p>
-            </a>
-        </div>
-    </footer>
+
+
+
+<div class="scroll_main">
+    <div class="flex_1">
+            <div class="cd-fixed-bg cd-bg-1">
+                <div class="fixed_title"></div>
+            </div>
+
+
+
+
+            <div class="scroll_flex_2">
+              <h1 class="scroll_up clic_title">クリックは、<br>皆様に"お気に入りストア"<br>を届ける</h1>
+              <h2 class="scroll_up clic_title_2">クリックは全国にあるファッションストアをまとめ、<br>皆様のお気に入りストア探しのお手伝いをさせていただきます</h2></h2>
+              <ul>
+                    <li class="scroll_up a">
+                        <a href="/search/area" style="color:inherit;text-decoration:none;">
+                            <h3>エリアから探す</h3>
+                        </a>
+                    </li>
+                    <li class="scroll_up b">
+                        <a href="/search/category" style="color:inherit;text-decoration:none;">
+                            <h3>ブランドから探す</h3>
+                        </a>
+                    </li>
+                    <li class="scroll_up c">
+                        <a href="/posts/rank" style="color:inherit;text-decoration:none;">
+                            <h3>ランキングから探す</h3>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+
+
     </div>
 
 
 
+<div class="flex_2">
+            <div class="scroll_flex_3">
+                  <h2 class="scroll_up clic_title_3">初めていくストアはどこか入りにくいと感じる<br>そんな経験をしたことはありませんか？<br>クリックはそんな不安をなくし、”最高のストア選択体験を”</h2>
+
+                  <h1 class="scroll_up clic_title_4">さあ、始めよう</h1>
+                 <ul>
+                    <li class="scroll_up w">
+                        <a href="/search/area" style="color:inherit;text-decoration:none;">
+                            <h3>エリアから探す</h3>
+                        </a>
+                    </li>
+                    <li class="scroll_up q">
+                        <a href="/search/category" style="color:inherit;text-decoration:none;">
+                            <h3>ブランドから探す</h3>
+                        </a>
+                    </li>
+                    <li class="scroll_up l">
+                        <a href="/posts/rank" style="color:inherit;text-decoration:none;">
+                            <h3>ランキングから探す</h3>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+
+                <div class="cd-fixed-bg cd-bg-2">
+                    <div class="fixed_title"></div>
+                </div>
+    </div>
+</div>
 
 
 
 
-    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-    <script src="./resources/views/js/index.js"></script>
-
-</body>
 
 
-</html>
+
+
+
+
+           <div class="main_2">
+            <div class="main_rank">
+                 @foreach($store_formats as $store_format)
+                <div class="store_format_rank">
+                    <a href="/posts/format_store/rank/{{ $store_format->id }}" style="color:inherit;text-decoration:none;"><h1>{{$store_format->name}}ランキング</h1></a>
+                </div>
+                @if($store_format->id === 1)
+                <div class="flex_format">
+                    @foreach($select as $store)
+                    <div class="select">
+                    <img src="{{ $store->image_path }}" alt="画像が読み込めません。">
+                    <p class="select_name">{{ $store->name }}</p>
+                    <p>{{ $store->pref }}{{ $store->city }}</p>
+                    </div>
+                    @endforeach
+                </div>
+                @elseif($store_format->id === 2)
+                <div class="flex_format">
+                    @foreach($used as $store)
+                    <div class="select">
+                    <img src="{{ $store->image_path }}" alt="画像が読み込めません。">
+                    <p class="select_name">{{ $store->name }}</p>
+                    <p>{{ $store->pref }}{{ $store->city }}</p>
+                    </div>
+                    @endforeach
+                </div>
+                @elseif($store_format->id === 3)
+                <div class="flex_format">
+                    @foreach($ec as $store)
+                    <div class="select">
+                    <img src="{{ $store->image_path }}" alt="画像が読み込めません。">
+                    <p class="select_name">{{ $store->name }}</p>
+                    <p>{{ $store->pref }}{{ $store->city }}</p>
+                    </div>
+                    @endforeach
+                </div>
+                @endif
+
+
+                @endforeach
+                </section>
+
+            </div>
+        </div>
+
+
+
+
+
+    </main>
+</x-app>
+
+
+
+
