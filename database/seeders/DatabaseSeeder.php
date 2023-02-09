@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
          SexSeeder::class,
          AddressSeeder::class,
          BrandSeeder::class,
+         UserSeeder::class,
         ]);
     }
 }

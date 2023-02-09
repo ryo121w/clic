@@ -165,9 +165,6 @@ margin-right: 10px;
     font-weight:bold;
 }
 
-.user_icon{
-    padding-top: 11px;
-}
 
 .owner_user{
     margin:0px;
@@ -175,5 +172,61 @@ margin-right: 10px;
     position: relative;
     bottom:10px;
     right:20px;
-    font-size:5px;
+    font-size:2px;
+}
+
+
+
+/*アイコンホバー*/
+.user_icon{
+    padding-top: 11px;
+}
+
+.user_icon img{
+    width: 20px;
+    height: 20px;
+
+}
+
+.icon_img:hover{
+   opacity: 0.7;
+}
+
+.icon_img {
+  width: 30px;
+  height: 30px;
+}
+
+
+.user_name {
+  display: none;
+  width: 300px;
+  position: absolute;
+  top: 60px;
+  right:20%;
+  padding: 16px;
+  border-radius: 5px;
+  background-color:  rgba(66, 59, 59, 0.8);
+  color: #fff;
+  font-weight: bold;
+}
+
+
+.user_name:after {
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 0;
+  bottom: -19px;
+  margin-left: 10px;
+  border-color: rgba(51, 204, 153, 0);
+  border-top-color: #33cc99;
+  border-width: 10px;
+  pointer-events: none;
+  content: " ";
+}
+
+
+.icon_img:hover + .user_name {
+  display: block;
 }

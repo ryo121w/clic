@@ -17,7 +17,7 @@
 
                 <div class="ifBrand">
                     <p>もしもブランドがない際はこちら</p>
-                    <a href='/register/brand' style="color:inherit;text-decoration:none;"><p>ブランド登録</p></a>
+                    <a href='/register/brand' ><p>ブランド登録</p></a>
                 </div>
         </main>
 </x-app>
