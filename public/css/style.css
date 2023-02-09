@@ -1,0 +1,485 @@
+body {
+    margin: 0;
+    font-family: "MS Pゴシック" ;
+}
+
+ul {
+    list-style:none;
+}
+
+/* main */
+
+.red{
+    color:red;
+}
+.main {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-top: 150px;
+
+}
+.main_2{
+    max-width: 980px;
+    margin-top: 100px;
+    margin: 0 auto;
+}
+.main_gender  {
+    padding-top:30px;
+    padding-bottom: 10px;
+    display: flex;
+}
+
+.main_gender p {
+    margin:0px;
+    padding-top:2px;
+    padding-left: 8px;
+}
+
+.gender_all  {
+    font-weight: bold;
+}
+.all p:hover{
+    opacity: 0.6;
+}
+
+.main_search{
+    margin-bottom: 60px;
+    margin-top: 60px;
+}
+
+.scroll_main{
+    margin:0 auto;
+    position: relative;
+    width:100%;
+
+}
+
+.scroll_flex_2{
+    width:50%;
+    height:10vw;
+    position: relative;
+    bottom:15vw;
+    padding:20px;
+
+}
+
+.scroll_flex_2 h1 {
+
+    font-size:4vw;
+    margin:0px;
+}
+
+.scroll_flex_2 h2{
+    color:rgba(70,70,70,1);
+    font-size:2vw;
+    margin:0px;
+}
+
+.scroll_flex_2 ul{
+    height:3vw;
+}
+
+.scroll_flex_2 ul li{
+    margin-bottom: 1vw;
+    text-align: center;
+    border-radius: 50px;
+    border:2px solid rgba(0,255,141,1);
+    position: relative;
+    left: 40%;
+    width:200px;
+}
+
+.scroll_flex_2 ul li h3{
+    margin:0 auto;
+    padding: 13px;
+}
+
+.scroll_flex_3{
+    width:50%;
+    height:10vw;
+    padding:20px;
+}
+
+.scroll_flex_3{
+    width:50%;
+}
+
+.scroll_flex_3 h1 {
+    font-size:4vw;
+    margin:0px;
+
+}
+
+.scroll_flex_3 h2{
+    color:rgba(70,70,70,1);
+    font-size:2vw;
+    margin:0px;
+
+}
+
+.scroll_flex_3 ul {
+    height:3vw;
+}
+
+.scroll_flex_3 ul li{
+    margin-bottom: 1vw;
+    text-align: center;
+    border-radius: 50px;
+    border:2px solid rgba(0,255,141,1);
+    position: relative;
+    left: 40%;
+    width:200px;
+}
+
+.scroll_flex_2 ul li h3{
+    margin:0 auto;
+    padding: 13px;
+}
+
+.flex_1{
+    display: flex;
+    justify-content:space-between;
+}
+
+.flex_2{
+    display: flex;
+    justify-content:space-between;
+}
+
+
+
+
+
+
+
+.scroll_flex{
+    display: flex;
+    justify-content:center;
+    height:500px;
+    margin-bottom: 25vw;
+}
+
+.scroll_up {
+  transition: 0.8s ease-in-out;
+  transform: translateY(30px);
+  opacity: 0;
+  margin-bottom: 300px;
+
+}
+.scroll_up.on {
+  transform: translateY(0);
+  opacity: 1.0;
+}
+
+.title_clic h1{
+    width:50%;
+    font-size: 15vw;
+    position: relative;
+    top:4vw;
+    margin:0px;
+}
+
+.explanation h2{
+    font-size: 5vw;
+    margin-bottom: 30px;
+    margin-top: 30px
+}
+
+.clothing{
+    transition-delay: .2s;
+}
+
+.information{
+    transition-delay: .4s;
+}
+
+.center{
+    transition-delay: .6s;
+}
+
+.clic_title{
+    transition-delay: .4s;
+}
+
+.clic_title_2{
+    transition-delay: .6s;
+}
+.clic_title_3{
+    transition-delay: .4s;
+}
+
+.clic_title_4{
+    transition-delay: .6s;
+}
+
+.a{
+    transition-delay: .8s;
+}
+
+.a:hover{
+    background-color: rgba(0,255,141,1)
+}
+
+.b{
+    transition-delay: 1s;
+}
+
+.b:hover{
+    background-color: rgba(0,255,141,1)
+}
+
+.c{
+    transition-delay: 1.2s;
+}
+
+.c:hover{
+    background-color: rgba(0,255,141,1)
+}
+
+
+.w{
+    transition-delay: .8s;
+}
+
+.w:hover{
+    background-color: rgba(0,255,141,1)
+}
+
+.q{
+    transition-delay: 1s;
+}
+
+.q:hover{
+    background-color: rgba(0,255,141,1)
+}
+
+
+.l{
+    transition-delay: 1.2s;
+}
+
+.l:hover{
+    background-color: rgba(0,255,141,1)
+}
+
+
+
+
+
+.title_clic{
+    max-width:100%;
+}
+
+
+.gender_men{
+    display: flex;
+    margin-left:30px;
+}
+
+.gender_men input:hover{
+    opacity: 0.6;
+}
+
+.gender_men p:hover{
+    opacity: 0.6;
+}
+
+.gender_men input{
+    padding-left: 10px;
+    padding-top: 6px;
+}
+
+.gender_men p {
+    margin-left: 5px;
+    font-weight: bold;
+    color:rgba(16,116,232, 0.7);
+}
+
+
+
+.gender_women{
+    display: flex;
+    margin-left:30px;
+}
+
+.gender_women input:hover{
+    opacity: 0.6;
+}
+
+.gender_women p:hover{
+    opacity: 0.6;
+}
+
+.gender_women input{
+    padding-left: 10px;
+    padding-top: 6px;
+}
+
+.gender_women p {
+    margin-left: 5px;
+    font-weight: bold;
+    color: rgba(255,64,212,0.6);
+}
+
+.main_search{
+    padding-bottom: 40px
+}
+
+.swiper-slide{
+    text-align: center;
+}
+
+.swiper-slide img{
+    width:100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    position: relative;
+}
+
+.swiper-title{
+    width:100%;
+    height: 95px;
+    position: relative;
+    bottom:100px;
+    background-color: rgba(1,1,1,0.7);
+    border-radius: 0px 0px 10px 10px;
+}
+
+.swiper-title h1  {
+    color: #fff;
+    margin: 0px;
+}
+
+.swiper-title h2 {
+    color: #fff;
+    margin: 0px;
+    font-family: "MSゴシック";
+    position: relative;
+    top:10px;
+    font-size:20px;
+}
+
+.swiper_pagination{
+    text-align: center;
+}
+
+
+
+#footer{
+    background-color: rgba(201, 202, 203, 0.343);
+}
+
+.footer_element{
+    max-width:980px;
+    margin:0 auto;
+    height: 300px;
+    padding:20px;
+}
+
+.footer_element p {
+    margin-bottom: 0px;
+
+}
+
+.flixed_flex{
+    display: flex;
+    justify-content:space-between;
+
+
+
+
+}
+
+/*スクロール*/
+.cd-fixed-bg {
+    /*max-width: 1200px !important;*/
+    width: 49%;
+    height:50vw;
+    position: relative;
+    min-height: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+    z-index: 2;
+}
+
+
+
+.cd-fixed-bg.cd-bg-1　h1{
+    color:#fff;
+}
+
+/*--固定背景01--*/
+.cd-fixed-bg.cd-bg-1  {
+
+  background-image: url('/img/yamagata-jpg-1655185796.jpeg');
+}
+
+.cd-fixed-bg.cd-bg-1 h1{
+    position:relative;
+
+    font-family: "Sawarabi Minchoi";
+}
+
+
+.cd-fixed-bg.cd-bg-2{
+   background-image: url('/img/tumblr_otxlwgmmzI1taz8xlo1_1280.jpeg');
+   position:relative;
+   bottom: 15vw;
+
+}
+
+.cd-fixed-bg.cd-bg-2 h1{
+
+}
+
+.fixed_title{
+    width:300px;
+}
+
+.position_flex ul{
+    display: flex;
+}
+
+.position_flex ul {
+    display: flex;
+}
+
+.position_flex li p {
+    margin-left:10px;
+    margin-top: 0px;
+    font-size:8px;
+}
+
+.back_button{
+    width:100%;
+    margin:0 auto;
+    max-width: 980px;
+}
+
+.back{
+    position: relative;
+    top:140px;
+    border: none;
+    background: transparent;
+}
+
+.page-link{
+    padding:10px;
+    font-size:25px;
+}
+.pagination{
+    width:500px;
+    display: flex;
+    justify-content:center;
+    max-width:980px;
+    margin:0 auto;
+
+}
+
+.pagination a {
+    color:inherit;
+    text-decoration: none;
+}

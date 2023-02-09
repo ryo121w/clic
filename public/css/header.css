@@ -1,0 +1,232 @@
+body {
+    margin: 0;
+}
+
+ul {
+    list-style:none;
+}
+
+
+
+/* header */
+#header {
+    background-color: rgba(239, 239, 239,1);
+    position: fixed;
+    width:100%;
+    box-sizing: border-box;
+    z-index: 999;
+    top: 0;
+    left: 0;
+}
+
+#header.scroll {
+  position: fixed;
+  height: 80px;
+}
+#store.scroll h1{
+  margin-top:0px;
+  position:relative;
+  bottom:14px;
+}
+
+@keyframes anime {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.header {
+    max-width: 980px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+
+.header_flex {
+
+    display: flex;
+
+}
+
+.header_logo p{
+    padding-top: 2px;
+    padding-right: 10px;
+    margin: 0px;
+    font-weight:bold;
+}
+
+.header_login{
+    width:400px;
+    display: flex;
+    justify-content:center;
+}
+
+.header_login p {
+    margin:0px;
+    margin-left: 10px;
+
+}
+
+.header_format{
+    max-width: 980px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header_format h1{
+    border-bottom: 2px solid black;
+    margin-top:30px;
+    margin-bottom:0px;
+}
+
+.header_format h1:hover{
+    opacity: 0.6;
+}
+
+.header_title a {
+    margin-right: 20px;
+    margin-left: 20px;
+    border-bottom: 1px solid black;
+    text-align: center;
+
+}
+
+.header_search{
+    display: flex;
+}
+
+.search_bar input{
+    border:1px solid black;
+    border-radius: 10px;
+    padding:3px;
+}
+
+.search_icon input{
+    position:relative;
+    right: 20px;
+    width:10px;
+    height:10px;
+}
+
+
+.store_format{
+    width: 300px;
+    text-align: center;
+}
+
+.store_format h1{
+    font-size: 20px;
+}
+
+.user_icon img{
+    width: 20px;
+    height:20px;
+    border-radius: 170px;
+}
+
+.book{
+    width:8px;
+    height:10px;
+    margin-left: 20px;
+    margin-right:20px;
+    padding-top: 10px;
+    position: relative;
+    right:5px;
+}
+
+.book input{
+    width:15px;
+    font-weight: bold;
+}
+
+.login{
+    margin-right: 10px;
+}
+
+.login p {
+    font-size:12px;
+    padding-top: 10px;
+    font-weight: bold
+}
+
+.register{
+margin-left: 10px;
+margin-right: 10px;
+}
+
+.register p{
+    font-size:12px;
+    padding-top: 10px;
+    font-weight:bold;
+}
+
+
+.owner_user{
+    margin:0px;
+    font-weight: bold;
+    position: relative;
+    bottom:10px;
+    right:20px;
+    font-size:2px;
+}
+
+
+
+/*アイコンホバー*/
+.user_icon{
+    padding-top: 11px;
+}
+
+.user_icon img{
+    width: 20px;
+    height: 20px;
+
+}
+
+.icon_img:hover{
+   opacity: 0.7;
+}
+
+.icon_img {
+  width: 30px;
+  height: 30px;
+}
+
+
+.user_name {
+  display: none;
+  width: 300px;
+  position: absolute;
+  top: 60px;
+  right:20%;
+  padding: 16px;
+  border-radius: 5px;
+  background-color:  rgba(66, 59, 59, 0.8);
+  color: #fff;
+  font-weight: bold;
+}
+
+
+.user_name:after {
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 0;
+  bottom: -19px;
+  margin-left: 10px;
+  border-color: rgba(51, 204, 153, 0);
+  border-top-color: #33cc99;
+  border-width: 10px;
+  pointer-events: none;
+  content: " ";
+}
+
+
+.icon_img:hover + .user_name {
+  display: block;
+}

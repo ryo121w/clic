@@ -1,0 +1,26 @@
+.main{
+    height:800px;
+    padding-top: 50px;
+    max-width: 980px;
+    margin:0px auto;
+    padding-top: 150px;
+}
+
+.please {
+    font-size:15px;
+}
+
+.main h1{
+    border-bottom:1px solid black;
+}
+
+.detailOwner{
+    text-align: center
+}
+
+.detailOwner input{
+    border-radius:20px;
+    border:1px solid black;
+    padding:4px;
+    text-align: center;
+}

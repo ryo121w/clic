@@ -1,71 +1,83 @@
-<!DOCTYPE html>
-<html lang="ja">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="./resources/views/css/style.css">
-
-    <link rel="stylesheet" href="">
-    <title>CLIC</title>
-</head>
-
-<body>
-    <div class="conteiner">
-        <header id="header">
-            <div class="header">
-                <section class="header_flex">
-                    <div class="header_logo">
-                        <img src="img/CLIC_logo.gif" alt="" width="60px">
-                    </div>
-
-                    <div class="header_search">
-                        <form action="" method="post">
-                            <input class="header_search_logo" type="image" src="img/search-e1510450486325.png"
-                                width="20" height="11" name="submit" value="search">
-                            <input class="header_search_bar" type="text" name="serch" placeholder="       すべてのストアから探す"
-                                size="50">
-                        </form>
-                    </div>
-                </section>
+<x-app :store-formats="$store_formats" :user="$user">
+<link rel="stylesheet" href="{{ asset('/css/store.css') }}">
+<div class="back_button">
+    <button type="button" onClick="history.back()" class="back"><img src="{{ asset('/img/left.png')}}" width="20px" height="20px"></button>
+</div>
+ <main id="main">
+    <div class="position_flex">
+        <nav>
+            <ul>
+                <li><a href="/" style="color:inherit;text-decoration:none;"><p>TOP</p></a></li>
+                <li><p>></p></li>
+                <li><a style="color:inherit;text-decoration:none;"><p>ストア一覧</p></a></li>
+            </ul>
+        </nav>
+    </div>
+     <h1 class="title">全国のストア</h1>
 
 
-                <section class="header_flex">
-                    <div class="header_login">
-                        <a href="login" style="color:inherit;text-decoration:none;">
-                            <p>ログイン</p>
-                        </a>
-                        <a href="profile">
-                            <p>新規登録</p>
-                        </a>
 
-                    </div>
 
-                    <div class="header_holder">
-                        <a href=""><img src="" alt="保存" width="20" height="20"></a>
-                    </div>
-                </section>
+
+      @foreach ($stores as $store)
+        <div class="store_flex">
+          <div class="store_detail">
+            <div class="store_detail_flex">
+
+                    <a href="/posts/store/detail/{{$store->id}}" style="color:inherit;text-decoration:none;" ><h2 class="store_name">{{ $store->name }}</h2></a>
+
+                    <a href="/posts/format_store/{{ $store->store_format->id }}" style="color:inherit;text-decoration:none;"><p class="store_format_detail">{{ $store->store_format->name }}</p></a>
+
+
+                <div class="phone_flex">
+                    <img src="{{ asset('/img/ifn0811.png')}}">
+                    <p>{{ $store->phone }}</p>
+                </div>
+
             </div>
 
 
-            <ul class="header_menu">
-                <li>
-                    <a href="" style="color:inherit;text-decoration:none;">
-                        <h1>SELECT</h1>
-                    </a>
-                </li>
-                <li>
-                    <a href="" style="color:inherit;text-decoration:none;">
-                        <h1>USED</h1>
-                    </a>
-                </li>
-                <li>
-                    <a href="" style="color:inherit;text-decoration:none;">
-                        <h1>EC</h1>
-                    </a>
-                </li>
-            </ul>
-        </header>
-    </div>
+            <div class="star_flex">
+                @if($store->stars===5)
+                    <h3 class="star_five">{{ str_repeat('★ ', $store->stars) }}</h3>
+                    @elseif($store->stars!==5)
+                    <div>
+                        <h3 class="star_five">{{ str_repeat('★ ', $store->stars) }}
+                        {{ str_repeat('☆ ', (5-$store->stars)) }}</h3>
+                    </div>
+                @endif
+                <p>{{$store->stars}}</p>
+            </div>
+            <p class="address">address</p>
+            <a href="/prefecture/{{ $store->prefecture->id }}" style="color:inherit;text-decoration:none;"><p class="detailAddress">{{ $store->pref }}{{ $store->city }}{{ $store->town}}{{ $store->building }}</p></a>
+
+
+
+        <p class="show_brand">brand</p>
+        <div class="brand_flex">
+            @foreach($store->brands->take(5) as $brand)
+            <a href="/brand/{{ $brand->id }}" style="color:inherit;text-decoration:none;"><p class="brand">{{ $brand->name }}</p></a>
+            @endforeach
+            <p class="etc">...etc</p>
+        </div>
+
+            @foreach($store->sexes as $sex)
+            <p class="show_gender">gender</p>
+            <p class="sex">{{ $sex->sex }}</p>
+            @endforeach
+        </div>
+
+        <div class="store_img">
+            <img src="{{ $store->image_path }}" alt="画像が読み込めません。"/>
+        </div>
+          @endforeach
+      </div>
+      <br>
+
+
+        <div class="bootstrap">
+            {{ $stores->links() }}
+        </div>
+    </main>
+</x-app>

@@ -1,0 +1,33 @@
+#main{
+    max-width:980px;
+    margin: 0px auto;
+    height:1200px;
+    padding-top: 150px;
+}
+
+#main h1{
+    margin-bottom: 50px;
+}
+
+.brand_flex{
+    display: flex;
+    flex-wrap:wrap;
+    padding:30px;
+    margin-bottom: 50px;
+}
+
+.brand_flex p {
+    margin: 0px;
+    padding: 10px;
+}
+
+.ifBrand{
+    display: flex;
+    padding:30px;
+    margin:0px auto;
+    max-width: 980px
+}
+
+.ifBrand p{
+    font-size:8px;
+}

@@ -1,0 +1,22 @@
+.edit{
+    margin:0px;
+    padding-right:30px;
+    font-size: 13px;
+    position: relative;
+    top: 3px;
+}
+
+.store_edit_flex{
+    display: flex;
+    justify-content:center;
+    border-bottom:1px solid black;
+    position: relative;
+    margin-bottom: 20px;
+
+}
+
+.store_edit_flex button{
+    border: none;
+    background: transparent;
+    font-size:15px;
+}

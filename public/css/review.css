@@ -1,0 +1,18 @@
+#main{
+    max-width: 580px;
+    margin:0 auto;
+    padding-top: 150px;
+}
+
+.post {
+    padding-bottom: 30px;
+}
+
+.main_review_flex {
+    display: flex;
+    justify-content:space-between;
+}
+
+.star_five{
+    color: orange;
+}
