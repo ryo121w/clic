@@ -217,6 +217,7 @@ ul {
 }
 
 .a:hover{
+    transition-duration:.6s;
     background-color: rgba(0,255,141,1)
 }
 

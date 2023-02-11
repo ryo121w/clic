@@ -42,12 +42,14 @@
 
                 <section class="header_flex">
                     <div class="header_login">
+                        <div class="log_out">
                         @auth
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <button >ログアウト</button>
                         </form>
                         @endauth
+                        </div>
 
                         <div class="register">
                             <a href="{{ route('register') }}" style="color:inherit;text-decoration:none;">

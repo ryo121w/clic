@@ -53,10 +53,11 @@ ul {
 }
 
 .header_logo p{
-    padding-top: 2px;
+
     padding-right: 10px;
     margin: 0px;
-    font-weight:bold;
+    font-weight:900;
+    font-size:25px;
 }
 
 .header_login{
@@ -98,6 +99,8 @@ ul {
 
 .header_search{
     display: flex;
+    position: relative;
+    top:5px;
 }
 
 .search_bar input{
@@ -175,6 +178,13 @@ margin-right: 10px;
     font-size:2px;
 }
 
+.log_out button {
+    border: none;
+    background: transparent;
+    font-size:12px;
+    padding-top: 10px;
+    font-weight: bold;
+}
 
 
 /*アイコンホバー*/
