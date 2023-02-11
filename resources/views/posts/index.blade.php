@@ -174,6 +174,9 @@
                 </div>
                 @if($store_format->id === 1)
                 <div class="flex_format">
+                    @if($select === null)
+                    <p>店舗がないです</p>
+                    @else
                     @foreach($select as $store)
                     <a href="/posts/store/detail/{{$store->id}}" style="color:inherit;text-decoration:none;">
                     <div class="select">
@@ -183,9 +186,13 @@
                     </div>
                     </a>
                     @endforeach
+                    @endif
                 </div>
                 @elseif($store_format->id === 2)
                 <div class="flex_format">
+                    @if($used === null)
+                    <p>店舗がないです</p>
+                    @else
                     @foreach($used as $store)
                     <a href="/posts/store/detail/{{$store->id}}" style="color:inherit;text-decoration:none;">
                     <div class="select">
@@ -195,9 +202,13 @@
                     </div>
                      </a>
                     @endforeach
+                    @endif
                 </div>
                 @elseif($store_format->id === 3)
                 <div class="flex_format">
+                    @if($ec === null)
+                    <p>店舗がないです</p>
+                    @else
                     @foreach($ec as $store)
                     <a href="/posts/store/detail/{{$store->id}}" style="color:inherit;text-decoration:none;">
                     <div class="select">
@@ -207,6 +218,7 @@
                     </div>
                      </a>
                     @endforeach
+                    @endif
                 </div>
                 @endif
 
