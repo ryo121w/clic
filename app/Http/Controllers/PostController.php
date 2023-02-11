@@ -24,7 +24,9 @@ class PostController extends Controller
         $sex_men = Sex::find($id=1);
         $sex_women = Sex::find($id=2);
         $store_format = StoreFormat::all();
-        if($store != null)
+
+
+        if($store!== null)
         {
             foreach($store as $s)
             {
@@ -36,7 +38,6 @@ class PostController extends Controller
             $store_format_ec = $storeRank->where('store_format_id', 3)->all();
         }
         else{
-            $s = null;
         }
         if($user===null){
         return redirect('/select');
