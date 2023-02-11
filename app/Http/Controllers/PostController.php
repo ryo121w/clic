@@ -24,15 +24,17 @@ class PostController extends Controller
         $sex_men = Sex::find($id=1);
         $sex_women = Sex::find($id=2);
         $store_format = StoreFormat::all();
+        if($store != null)
+        {
         foreach($store as $s)
         {
             $review_stars[] = $review->where('store_id', $s->id)->avg('stars');
         }
-
         $storeRank = $s->rankStar();
         $store_format_select = $storeRank->where('store_format_id', 1)->all();
         $store_format_used = $storeRank->where('store_format_id', 2)->all();
         $store_format_ec = $storeRank->where('store_format_id', 3)->all();
+         }
 
         if($user===null){
         return redirect('/select');
