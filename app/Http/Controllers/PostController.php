@@ -37,8 +37,7 @@ class PostController extends Controller
             $store_format_used = $storeRank->where('store_format_id', 2)->all();
             $store_format_ec = $storeRank->where('store_format_id', 3)->all();
         }
-        else{
-        }
+
         if($user===null){
         return redirect('/select');
         }else{
