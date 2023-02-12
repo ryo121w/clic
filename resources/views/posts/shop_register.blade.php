@@ -178,16 +178,16 @@
         </div>
         </div>
 
-    <!--<div class="form-group">-->
-    <!--　　<input type="file" id="image1" name="images0" accept=".png, .jpg, .jpeg, .pdf, .doc">-->
-    <!--　　<input type="text" name="name0">-->
-    <!--　　<input type="file" id="image2" name="images1" accept=".png, .jpg, .jpeg, .pdf, .doc">-->
-    <!--　　<input type="text" name="name1">-->
-    <!--　　<input type="file" id="image3" name="images2" accept=".png, .jpg, .jpeg, .pdf, .doc">-->
-    <!--　　<input type="text" name="name2">-->
-    <!--　　<input type="file" id="image4" name="images3" accept=".png, .jpg, .jpeg, .pdf, .doc">-->
-    <!--　　<input type="text" name="name3">-->
-    <!--</div>-->
+    <div class="form-group">
+    　　<input type="file" id="image1" name="images0" accept=".png, .jpg, .jpeg, .pdf, .doc">
+    　　<input type="text" name="name0">
+    　　<input type="file" id="image2" name="images1" accept=".png, .jpg, .jpeg, .pdf, .doc">
+    　　<input type="text" name="name1">
+    　　<input type="file" id="image3" name="images2" accept=".png, .jpg, .jpeg, .pdf, .doc">
+    　　<input type="text" name="name2">
+    　　<input type="file" id="image4" name="images3" accept=".png, .jpg, .jpeg, .pdf, .doc">
+    　　<input type="text" name="name3">
+    </div>
 
         <div class="button021">
 　　　　<button type="submit">

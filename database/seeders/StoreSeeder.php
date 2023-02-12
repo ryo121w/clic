@@ -25,7 +25,7 @@ class StoreSeeder extends Seeder
         'zip' => 5420086,
         'pref' => '大阪府',
         'city' => '中央区',
-        'town' => '心斎橋',
+        'town' => '西心斎橋',
         'building' => 'アンクルサムビル4F',
         'house_number' => '2-11-14',
         'station' => '難波',
