@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('owner_email');
             $table->string('store_name');
             $table->string('store_address');
-            $table->integer('phone');
+            $table->string('phone');
             $table->timestamps();
         });
     }
