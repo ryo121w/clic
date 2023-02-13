@@ -24,7 +24,7 @@ class Store_RegisterController extends Controller
 {
     public function showStore(Store $store,Request $request )
     {
-        $store = Store::paginate(1);
+        $store = Store::paginate(5);
         $store_id = Store::find('id');
         $store_format = StoreFormat::all();
         $user = Auth::user();
@@ -55,21 +55,6 @@ class Store_RegisterController extends Controller
     public function upStore(StoreRequest $request, Store $store,StoreFormat $storeformat, Brand $brand, Product $product,User $user)
     {
         $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
-
-
-
-        // for($i=0; $i<5; $i++){
-        //     $product  = new Product;
-        //     $files = $request->file('images'.$i);
-        //     $img = $files->getRealPath();
-        // 	$image = Cloudinary::upload($img)->getSecurePath();
-        // 	$name = 'name' . $i;
-        // 	$product->name = $request->$name;
-        // 	$product->image_path = $img;
-        // // 	$inputss += ['image_path' => $file];
-        //     $product->save();
-        // }
-
         $input_product = $request->input($product);
         $input_brands = $request->brands_array;
         $input_sex = $request->sex;
@@ -78,6 +63,16 @@ class Store_RegisterController extends Controller
         $input = $request['store'];
         $input += ['image_path' => $image_url];
         $store->fill($input)->save();
+        for($i=0; $i<2; $i++)
+        {
+            $product  = new Product;
+            $img_product = Cloudinary::upload($request->file('images'.$i)->getRealPath())->getSecurePath();
+            $name = 'name'.$i;
+            $product->name = $request->$name;
+            $product->image_path = $img_product;
+            $product->save();
+            $store->products()->attach($product);
+        }
         $store->brands()->attach($input_brands);
         $store->sexes()->attach($input_sex);
         $store->products()->attach($input_product);
@@ -118,8 +113,10 @@ class Store_RegisterController extends Controller
         $review_math = floor($review_star);
         $user = Auth::user();
         $store_format = StoreFormat::all();
+        $store_product = $store->products()->get();
+
         return view('posts/store_detail')->with(['store' => $store, 'user' =>$user,'user' => $user, 'star' => $review_star,
-                                                 'store_formats' =>$store_format,'review_math' => $review_math]);
+                                                 'store_formats' =>$store_format,'review_math' => $review_math,'store_products' => $store_product]);
     }
 
     public function holderStore(Store $store)
@@ -243,10 +240,28 @@ class Store_RegisterController extends Controller
     }
 
 
+public function testImg(){
+        $u = Auth::user();
+        $e = StoreFormat::all();
+        return view('posts/test_img')->with(['user' => $u, 'store_formats' => $e]);
+}
 
 
+public function testUpload(){
 
+        for($i=0; $i<5; $i++){
+        $product  = new Product;
+        $files = $request->file('images'.$i);
+        $img = $files->getRealPath();
+    	$image = Cloudinary::upload($img)->getSecurePath();
+    	$name = 'name' . $i;
+    	$product->name = $request->$name;
+    	$product->image_path = $img;
+        $inputss += ['image_path' => $file];
+        $product->save();
+    }
 
+}
 
 
 }

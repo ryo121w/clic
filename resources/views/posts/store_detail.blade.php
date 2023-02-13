@@ -171,6 +171,13 @@
 
     <p>{{ $store->body }}</p>
 
+    <div>
+        @foreach($store_products as $product)
+        <img src="{{ $product->image_path}}" width="50px" height="50px">
+        <p>{{$product->name}}</p>
+        @endforeach
+    </div>
+
 
 
 　　<script src="{{ asset('/js/detail.js') }}"></script>

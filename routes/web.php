@@ -103,8 +103,6 @@ Route::post('/posts/holder/delete/{store}',[Store_RegisterController::class, 'ho
 Route::get('/posts/rank', [RankController::class, 'rankStore']);
 
 
-
-
 Route::post('/posts/owner/{user}',[Store_RegisterController::class, 'storeOwner']);
 
 Route::post('/posts/posts/posts/owners/{owner}',[Store_RegisterController::class, 'conectOwner']);
@@ -118,9 +116,6 @@ Route::get('/posts/store/men/{sex}', [PostController::class, 'menStore']);
 Route::get('/posts/store/women/{sex}', [PostController::class, 'womenStore']);
 
 Route::get('/posts/owners', [Store_RegisterController::class, 'allOwner']);
-
-
-
 
 
 // 店舗登録フォーム
