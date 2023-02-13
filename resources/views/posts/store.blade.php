@@ -62,8 +62,8 @@
             <p class="etc">...etc</p>
         </div>
 
-            @foreach($store->sexes as $sex)
             <p class="show_gender">gender</p>
+            @foreach($store->sexes as $sex)
             <p class="sex">{{ $sex->sex }}</p>
             @endforeach
         </div>

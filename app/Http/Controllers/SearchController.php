@@ -11,7 +11,7 @@ use App\Models\Prefecture;
 class SearchController extends Controller
 {
     public function index (Request $request,Store $store,Prefecture $prefecture)
-{        $user = Auth::user();
+{       $user = Auth::user();
         $store_format = StoreFormat::all();
         $keyword = $request->input('cond_title');
         $spaceConversion = mb_convert_kana($keyword, 's');
@@ -36,7 +36,7 @@ class SearchController extends Controller
                                       ->first();
             $pre = $prefecture->getByPrefecture();
             if($pre->isNotEmpty()){
-                return view('posts/search_prefecture')->with(['stores' => $pre]);
+                return view('posts/search_prefecture')->with(['stores' => $pre,'user'=>$user,'store_formats' => $store_format,'prefecture' => $prefecture]);
             }
         }
 

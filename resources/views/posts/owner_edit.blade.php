@@ -6,8 +6,9 @@
 </div>
 <main id="main">
     <h2 class="store_register">店舗登録フォーム</h2>
-    <form action="/posts/upload/{{ $store->id }}" method="POST" enctype="multipart/form-data">
+    <form action="/posts/upload/owner/{{ $store->id }}" method="POST" enctype="multipart/form-data">
         @csrf
+        @method('PUT')
         <div class="store_register_flex">
             <div class="store_features">
                 <h2>店舗名</h2>

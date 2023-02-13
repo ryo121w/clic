@@ -1,23 +1,10 @@
-<!DOCTYPE html>
-<html lang="ja">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
-
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
-   <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho" rel="stylesheet">
-    <title>CLIC</title>
-</head>
-
-<body>
-     <main id="main">
-                     <div class="back_button">
-                <button type="button" onClick="history.back()" class="back"><img src="{{ asset('/img/left.png')}}" width="20px" height="20px"></button>
-            </div>
+<x-app :store-formats="$store_formats" :user="$user">
+<link rel="stylesheet" href="{{ asset('/css/store.css') }}">
+<div class="back_button">
+    <button type="button" onClick="history.back()" class="back"><img src="{{ asset('/img/left.png')}}" width="20px" height="20px"></button>
+</div>
+ <main id="main">
     <div class="position_flex">
         <nav>
             <ul>
@@ -27,31 +14,58 @@
             </ul>
         </nav>
     </div>
-     <h1>全国のストア</h1>
+     <h1 class="title">{{ $prefecture->name }}のストア</h1>
 
 
 
 
 
       @foreach ($stores as $store)
-        <div class="store_detail_flex">
+        <div class="store_flex">
           <div class="store_detail">
-            <a href="/posts/store/detail/{{$store->id}}" style="color:inherit;text-decoration:none;"><h2>{{ $store->name }}</h2></a>
-            <p>{{ $store->phone }}</p>
-            <a href="/prefecture/{{ $store->prefecture->id }}" style="color:inherit;text-decoration:none;">{{ $store->prefecture->name }}</a>
-            <a href="/posts/format_store/{{ $store->store_format->id }}" style="color:inherit;text-decoration:none;"><p>{{ $store->store_format->name }}</p></a>
+            <div class="store_detail_flex">
+
+                    <a href="/posts/store/detail/{{$store->id}}" style="color:inherit;text-decoration:none;" ><h2 class="store_name">{{ $store->name }}</h2></a>
+
+                    <a href="/posts/format_store/{{ $store->store_format->id }}" style="color:inherit;text-decoration:none;"><p class="store_format_detail">{{ $store->store_format->name }}</p></a>
 
 
-          @foreach($store->brands as $brand)
-           <a href="/brand/{{ $brand->id }}" style="color:inherit;text-decoration:none;"><p>{{ $brand->name }}</p></a>
-          @endforeach
+                <div class="phone_flex">
+                    <img src="{{ asset('/img/ifn0811.png')}}">
+                    <p>{{ $store->phone }}</p>
+                </div>
 
-          @foreach($store->sexes as $sex)
-          <p>{{ $sex->sex }}</p>
-          @endforeach
+            </div>
 
-          <p>{{ $store->body }}</p>
 
+            <div class="star_flex">
+                @if($store->stars===5)
+                    <h3 class="star_five">{{ str_repeat('★ ', $store->stars) }}</h3>
+                    @elseif($store->stars!==5)
+                    <div>
+                        <h3 class="star_five">{{ str_repeat('★ ', $store->stars) }}
+                        {{ str_repeat('☆ ', (5-$store->stars)) }}</h3>
+                    </div>
+                @endif
+                <p>{{$store->stars}}</p>
+            </div>
+            <p class="address">address</p>
+            <a href="/prefecture/{{ $store->prefecture->id }}" style="color:inherit;text-decoration:none;"><p class="detailAddress">{{ $store->pref }}{{ $store->city }}{{ $store->town}}{{ $store->building }}</p></a>
+
+
+
+        <p class="show_brand">brand</p>
+        <div class="brand_flex">
+            @foreach($store->brands->take(5) as $brand)
+            <a href="/brand/{{ $brand->id }}" style="color:inherit;text-decoration:none;"><p class="brand">{{ $brand->name }}</p></a>
+            @endforeach
+            <p class="etc">...etc</p>
+        </div>
+
+            <p class="show_gender">gender</p>
+            @foreach($store->sexes as $sex)
+            <p class="sex">{{ $sex->sex }}</p>
+            @endforeach
         </div>
 
         <div class="store_img">
@@ -59,4 +73,11 @@
         </div>
           @endforeach
       </div>
+      <br>
+
+
+        <div class="bootstrap">
+            {{ $stores->links() }}
+        </div>
     </main>
+</x-app>

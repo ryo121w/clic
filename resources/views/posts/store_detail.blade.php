@@ -164,9 +164,11 @@
             @endforeach
         </div>
 
+
         <div class="store_img">
             <img src="{{ $store->image_path }}">
         </div>
+
     </div>
 
 <div class="store_body">

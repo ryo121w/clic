@@ -24,7 +24,7 @@ class Store_RegisterController extends Controller
 {
     public function showStore(Store $store,Request $request )
     {
-        $store = Store::paginate(5);
+        $store = Store::paginate(15);
         $store_format = StoreFormat::all();
         $user = Auth::user();
         return view ('posts/store')->with(['stores' => $store,'store_formats' => $store_format,
@@ -58,11 +58,9 @@ class Store_RegisterController extends Controller
         $input_brands = $request->brands_array;
         $input_sex = $request->sex;
         $owner_id = $user->owner;
-
         $input = $request['store'];
         $input += ['image_path' => $image_url];
         $store->fill($input)->save();
-
         for($i=0; $i<10; $i++)
         {
             if($image = $request->file('images'.$i)){
@@ -143,7 +141,7 @@ class Store_RegisterController extends Controller
     {
         $user=Auth::user();
         $store_format = StoreFormat::all();
-        $store = Store::paginate(2);
+        $store = Store::paginate(15);
         return view('posts/store_holder')->with(['stores' => $store, 'user' => $user, 'store_formats' => $store_format]);
     }
 

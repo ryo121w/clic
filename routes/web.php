@@ -82,7 +82,7 @@ Route::get('/posts/review_detail/{store}', [ReviewController::class, 'detailRevi
 
 Route::get('/posts/store/edit/owner/{store}',[Store_RegisterController::class, 'ownerEditStore']);
 
-Route::put('/posts/update/store/{store}',[Store_RegisterController::class, 'ownerUpdateStore']);
+Route::put('/posts/upload/owner/{store}',[Store_RegisterController::class, 'ownerUpdateStore']);
 
 
 Route::delete('/posts/store/delete/{store}',[Store_RegisterController::class, 'ownerDeleteStore']);
@@ -122,7 +122,7 @@ Route::get('/posts/owners', [Store_RegisterController::class, 'allOwner']);
 Route::get('/register/store/{user}', [Store_RegisterController::class, 'registerStore'])->name('registerstore');
 
 // 店舗登録
-Route::post('/posts/upload/{store}', [Store_RegisterController::class, 'upStore'])->name('upload');
+Route::post('/posts/upload/{user}', [Store_RegisterController::class, 'upStore'])->name('upload');
 
 Route::get('/postal-code/{postal_code}/address', [Store_RegisterController::class, 'getAddressByPostalCode']);
 
