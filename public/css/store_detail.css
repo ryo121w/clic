@@ -1,7 +1,6 @@
 #main{
     max-width: 980px;
     margin:0 auto;
-    height:800px;
     padding-top: 150px;
 }
 .main_function_flex{
@@ -327,3 +326,26 @@ button:hover {
 }
 
 
+.products{
+    display: flex;
+    flex-wrap:wrap;
+}
+
+.products img{
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.products p{
+    text-align: center;
+    font-weight: bold;
+}
+
+.detail_product{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.store_body{
+    margin-bottom: 100px;
+}

@@ -176,7 +176,37 @@
         <br>
 
         </div>
-        </div>
+    </div>
+
+
+
+    <div class="recommend">
+        <h1>おすすめ商品</h1>
+        <h4>（登録される際は10件全て登録してください）</h4>
+    </div>
+
+    <div class="form-group">
+        <input type="file"  name="images0" accept=".png, .jpg, .jpeg, .pdf, .doc">
+        <input type="text" name="name0">
+        <input type="file"  name="images1" accept=".png, .jpg, .jpeg, .pdf, .doc">
+        <input type="text" name="name1">
+        <input type="file"  name="images2" accept=".png, .jpg, .jpeg, .pdf, .doc">
+        <input type="text" name="name2">
+        <input type="file"  name="images3" accept=".png, .jpg, .jpeg, .pdf, .doc">
+        <input type="text" name="name3">
+        <input type="file"  name="images4" accept=".png, .jpg, .jpeg, .pdf, .doc">
+        <input type="text" name="name4">
+        <input type="file"  name="images5" accept=".png, .jpg, .jpeg, .pdf, .doc">
+        <input type="text" name="name5">
+        <input type="file"  name="images6" accept=".png, .jpg, .jpeg, .pdf, .doc">
+        <input type="text" name="name6">
+        <input type="file"  name="images7" accept=".png, .jpg, .jpeg, .pdf, .doc">
+        <input type="text" name="name7">
+        <input type="file"  name="images8" accept=".png, .jpg, .jpeg, .pdf, .doc">
+        <input type="text" name="name8">
+        <input type="file"  name="images9" accept=".png, .jpg, .jpeg, .pdf, .doc">
+        <input type="text" name="name9">
+    </div>
 
 
 
@@ -184,15 +214,6 @@
 　　　　<button type="submit">
 　　　　ストア登録
 　　　　</button>
-　　　</div>
-　　　      <div class="form-group">
-        　　<input type="file"  name="images0" accept=".png, .jpg, .jpeg, .pdf, .doc">
-        　　<input type="text" name="name0">
-　　        <input type="file"  name="images1" accept=".png, .jpg, .jpeg, .pdf, .doc">
-        　　<input type="text" name="name1">
-
-        　　<button type="submit">store</button>
-        </div>
    </form>
 
 </main>

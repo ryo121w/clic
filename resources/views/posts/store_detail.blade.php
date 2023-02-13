@@ -169,12 +169,16 @@
         </div>
     </div>
 
+<div class="store_body">
     <p>{{ $store->body }}</p>
+</div>
 
-    <div>
+    <div class="products">
         @foreach($store_products as $product)
-        <img src="{{ $product->image_path}}" width="50px" height="50px">
+        <div class="detail_product">
+        <img src="{{ $product->image_path}}" width="150px" height="200px">
         <p>{{$product->name}}</p>
+        </div>
         @endforeach
     </div>
 
