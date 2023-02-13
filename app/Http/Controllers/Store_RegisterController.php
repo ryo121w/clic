@@ -127,6 +127,7 @@ class Store_RegisterController extends Controller
     {
         $user_id = Auth::id();
         if($store->users($user_id)->exists()){
+
         }else{
             $store->users()->attach(Auth::id());
         }

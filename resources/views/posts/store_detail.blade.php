@@ -91,19 +91,19 @@
                         <ul>
                             <!--フェイスブック-->
                             <li>
-                                <a href="http://www.facebook.com/share.php?u={URL}" rel="nofollow noopener" target="_blank" style="color:inherit;text-decoration:none;"><i class="fa-brands fa-facebook"></i></a>
+                                <a href="http://www.facebook.com/share.php?u={{url()->full()}}" rel="nofollow noopener" target="_blank" style="color:inherit;text-decoration:none;"><i class="fa-brands fa-facebook"></i></a>
                             </li>
                             <!--ツイッター-->
                             <li>
-                                <a href="https://twiter.com/share?url={URL}" rel="nofollow noopener" target="_blank" style="color:inherit;text-decoration:none;"><i class="fa-brands fa-twitter"></i></a>
+                                <a href="https://twiter.com/share?url={{url()->full()}}" rel="nofollow noopener" target="_blank" style="color:inherit;text-decoration:none;"><i class="fa-brands fa-twitter"></i></a>
                             </li>
                             <!--ライン-->
                             <li>
-                                <a href="http://line.me/R/msg/text/?{URL}%0a{ページのタイトルなど表示したいテキスト}" target="_blank" rel="nofollow noopener" style="color:inherit;text-decoration:none;"><i class="fa-brands fa-line"></i></a>
+                                <a href="http://line.me/R/msg/text/?{{url()->full()}}%0a{お気に入りストア発見}" target="_blank" rel="nofollow noopener" style="color:inherit;text-decoration:none;"><i class="fa-brands fa-line"></i></a>
                             </li>
                             <!--ポケット-->
                             <li>
-                                <a href="http://getpocket.com/edit?url={URL}&title={ページのタイトル}" rel="nofollow" rel="nofollow" target="_blank" style="color:inherit;text-decoration:none;"><i class="fa-brands fa-get-pocket"></i></a>
+                                <a href="http://getpocket.com/edit?url={{url()->full()}}&title={ページのタイトル}" rel="nofollow" rel="nofollow" target="_blank" style="color:inherit;text-decoration:none;"><i class="fa-brands fa-get-pocket"></i></a>
                             </li>
                         </ul>
                     </div>
