@@ -180,6 +180,7 @@
         <div class="detail_product">
         <img src="{{ $product->image_path}}" width="150px" height="200px">
         <p>{{$product->name}}</p>
+        <p>{{$product->price}}円</p>
         </div>
         @endforeach
     </div>

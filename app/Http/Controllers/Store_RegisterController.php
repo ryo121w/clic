@@ -67,17 +67,21 @@ class Store_RegisterController extends Controller
             $product  = new Product;
             $img_product = Cloudinary::upload($request->file('images'.$i)->getRealPath())->getSecurePath();
             $name = 'name'.$i;
+            $price = 'price'.$i;
             $product->name = $request->$name;
+            $product->price = $request->$price;
             $product->image_path = $img_product;
             $product->save();
-            $store->products()->attach($product);
+            $store->products()->attach($product);}
         }
+
+
         $store->brands()->attach($input_brands);
         $store->sexes()->attach($input_sex);
         $store->products()->attach($input_product);
         $store->owner()->attach($owner_id);
         return redirect('/posts/thank');
-       }
+
     }
 
     public function showSarch(Request $request, Store $store,)

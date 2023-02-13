@@ -186,26 +186,85 @@
     </div>
 
     <div class="form-group">
-        <input type="file"  name="images0" accept=".png, .jpg, .jpeg, .pdf, .doc">
-        <input type="text" name="name0">
+        <div>
+            <input type="file"  name="images0" accept=".png, .jpg, .jpeg, .pdf, .doc">
+            <p>商品名</p>
+            <input type="text" name="name0">
+            <p>価格</p>
+            <input type="text" name="price0">
+        </div>
+
+        <div>
         <input type="file"  name="images1" accept=".png, .jpg, .jpeg, .pdf, .doc">
+        <p>商品名</p>
         <input type="text" name="name1">
+        <p>価格</p>
+        <input type="text" name="price1">
+        </div>
+
+        <div>
         <input type="file"  name="images2" accept=".png, .jpg, .jpeg, .pdf, .doc">
+        <p>商品名</p>
         <input type="text" name="name2">
+        <p>価格</p>
+        <input type="text" name="price2">
+        </div>
+
+        <div>
         <input type="file"  name="images3" accept=".png, .jpg, .jpeg, .pdf, .doc">
+        <p>商品名</p>
         <input type="text" name="name3">
+        <p>価格</p>
+        <input type="text" name="price3">
+        </div>
+
+        <div>
         <input type="file"  name="images4" accept=".png, .jpg, .jpeg, .pdf, .doc">
+        <p>商品名</p>
         <input type="text" name="name4">
+        <p>価格</p>
+        <input type="text" name="price4">
+        </div>
+
+        <div>
         <input type="file"  name="images5" accept=".png, .jpg, .jpeg, .pdf, .doc">
+        <p>商品名</p>
         <input type="text" name="name5">
+        <p>価格</p>
+        <input type="text" name="price5">
+        </div>
+
+        <div>
         <input type="file"  name="images6" accept=".png, .jpg, .jpeg, .pdf, .doc">
+        <p>商品名</p>
         <input type="text" name="name6">
+        <p>価格</p>
+        <input type="text" name="price6">
+        </div>
+
+        <div>
         <input type="file"  name="images7" accept=".png, .jpg, .jpeg, .pdf, .doc">
+        <p>商品名</p>
         <input type="text" name="name7">
+        <p>価格</p>
+        <input type="text" name="price7">
+        </div>
+
+        <div>
         <input type="file"  name="images8" accept=".png, .jpg, .jpeg, .pdf, .doc">
+        <p>商品名</p>
         <input type="text" name="name8">
+        <p>価格</p>
+        <input type="text" name="price8">
+        </div>
+
+        <div>
         <input type="file"  name="images9" accept=".png, .jpg, .jpeg, .pdf, .doc">
+        <p>商品名</p>
         <input type="text" name="name9">
+        <p>価格</p>
+        <input type="text" name="price9">
+        </div>
     </div>
 
 
