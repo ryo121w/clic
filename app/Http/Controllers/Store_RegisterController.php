@@ -25,10 +25,9 @@ class Store_RegisterController extends Controller
     public function showStore(Store $store,Request $request )
     {
         $store = Store::paginate(5);
-        $store_id = Store::find('id');
         $store_format = StoreFormat::all();
         $user = Auth::user();
-        return view ('posts/store')->with(['stores' => $store, 'store_id' => $store_id, 'store_formats' => $store_format,
+        return view ('posts/store')->with(['stores' => $store,'store_formats' => $store_format,
                                             'user' => $user]);
     }
 
@@ -63,8 +62,10 @@ class Store_RegisterController extends Controller
         $input = $request['store'];
         $input += ['image_path' => $image_url];
         $store->fill($input)->save();
+
         for($i=0; $i<10; $i++)
         {
+            if($image = $request->file('images'.$i)){
             $product  = new Product;
             $img_product = Cloudinary::upload($request->file('images'.$i)->getRealPath())->getSecurePath();
             $name = 'name'.$i;
@@ -78,6 +79,7 @@ class Store_RegisterController extends Controller
         $store->products()->attach($input_product);
         $store->owner()->attach($owner_id);
         return redirect('/posts/thank');
+       }
     }
 
     public function showSarch(Request $request, Store $store,)
