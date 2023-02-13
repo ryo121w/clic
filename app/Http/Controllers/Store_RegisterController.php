@@ -223,8 +223,7 @@ class Store_RegisterController extends Controller
         $store->fill($input)->save();
         $store->brands()->sync($input_brands);
         $store->sexes()->sync($input_sex);
-
-        return redirect('/');
+        return redirect('posts/thank');
     }
 
     public function ownerDeleteStore(Store $store)

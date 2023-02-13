@@ -122,7 +122,7 @@ Route::get('/posts/owners', [Store_RegisterController::class, 'allOwner']);
 Route::get('/register/store/{user}', [Store_RegisterController::class, 'registerStore'])->name('registerstore');
 
 // 店舗登録
-Route::post('/posts/upload/{user}', [Store_RegisterController::class, 'upStore'])->name('upload');
+Route::post('/posts/upload/{store}', [Store_RegisterController::class, 'upStore'])->name('upload');
 
 Route::get('/postal-code/{postal_code}/address', [Store_RegisterController::class, 'getAddressByPostalCode']);
 
