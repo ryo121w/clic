@@ -17,7 +17,7 @@ class StoreSeeder extends Seeder
     {
         $this->command->info("addressesの作成を開始します...");
 
-        $memberSplFileObject = new \SplFileObject(__DIR__ . '/stores_seeder.csv');
+        $memberSplFileObject = new \SplFileObject(__DIR__ . '/st_seed.csv');
         $memberSplFileObject->setFlags(
             \SplFileObject::READ_CSV |
             \SplFileObject::READ_AHEAD |

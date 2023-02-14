@@ -149,9 +149,12 @@ button:hover {
     justify-content:center;
 }
 
+.store_detail_phone{
+    margin-top:20px;
+}
+
 .phone_flex{
     display: flex;
-    padding-top: 20px;
     position: relative;
     right: 20px;
 }
@@ -208,11 +211,20 @@ button:hover {
     margin:0px;
     padding-left: 25px;
 }
+.store_detail_address{
+    margin-top: 20px;
+}
+.store_detail_address h3{
+    margin: 0px;
 
+}
 .detail_address{
-    margin-top:20px;
     margin-bottom: 20px;
     font-weight: lighter;
+}
+
+.store_detail_brand{
+    margin-top:20px;
 }
 
 .detail_brand{
@@ -347,5 +359,22 @@ button:hover {
 }
 
 .store_body{
+    margin-top:30px;
     margin-bottom: 100px;
+}
+
+.store_body p{
+    font-weight: bold;
+}
+
+
+
+.store_detail_p{
+    margin:0px;
+    font-weight: bold;
+    font-size:10px;
+}
+
+.store_detail_gender{
+    margin-top:20px;
 }

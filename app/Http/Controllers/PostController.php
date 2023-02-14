@@ -20,7 +20,7 @@ class PostController extends Controller
     {
 
         $user = Auth::user();
-        $store = Store::all();
+        $store = Store::paginate(10);
         $sex_men = Sex::find($id=1);
         $sex_women = Sex::find($id=2);
         $store_format = StoreFormat::all();

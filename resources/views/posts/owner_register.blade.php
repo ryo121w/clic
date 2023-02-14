@@ -34,7 +34,7 @@
 
     <form method="POST" action="posts/posts/owners/{{ $owner->id }}">
         @csrf
-    <button type="submit" name="user[owner]" >store</button>
+        <button type="submit" name="user[owner]" >store</button>
     </form>
     </div>
     @endforeach

@@ -68,6 +68,7 @@
         </div>
           @endforeach
       </div>
+
 </main>
 </x-app>
 

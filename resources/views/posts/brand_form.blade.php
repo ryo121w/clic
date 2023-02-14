@@ -7,7 +7,7 @@
             <form method="POST" action="/store/brand">
                 @csrf
             <h1>ブランド登録</h1>
-            <input type="text" name="brand[name]" placeholder="ブランド名">
+            <input type="text" name="brand[name]" placeholder="ブランド名" size="40">
             <button type="submit">Store</button>
             </form>
         </main>

@@ -32,7 +32,9 @@
 
                 <div class="phone_flex">
                     <img src="{{ asset('/img/ifn0811.png')}}">
+                    <a href="tel:{{ $store->phone }}">
                     <p>{{ $store->phone }}</p>
+                    </a>
                 </div>
 
             </div>
@@ -49,12 +51,12 @@
                 @endif
                 <p>{{$store->stars}}</p>
             </div>
-            <p class="address">住所</p>
+            <p class="address">address</p>
             <a href="/prefecture/{{ $store->prefecture->id }}" style="color:inherit;text-decoration:none;"><p class="detailAddress">{{ $store->pref }}{{ $store->city }}{{ $store->town}}{{ $store->building }}</p></a>
 
 
 
-        <p class="show_brand">取り扱いブランド</p>
+        <p class="show_brand">brand</p>
         <div class="brand_flex">
             @foreach($store->brands->take(5) as $brand)
             <a href="/brand/{{ $brand->id }}" style="color:inherit;text-decoration:none;"><p class="brand">{{ $brand->name }}</p></a>
@@ -73,5 +75,8 @@
         </div>
           @endforeach
       </div>
+        <div class="bootstrap">
+            {{ $stores->links() }}
+        </div>
     </main>
 </x-app>

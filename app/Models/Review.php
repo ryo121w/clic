@@ -36,9 +36,9 @@ class Review extends Model
         return $this->belongsTo(Store::class);
     }
 
-   public function avgStar()
+   public function avgStar(int $limit_count = 10)
    {
-     return $this->stores()->with('reviews')->avg('stars');
+     return $this->stores()->with('reviews')->avg('stars')->paginate($limit_count);
    }
 
 }

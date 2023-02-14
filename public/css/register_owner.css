@@ -14,6 +14,15 @@
     border-bottom:1px solid black;
 }
 
+.main button {
+    border: none;
+    background: transparent;
+    border-radius: 20px;
+    background-color: rgba(1,1,1,0.2);
+    margin: 0 auto;
+    margin-top:20px;
+}
+
 .detailOwner{
     text-align: center
 }

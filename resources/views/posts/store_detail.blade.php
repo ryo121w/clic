@@ -24,12 +24,12 @@
            <div class="main_functions">
                 <div class="function_post">
                     <a href="/posts/review_store/{{ $store->id }}" style="color:inherit;text-decoration:none;">
-                        <p>投稿</p>
+                        <p>レビュー投稿</p>
                     </a>
                 </div>
                 <div class="function_review">
                     <a href="/posts/review_detail/{{ $store->id }}" style="color:inherit;text-decoration:none;">
-                        <p>評価</p>
+                        <p>評価一覧</p>
                     </a>
                 </div>
 
@@ -141,25 +141,35 @@
             </div>
 
 
-            <h3 class="detail_address">{{ $store->pref }}{{ $store->city }}{{ $store->town}}{{ $store->house_number }}{{ $store->building }}</h3>
+                <div class="store_detail_address">
+                    <p class="store_detail_p">Address</p>
+                    <h3 class="detail_address">{{ $store->pref }}{{ $store->city }}{{ $store->town}}{{ $store->house_number }}{{ $store->building }}</h3>
+                </div>
 
-            <p class="detail_brand">取り扱いブランド</p>
-            <div class="brand_flex">
-            @foreach($store->brands->take(5) as $brand)
-            <a href="/brand/{{ $brand->id }}" style="color:inherit;text-decoration:none;"><p class="brand">{{ $brand->name }}</p></a>
-            @endforeach
-            <p class="etc">...etc</p>
+            <div class="store_detail_brand">
+                <p class="store_detail_p">Brand</p>
+                <div class="brand_flex">
+                @foreach($store->brands->take(5) as $brand)
+                <a href="/brand/{{ $brand->id }}" style="color:inherit;text-decoration:none;"><p class="brand">{{ $brand->name }}</p></a>
+                @endforeach
+                <p class="etc">...etc</p>
+            </div>
         </div>
 
+        <div class="store_detail_phone">
+            <p class="store_detail_p">Phone</p>
             <div class="phone_flex">
                 <img src="{{ asset('/img/ifn0811.png')}}">
                 <p>{{ $store->phone }}</p>
             </div>
+        </div>
 
+        <div class="store_detail_gender">
             @foreach($store->sexes as $sex)
-                <p class="show_gender">gender</p>
+                <p class="store_detail_p">gender</p>
                 <p class="sex">{{ $sex->sex }}</p>
             @endforeach
+        </div>
         </div>
 
 

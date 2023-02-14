@@ -33,8 +33,12 @@
                 @if($errors->has('owner.phone'))
                 <div class="owner_error"><p style="color:red" class="error">{{ $errors->first('owner.phone') }}</p></div>
                 @endif
-            </div>
+
+
+            <div>
                 <button type="submit">store</button>
+            </div>
+            </div>
                 </form>
                 <p>※店舗会員登録後に店舗登録をお願いいたします。（店舗会員登録には数日いただく可能性がございます。）</p>
         </div>
