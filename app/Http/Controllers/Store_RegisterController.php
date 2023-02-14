@@ -127,7 +127,7 @@ class Store_RegisterController extends Controller
     public function holderStore(Store $store)
     {
         $user_id = Auth::id();
-        if($store->users($user_id)->exists()){
+        if($store->isLike($user_id)){
 
         }else{
             $store->users()->attach($user_id);
@@ -137,7 +137,7 @@ class Store_RegisterController extends Controller
     public function holderDeleteStore(Store $store)
     {
         $user_id = Auth::id();
-        if($store->users($user_id)){
+        if($store->isLike($user_id)){
         $store->users()->detach(Auth::id());
         }else{
 

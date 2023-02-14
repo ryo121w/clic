@@ -56,6 +56,11 @@ class Store extends Model
         return $this->belongsToMany(User::class);
     }
 
+    public function isLike($user_id)
+    {
+        return $this->users()->where('user_id',$user_id)->exists();
+    }
+
     public function brands()
     {
         return $this->belongsToMany(Brand::class);
@@ -84,12 +89,6 @@ class Store extends Model
     public function owner()
     {
         return $this->belongsToMany(Owner::class);
-    }
-
-
-    public function isLike($postId)
-    {
-      return $this->users()->where('store_id',$storeId)->exists();
     }
 
    public function getByLimit(int $limit_count = 5)
