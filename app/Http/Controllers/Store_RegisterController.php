@@ -119,6 +119,7 @@ class Store_RegisterController extends Controller
         $store_format = StoreFormat::all();
         $store_product = $store->products()->get();
 
+
         return view('posts/store_detail')->with(['store' => $store, 'user' =>$user,'user' => $user, 'star' => $review_star,
                                                  'store_formats' =>$store_format,'review_math' => $review_math,'store_products' => $store_product]);
     }
@@ -129,7 +130,7 @@ class Store_RegisterController extends Controller
         if($store->users($user_id)->exists()){
 
         }else{
-            $store->users()->attach(Auth::id());
+            $store->users()->attach($user_id);
         }
     }
 
@@ -139,6 +140,7 @@ class Store_RegisterController extends Controller
         if($store->users($user_id)){
         $store->users()->detach(Auth::id());
         }else{
+
         }
     }
 
@@ -238,7 +240,8 @@ class Store_RegisterController extends Controller
 
 
     public function thank ()
-{       $u = Auth::user();
+    {
+        $u = Auth::user();
         $e = StoreFormat::all();
         return view('posts/thank')->with(['user' => $u, 'store_formats' => $e]);
     }

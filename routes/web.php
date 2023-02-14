@@ -91,11 +91,13 @@ Route::get('/posts/format_store/{store_format}', [Store_RegisterController::clas
 
 Route::get('/posts/format_store/rank/{store_format}', [RankController::class, 'storeFormatRank']);
 
-// 保存機能
-Route::post('/posts/holder/{store}', [Store_RegisterController::class, 'holderStore']);
+
 
 // 保存したストア一覧
 Route::get('/posts/holder/{user_id}', [Store_RegisterController::class, 'holdStore']);
+
+// 保存機能
+Route::post('/posts/holder/{store}', [Store_RegisterController::class, 'holderStore']);
 
 Route::post('/posts/holder/delete/{store}',[Store_RegisterController::class, 'holderDeleteStore']);
 

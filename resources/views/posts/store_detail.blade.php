@@ -71,8 +71,6 @@
 
             </div>
 
-            <!--<form method="POST" action="/posts/holder/{{ $store->id }}" >-->
-            <!--</form>-->
 
 
 
@@ -254,7 +252,7 @@
                                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
                                 'Content-Type': 'application/json'
                                 },
-                    url: '/posts/holder/' + store ,
+                    url:'/posts/holder/'+ store ,
                     cache: false,
                     dataType: 'json',
                     timeout: 3000
@@ -271,7 +269,7 @@
                                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
                                 'Content-Type': 'application/json'
                                 },
-                    url: '/posts/holder/delete/' + store ,
+                    url:'/posts/holder/delete/' + store ,
                     cache: false,
                     dataType: 'json',
                     timeout: 3000

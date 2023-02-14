@@ -15,21 +15,42 @@ class StoreSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('stores')->insert([
-        'name' => 'スキキライ',
-        'phone' =>'0662133201',
-        'body' =>'服の好き嫌いをなくして欲しいとの思いから始まったセレクトショップ「スキキライ」。国内外問わず集めたセレクトブランド＋ブランド物の古着やアメリカ古着を中心にセレクトしており、様々なファッションジャンルを楽しめ、新たな服に挑戦してみたいと考える人にはオススメのお店。夜21時まで営業しており、仕事帰りにも気軽に立ち寄れるのも嬉しいポイントとなっている。',
-        'store_format_id' => 1,
-        'image_path' => '/img/LUIK.jpeg',
-        'prefecture_id' => 1,
-        'zip' => 5420086,
-        'pref' => '大阪府',
-        'city' => '中央区',
-        'town' => '西心斎橋',
-        'building' => 'アンクルサムビル4F',
-        'house_number' => '2-11-14',
-        'station' => '難波',
-        'min' =>15,
-        ]);
+        $this->command->info("addressesの作成を開始します...");
+
+        $memberSplFileObject = new \SplFileObject(__DIR__ . '/stores_seeder.csv');
+        $memberSplFileObject->setFlags(
+            \SplFileObject::READ_CSV |
+            \SplFileObject::READ_AHEAD |
+            \SplFileObject::SKIP_EMPTY |
+            \SplFileObject::DROP_NEW_LINE
+        );
+
+        foreach ($memberSplFileObject as $key => $row) {
+            //excelでcsvを保存するとBOM付きになるので削除する
+            if ($key === 0) {
+                $row[0] = preg_replace('/^\xEF\xBB\xBF/', '', $row[0]);
+            }
+
+            DB::table('stores')->insert([
+                'name' =>  trim($row[0]),
+                'phone' =>  trim($row[1]),
+                'body' =>  trim($row[2]),
+                'store_format_id' =>  trim($row[3]),
+                'image_path' =>  trim($row[4]),
+                'prefecture_id' =>  trim($row[5]),
+                'zip' =>  trim($row[6]),
+                'pref' =>  trim($row[7]),
+                'city' =>  trim($row[8]),
+                'town' =>  trim($row[9]),
+                'building' =>  trim($row[10]),
+                'house_number' =>  trim($row[11]),
+                'station' =>  trim($row[12]),
+                'min' =>  trim($row[13]),
+
+            ]);
+        }
+        $this->command->info("addressesを作成しました。");
+
+
     }
 }
