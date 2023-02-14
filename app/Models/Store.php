@@ -81,9 +81,9 @@ class Store extends Model
         return $this->belongsToMany(Holder::class);
     }
 
-    public function rankStar (int $limit_count = 11)
+    public function rankStar ()
     {
-        return $this->orderBy('stars', 'DESC')->limit($limit_count)->get();
+        return $this->orderBy('stars', 'DESC')->get();
     }
 
     public function owner()

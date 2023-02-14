@@ -31,9 +31,9 @@ class PostController extends Controller
                 $review_stars[] = $review->where('store_id', $s->id)->avg('stars');
             }
             $storeRank = $s->rankStar();
-            $store_format_select = $storeRank->where('store_format_id', 1)->all();
-            $store_format_used = $storeRank->where('store_format_id', 2)->all();
-            $store_format_ec = $storeRank->where('store_format_id', 3)->all();
+            $store_format_select = $storeRank->where('store_format_id', 1)->take(12);
+            $store_format_used = $storeRank->where('store_format_id', 2)->take(12);
+            $store_format_ec = $storeRank->where('store_format_id', 3)->take(12);
 
 
         if($user===null){

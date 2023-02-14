@@ -36,7 +36,7 @@ class BrandController extends Controller
     {
         $u = Auth::user();
         $e = StoreFormat::all();
-        return view('posts/brand_detail')->with(['stores' => $brand->getByBrand(),'store_formats' => $e,'user'=>$u]);
+        return view('posts/brand_detail')->with(['stores' => $brand->getByBrand(),'store_formats' => $e,'user'=>$u, 'brand' => $brand]);
 
     }
 

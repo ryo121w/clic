@@ -31,8 +31,10 @@
 
 
                 <div class="phone_flex">
+                    <a href="tel:{{ $store->phone }}">
                     <img src="{{ asset('/img/ifn0811.png')}}">
                     <p>{{ $store->phone }}</p>
+                    </a>
                 </div>
 
             </div>

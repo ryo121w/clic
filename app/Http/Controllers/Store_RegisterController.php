@@ -148,7 +148,7 @@ class Store_RegisterController extends Controller
     {
         $user=Auth::user();
         $store_format = StoreFormat::all();
-        $store = Store::all();
+        $store = Store::paginate(15);
         return view('posts/store_holder')->with(['stores' => $store, 'user' => $user, 'store_formats' => $store_format]);
     }
 
@@ -192,7 +192,6 @@ class Store_RegisterController extends Controller
        $user = User::find($user_id);
        $user->owner = $owner->id;
        $user->save();
-       return redirect('/');
     }
 
     public function showOwnerStore(Owner $owner, User $user,Store $store)
