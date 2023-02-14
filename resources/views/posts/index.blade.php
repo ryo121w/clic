@@ -214,7 +214,6 @@
                     <div class="select">
                     <img src="{{ $store->image_path }}" alt="画像が読み込めません。">
                     <p class="select_name">{{ $store->name }}</p>
-                    <p>{{ $store->pref }}{{ $store->city }}</p>
                     </div>
                      </a>
                     @endforeach

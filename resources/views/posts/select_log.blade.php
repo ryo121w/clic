@@ -11,29 +11,35 @@
     <title>Welecome to CLIC</title>
 </head>
 
-<main>
+<body>
+<main id="main">
     <div class="main">
-        <h1>CLIC</h1>
-        <h2 class="title">WELECOME TO CLIC!!</h2><br>
-        <h2 class="sub_title">CLICはあなたがまだ知らないストアを見つけれる</h2><br>
-        <h4>あなたのお気に入りストアを見つけることができるかも?!</h4>
-        <h2>LET'S GO</h2>
+        <div class="main_view">
+            <h1 class="CLIC">CLIC</h1>
+            <h2 class="title">WELECOME TO CLIC!!!!!!!</h2><br>
+            <h2 class="sub_title">CLICは全国のファッションストアからあなたにあったストアを届ける</h2><br>
+            <h4>CLICはあなたがまだ知らないストアを見つけれる!</h4>
+            <h2>LET'S GO</h2>
 
 
-        <div class="flex">
-            <div class="login">
-                <p class="login_title">すでに登録されている方はこちら</p>
-                <a href="{{ route('login') }}" style="color:inherit;text-decoration:none;">
-                    <p class="new_user">ログイン</p>
-                </a>
-            </div>
+            <div class="flex">
+                <div class="login">
+                    <p class="login_title">すでに登録されている方はこちら</p>
+                    <a href="{{ route('login') }}" style="color:inherit;text-decoration:none;">
+                        <p class="new_user">ログイン</p>
+                    </a>
+                </div>
 
-            <div class="register">
-                <p class="login_title">まだ登録されていない方はこちら</p>
-                <a href="{{ route('register') }}" style="color:inherit;text-decoration:none;">
-                    <p class="new_user">新規登録</p>
-                </a>
+                <div class="register">
+                    <p class="login_title">まだ登録されていない方はこちら</p>
+                    <a href="{{ route('register') }}" style="color:inherit;text-decoration:none;">
+                        <p class="new_user">新規登録</p>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 </main>
+</body>
+
+</html>

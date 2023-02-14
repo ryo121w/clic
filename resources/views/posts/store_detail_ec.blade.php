@@ -32,25 +32,6 @@
                         <p>評価一覧</p>
                     </a>
                 </div>
-
-                <div class="btn-container">
-           　        <button id="btn">アクセスマップ</button>
-        　　  　  </div>
-
-        　　  　  <div id="mask" class="hidden"></div>
-        　　　          <section id="modal" class="hidden">
-                　　      <div>
-                    　　　     <h1>アクセスマップ</h1>
-                    　　　   <div class="map_flex">
-                            <div id="map" ></div>
-                            <div>
-                                <h2>{{ $store->name }}</h2>
-                    　　　         <h3>{{ $store->pref }}{{ $store->city }}{{ $store->town}}{{ $store->house_number }}{{ $store->building }}</h3>
-                    　　　         <h3>{{ $store->station }}から徒歩{{ $store->min}}分</h3>
-                    　　　     </div>
-                          </div>
-                 　　     </div>
-
 　　          　　　</section>
         　　</div>
 
@@ -141,10 +122,7 @@
             </div>
 
 
-            <div class="store_detail_address">
-                <p class="store_detail_p">Address</p>
-                <h3 class="detail_address">{{ $store->pref }}{{ $store->city }}{{ $store->town}}{{ $store->house_number }}{{ $store->building }}</h3>
-            </div>
+
 
 
         <div class="store_detail_brand">
@@ -168,12 +146,12 @@
                 </a>
             </div>
         </div>
-        <div class="store_detail_gender">
+            <div class="store_detail_gender">
             @foreach($store->sexes as $sex)
                 <p class="store_detail_p">gender</p>
                 <p class="sex">{{ $sex->sex }}</p>
             @endforeach
-        </div>
+            </div>
         </div>
 
 

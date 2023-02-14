@@ -40,7 +40,7 @@ class Store_RegisterController extends Controller
         $storeformat = StoreFormat::all();
         $sex = Sex::all();
         $user = Auth::user();
-        if($user->owner === 1)
+        if($user->owner !== null)
         {
             return view ('posts/shop_register')->with(['prefectures' => $prefecture , 'brands' => $brand,
             'store_formats' => $storeformat, 'sexes' => $sex, 'user' => $user ]);
@@ -119,9 +119,15 @@ class Store_RegisterController extends Controller
         $store_format = StoreFormat::all();
         $store_product = $store->products()->get();
 
-
+if($store->store_format_id !==3)
+{
         return view('posts/store_detail')->with(['store' => $store, 'user' =>$user,'user' => $user, 'star' => $review_star,
                                                  'store_formats' =>$store_format,'review_math' => $review_math,'store_products' => $store_product]);
+    }
+    elseif($store->store_format_id === 3){
+        return view('posts/store_detail_ec')->with(['store' => $store, 'user' =>$user,'user' => $user, 'star' => $review_star,
+                                                 'store_formats' =>$store_format,'review_math' => $review_math,'store_products' => $store_product]);
+    }
     }
 
     public function holderStore(Store $store)
