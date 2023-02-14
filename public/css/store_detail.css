@@ -354,8 +354,13 @@ button:hover {
 }
 
 .detail_product{
+    width:200px;
     margin-left: 20px;
     margin-right: 20px;
+    text-align:center;
+}
+.detail_product p {
+    overflow-wrap: break-word;
 }
 
 .store_body{

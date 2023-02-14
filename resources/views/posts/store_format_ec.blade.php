@@ -49,8 +49,6 @@
                 @endif
                 <p>{{$store->stars}}</p>
             </div>
-            <p class="address">address</p>
-            <a href="/prefecture/{{ $store->prefecture->id }}" style="color:inherit;text-decoration:none;"><p class="detailAddress">{{ $store->pref }}{{ $store->city }}{{ $store->town}}{{ $store->building }}</p></a>
 
 
 

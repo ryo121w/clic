@@ -186,84 +186,110 @@
     </div>
 
     <div class="form-group">
-        <div>
-            <input type="file"  name="images0" accept=".png, .jpg, .jpeg, .pdf, .doc">
+        <div class="element_product">
+        <div class="store_detail_product">
+            <h2>1</h2>
+            <input class="product_file" type="file"  name="images0" accept=".png, .jpg, .jpeg, .pdf, .doc">
             <p>商品名</p>
-            <input type="text" name="name0">
+            <input type="text" name="name0" size="40">
             <p>価格</p>
-            <input type="text" name="price0">
+            <input type="text" name="price0" size="40">
         </div>
 
-        <div>
-        <input type="file"  name="images1" accept=".png, .jpg, .jpeg, .pdf, .doc">
+        <div class="store_detail_product">
+            <h2>2</h2>
+        <input class="product_file" type="file"  name="images1" accept=".png, .jpg, .jpeg, .pdf, .doc">
         <p>商品名</p>
-        <input type="text" name="name1">
+        <input type="text" name="name1" size="40">
         <p>価格</p>
-        <input type="text" name="price1">
+        <input type="text" name="price1" size="40">
+        </div>
         </div>
 
-        <div>
-        <input type="file"  name="images2" accept=".png, .jpg, .jpeg, .pdf, .doc">
+
+
+<div class="element_product">
+        <div class="store_detail_product">
+            <h2>3</h2>
+        <input class="product_file" type="file"  name="images2" accept=".png, .jpg, .jpeg, .pdf, .doc">
         <p>商品名</p>
-        <input type="text" name="name2">
+        <input type="text" name="name2" size="40">
         <p>価格</p>
-        <input type="text" name="price2">
+        <input type="text" name="price2" size="40">
         </div>
 
-        <div>
-        <input type="file"  name="images3" accept=".png, .jpg, .jpeg, .pdf, .doc">
+        <div class="store_detail_product">
+            <h2>4</h2>
+        <input class="product_file" type="file"  name="images3" accept=".png, .jpg, .jpeg, .pdf, .doc">
         <p>商品名</p>
-        <input type="text" name="name3">
+        <input type="text" name="name3" size="40">
         <p>価格</p>
-        <input type="text" name="price3">
+        <input type="text" name="price3" size="40">
+        </div>
         </div>
 
-        <div>
-        <input type="file"  name="images4" accept=".png, .jpg, .jpeg, .pdf, .doc">
+
+<div class="element_product">
+        <div class="store_detail_product">
+            <h2>5</h2>
+        <input class="product_file" type="file"  name="images4" accept=".png, .jpg, .jpeg, .pdf, .doc">
         <p>商品名</p>
-        <input type="text" name="name4">
+        <input type="text" name="name4" size="40">
         <p>価格</p>
-        <input type="text" name="price4">
+        <input type="text" name="price4" size="40">
         </div>
 
-        <div>
-        <input type="file"  name="images5" accept=".png, .jpg, .jpeg, .pdf, .doc">
+
+        <div class="store_detail_product">
+            <h2>6</h2>
+        <input class="product_file" type="file"  name="images5" accept=".png, .jpg, .jpeg, .pdf, .doc">
         <p>商品名</p>
-        <input type="text" name="name5">
+        <input type="text" name="name5" size="40">
         <p>価格</p>
-        <input type="text" name="price5">
+        <input type="text" name="price5" size="40">
+        </div>
         </div>
 
-        <div>
-        <input type="file"  name="images6" accept=".png, .jpg, .jpeg, .pdf, .doc">
+
+<div class="element_product">
+        <div class="store_detail_product">
+        <h2>7</h2>
+        <input class="product_file" type="file"  name="images6" accept=".png, .jpg, .jpeg, .pdf, .doc">
         <p>商品名</p>
-        <input type="text" name="name6">
+        <input type="text" name="name6" size="40">
         <p>価格</p>
-        <input type="text" name="price6">
+        <input type="text" name="price6" size="40">
         </div>
 
-        <div>
-        <input type="file"  name="images7" accept=".png, .jpg, .jpeg, .pdf, .doc">
+        <div class="store_detail_product">
+        <h2>8</h2>
+        <input class="product_file" type="file"  name="images7" accept=".png, .jpg, .jpeg, .pdf, .doc">
         <p>商品名</p>
-        <input type="text" name="name7">
+        <input type="text" name="name7" size="40">
         <p>価格</p>
-        <input type="text" name="price7">
+        <input type="text" name="price7" size="40">
+        </div>
         </div>
 
-        <div>
-        <input type="file"  name="images8" accept=".png, .jpg, .jpeg, .pdf, .doc">
+
+<div class="element_product">
+        <div class="store_detail_product">
+            <h2>9</h2>
+        <input class="product_file" type="file"  name="images8" accept=".png, .jpg, .jpeg, .pdf, .doc">
         <p>商品名</p>
-        <input type="text" name="name8">
+        <input type="text" name="name8" size="40">
         <p>価格</p>
-        <input type="text" name="price8">
+        <input type="text" name="price8" size="40">
         </div>
 
-        <div>
-        <input type="file"  name="images9" accept=".png, .jpg, .jpeg, .pdf, .doc">
+        <div class="store_detail_product">
+            <h2>10</h2>
+        <input class="product_file" type="file"  name="images9" accept=".png, .jpg, .jpeg, .pdf, .doc">
         <p>商品名</p>
-        <input type="text" name="name9">
+        <input type="text" name="name9" size="40">
         <p>価格</p>
-        <input type="text" name="price9">
+        <input type="text" name="price9" size="40">
+        </div>
         </div>
     </div>
 
