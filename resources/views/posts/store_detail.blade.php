@@ -24,12 +24,12 @@
            <div class="main_functions">
                 <div class="function_post">
                     <a href="/posts/review_store/{{ $store->id }}" style="color:inherit;text-decoration:none;">
-                        <p>投稿</p>
+                        <p>レビュー投稿</p>
                     </a>
                 </div>
                 <div class="function_review">
                     <a href="/posts/review_detail/{{ $store->id }}" style="color:inherit;text-decoration:none;">
-                        <p>評価</p>
+                        <p>評価一覧</p>
                     </a>
                 </div>
 
