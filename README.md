@@ -1,4 +1,4 @@
-<p align="center"><a href="https://clic.herokuapp.com/" target="_blank"><img src="/img/facebook_cover_photo_2.png" width="400" alt="Laravel Logo"></a></p>
+<p align="center"><a href="https://clic.herokuapp.com/" target="_blank"><img src="/clic/public/img/facebook_cover_photo_2.png" width="400" alt="Laravel Logo"></a></p>
 
 # CLIC
 CLIC is an application that compiles ratings of clothing stores nationwide.This application is for personal computers only.
