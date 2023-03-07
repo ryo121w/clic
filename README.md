@@ -1,17 +1,13 @@
-<p align="center"><a href="https://clic.herokuapp.com/" target="_blank"><img src="/img/facebook_cover_photo_2.png" width="400" alt="Laravel Logo"></a></p>
+![CLIC Main Image](/img/facebook_cover_photo_2.png)
 
 # CLIC
 CLIC is an application that compiles ratings of clothing stores nationwide.This application is for personal computers only.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+-AWS.
+--EC2.
+--Cloud9.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+
 
 ## Learning Laravel
 
