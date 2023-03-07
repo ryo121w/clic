@@ -4,19 +4,19 @@
 CLIC is an application that compiles ratings of clothing stores nationwide.This application is for personal computers only.
 
 - coding languages
-<PHP
-<HTML
-<CSS
-<JavaScript(Vue, ajax)
+-- PHP
+-- HTML
+< CSS
+< JavaScript(Vue, ajax)
 
 - environment
-<Laravel
-<AWS(EC2+Cloud9)
-<MySQL(MariaDB)
-<Github
+< Laravel
+< AWS(EC2+Cloud9)
+< MySQL(MariaDB)
+< Github
 
 - deploy
-<Heroku
+< Heroku
 
 
 
