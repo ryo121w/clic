@@ -136,7 +136,7 @@
                 @endif
                 </div>
                 <div class="star_math">
-                <h1>{{$store->stars}}</h1>
+                    <h1>{{$store->stars}}</h1>
                 </div>
             </div>
 

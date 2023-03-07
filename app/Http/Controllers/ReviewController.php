@@ -61,6 +61,7 @@ class ReviewController extends Controller
 
     public function exeDelete(Review $review)
     {
+
         $review->delete();
         return redirect('/posts/store');
     }
