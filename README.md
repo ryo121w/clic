@@ -36,9 +36,31 @@ CLIC is designed with an awareness of how points that point.
 -Realistic user evaluations of the store's atmosphere.
 
 # Features
+The strength of this application is that by opening one application, you can find out the ratings of all the stores in the country.
 
 
-# DEMO
+# Database
+Table List
+   *addresses
+   *brand_store
+   *brands
+   *categories
+   *owner
+   *owner_store
+   *prefectur
+   *product
+   *product_store
+   *review_store
+   *reviews
+   *sex
+   *sex_store
+   *store_formats
+   *store_user
+   *stores
+   *users
+
+   ![ER Image](https://github.com/ryo121w/clic/blob/master/public/img/Entity%20Relationship%20Diagram.png?raw=true)
+
 
 
 # Requirement
