@@ -41,23 +41,23 @@ The strength of this application is that by opening one application, you can fin
 
 # Database
 Table List
-   *addresses
-   *brand_store
-   *brands
-   *categories
-   *owner
-   *owner_store
-   *prefectur
-   *product
-   *product_store
-   *review_store
-   *reviews
-   *sex
-   *sex_store
-   *store_formats
-   *store_user
-   *stores
-   *users
+   * addresses
+   * brand_store
+   * brands
+   * categories
+   * owner
+   * owner_store
+   * prefectur
+   * product
+   * product_store
+   * review_store
+   * reviews
+   * sex
+   * sex_store
+   * store_formats
+   * store_user
+   * stores
+   * users
 
    ![ER Image](https://github.com/ryo121w/clic/blob/master/public/img/Entity%20Relationship%20Diagram.png?raw=true)
 
