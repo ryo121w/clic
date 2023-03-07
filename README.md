@@ -3,9 +3,9 @@
 # CLIC
 CLIC is an application that compiles ratings of clothing stores nationwide.This application is for personal computers only.
 
--AWS.
---EC2.
---Cloud9.
+- AWS.
+ - EC2.
+ - Cloud9.
 
 
 
