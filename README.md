@@ -1,4 +1,4 @@
-![CLIC Main Image](/img/facebook_cover_photo_2.png)
+![CLIC Main Image](https://github.com/ryo121w/clic/blob/master/public/img/facebook_cover_photo_2.png?raw=true)
 
 # CLIC
 CLIC is an application that compiles ratings of clothing stores nationwide.This application is for personal computers only.
