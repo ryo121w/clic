@@ -76,6 +76,43 @@ Table List
 
 # DEMO
 
+## Search
+### Area
+<!--地域検索-->
+   ![Area]()
+
+
+### Brand
+<!--ブランド検索-->
+   ![Brand]()
+
+
+
+## Detail
+### StoreDetail
+<!--店舗詳細-->
+   ![DetailStore]()
+
+
+### StoreDetail(Item)
+<!--店舗詳細（商品あり）-->
+   ![DetailStoreItem]()
+
+
+## Store
+<!--店舗登録-->
+   ![Store]()
+
+
+
+## Edit
+### StoreEdit
+<!--運営店舗編集-->
+   ![Edit]()
+
+
+### RevieEdit
+<!--評価編集-->
  ![DEMO Image](https://github.com/ryo121w/clic/blob/master/public/img/%E3%83%95%E3%82%99%E3%83%A9%E3%83%B3%E3%83%88%E3%82%99%E4%B8%80%E8%A6%A7_AdobeExpress%20(1).gif?raw=true)
 
 
