@@ -38,6 +38,15 @@ CLIC is designed with an awareness of how points that point.
 # Features
 The strength of this application is that by opening one application, you can find out the ratings of all the stores in the country.
 
+# Function
+This application has several features. They are listed below.
+   * Login
+   * Image Upload and Display
+   * Register and display store images and multiple product images when registering a store.
+   * Rating function: rate with stars and make comments.
+   * Share App Page
+   * Search by store name or area name.
+
 
 # Database
 Table List
@@ -59,25 +68,17 @@ Table List
    * stores
    * users
 
+
+
+
    ![ER Image](https://github.com/ryo121w/clic/blob/master/public/img/Entity%20Relationship%20Diagram.png?raw=true)
 
 
+# DEMO
 
-# Requirement
-                "@inertiajs/inertia": "^0.11.0",
-                "@inertiajs/inertia-vue3": "^0.6.0",
-                "@inertiajs/progress": "^0.2.7",
-                "@tailwindcss/forms": "^0.5.3",
-                "@vitejs/plugin-vue": "^4.0.0",
-                "alpinejs": "^3.10.5",
-                "autoprefixer": "^10.4.13",
-                "axios": "^1.2.2",
-                "laravel-vite-plugin": "^0.7.2",
-                "lodash": "^4.17.21",
-                "postcss": "^8.4.20",
-                "tailwindcss": "^3.2.4",
-                "vite": "^4.0.0",
-                "vue": "^3.2.41"
+
+
+
 
 
 
