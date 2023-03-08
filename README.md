@@ -31,9 +31,9 @@ He began to ask questions to relieve his nervousness about going to a store for 
 Clothing store of the future with this as its motto,
 CLIC is designed with an awareness of how points that point.
 
--UI for intuitive operation.
--Store information where more detailed information can be obtained.
--Realistic user evaluations of the store's atmosphere.
+- UI for intuitive operation.
+- Store information where more detailed information can be obtained.
+- Realistic user evaluations of the store's atmosphere.
 
 # Features
 The strength of this application is that by opening one application, you can find out the ratings of all the stores in the country.
@@ -79,7 +79,7 @@ Table List
 ## Search
 ### Area
 <!--地域検索-->
-   ![Area](https://github.com/ryo121w/clic/blob/master/public/img/%E5%9C%B0%E5%9F%9F%E6%A4%9C%E7%B4%A2_AdobeExpress.gif?raw=true)
+   <img src="https://github.com/ryo121w/clic/blob/master/public/img/%E5%9C%B0%E5%9F%9F%E6%A4%9C%E7%B4%A2_AdobeExpress.gif?raw=true" width="400px">
 
 
 ### Brand
