@@ -174,6 +174,15 @@ This application is for many people to enjoy fashion. We have created this app i
 (Please don't give us a malicious rating)
 
 
+
+
+
+
+
+
+
+
+
 <div align="center">
    <a href="https://clic.herokuapp.com/"><h1>LET'S GET START IT</h1></a>
 </div>
