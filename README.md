@@ -1,4 +1,7 @@
-![CLIC Main Image](https://www.canva.com/design/DAFcqrjROGQ/EC4a_pLqhe-mf03_UkM7AQ/watch?utm_content=DAFcqrjROGQ&utm_campaign=celebratory_first_publish&utm_medium=link&utm_source=celebratory_first_publish)
+<div align="center">
+   <img src="https://www.canva.com/design/DAFcqrjROGQ/EC4a_pLqhe-mf03_UkM7AQ/watch?utm_content=DAFcqrjROGQ&utm_campaign=celebratory_first_publish&utm_medium=link&utm_source=celebratory_first_publish" width="450px">
+</div>
+
 
 # CLIC
 CLIC is an application that compiles ratings of clothing stores nationwide.This application is for personal computers only.
