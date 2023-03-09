@@ -184,5 +184,5 @@ This application is for many people to enjoy fashion. We have created this app i
 
 
 <div align="center">
-   <a href="https://clic.herokuapp.com/"><h1>LET'S GET START IT</h1></a>
+   <h1><a href="https://clic.herokuapp.com/" style="color:inherit;text-decoration:none;">LET'S GET START IT</a></h1>
 </div>
