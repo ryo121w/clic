@@ -22,6 +22,7 @@ use Cloudinary;
 
 class Store_RegisterController extends Controller
 {
+// ストア一覧表示
     public function showStore(Store $store,Request $request )
     {
         $store = Store::paginate(15);
@@ -50,7 +51,7 @@ class Store_RegisterController extends Controller
 
     }
 
-// 画像アップロード処理
+//店舗の登録処理（画像アップロード処理）
     public function upStore(StoreRequest $request, Store $store,StoreFormat $storeformat, Brand $brand, Product $product,User $user)
     {
         $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
@@ -84,6 +85,7 @@ class Store_RegisterController extends Controller
 
     }
 
+// 検索店舗表示
     public function showSarch(Request $request, Store $store,)
     {
         $u = Auth::user();
@@ -91,6 +93,7 @@ class Store_RegisterController extends Controller
         return view('post/search_pref')->width(['store_formats' => $e,'user'=>$u]);
     }
 
+// 地域検索表示
     public function searchPrefecture(Prefecture $prefecture)
     {
         $u = Auth::user();
@@ -98,6 +101,7 @@ class Store_RegisterController extends Controller
        return view('posts/search_pref')->with(['stores' => $prefecture->getByPrefecture(),'store_formats' => $e,'user'=>$u,'prefecture'=>$prefecture]);
     }
 
+// 店舗形態区別処理
     public function storeSelect(StoreFormat $store_format,)
     {
         $u = Auth::user();
@@ -112,6 +116,7 @@ class Store_RegisterController extends Controller
 
     }
 
+// 店舗の詳細表示
     public function storeDetail(User $user,Store $store, Review $review,){
         $review_star = $store->reviews->avg('stars');
         $review_math = floor($review_star);
@@ -119,17 +124,18 @@ class Store_RegisterController extends Controller
         $store_format = StoreFormat::all();
         $store_product = $store->products()->get();
 
-if($store->store_format_id !==3)
-{
-        return view('posts/store_detail')->with(['store' => $store, 'user' =>$user,'user' => $user, 'star' => $review_star,
-                                                 'store_formats' =>$store_format,'review_math' => $review_math,'store_products' => $store_product]);
-    }
-    elseif($store->store_format_id === 3){
-        return view('posts/store_detail_ec')->with(['store' => $store, 'user' =>$user,'user' => $user, 'star' => $review_star,
-                                                 'store_formats' =>$store_format,'review_math' => $review_math,'store_products' => $store_product]);
-    }
+        if($store->store_format_id !==3)
+        {
+            return view('posts/store_detail')->with(['store' => $store, 'user' =>$user,'user' => $user, 'star' => $review_star,
+                                                     'store_formats' =>$store_format,'review_math' => $review_math,'store_products' => $store_product]);
+        }
+        elseif($store->store_format_id === 3){
+            return view('posts/store_detail_ec')->with(['store' => $store, 'user' =>$user,'user' => $user, 'star' => $review_star,
+                                                     'store_formats' =>$store_format,'review_math' => $review_math,'store_products' => $store_product]);
+        }
     }
 
+// お気に入り機能実装
     public function holderStore(Store $store)
     {
         $user_id = Auth::id();
@@ -140,6 +146,7 @@ if($store->store_format_id !==3)
         }
     }
 
+// お気に入りした店舗の詳細
     public function holderDeleteStore(Store $store)
     {
         $user_id = Auth::id();
@@ -150,6 +157,7 @@ if($store->store_format_id !==3)
         }
     }
 
+// お気に入り店舗の一覧表示
     public function holdStore(Store $store, User $user, Holder $holder)
     {
         $user=Auth::user();
@@ -158,13 +166,14 @@ if($store->store_format_id !==3)
         return view('posts/store_holder')->with(['stores' => $store, 'user' => $user, 'store_formats' => $store_format]);
     }
 
+// ajaxを用いた非同期住所検索処理
     public function getAddressByPostalCode($postalcode)
     {
         $addresses = Address::where('zip', $postalcode)->first();
         return response()->json($addresses);
     }
 
-
+// 店舗会員登録フォーム
     public function userStore()
     {
         $u = Auth::user();
@@ -173,6 +182,7 @@ if($store->store_format_id !==3)
 
     }
 
+// 店舗会員登録処理
     public function storeOwner(OwnerRequest $request, Owner $owner)
     {
         $user = Auth::user();
@@ -182,7 +192,7 @@ if($store->store_format_id !==3)
         return redirect('/posts/thank');
     }
 
-
+// 店舗会員登録予定のユーザー表示
     public function allOwner(Owner $owner,User $user)
     {
         $u = Auth::user();
@@ -191,7 +201,7 @@ if($store->store_format_id !==3)
         return view('/posts/owner_register')->with(['owners' => $owner,'store_formats' => $e, 'user' => $u,'users'=>$user]);
     }
 
-
+// 店舗会員登録処理
     public function conectOwner(Request $request,Owner $owner)
     {
        $user_id = $owner->user->id;
@@ -200,6 +210,8 @@ if($store->store_format_id !==3)
        $user->save();
     }
 
+
+// 運営店舗一覧（オーナーユーザー専用）
     public function showOwnerStore(Owner $owner, User $user,Store $store)
     {
        $u = Auth::user();
@@ -211,7 +223,7 @@ if($store->store_format_id !==3)
        return view('posts/store_edit')->with(['stores'=> $store_owner,'store_formats' => $e, 'user' => $u]);
     }
 
-
+// 店舗編集画面（オーナーユーザー専用）
     public function ownerEditStore(Store $store)
     {
         $prefecture = Prefecture::all();
@@ -223,7 +235,7 @@ if($store->store_format_id !==3)
             'store_formats' => $storeformat, 'sexes' => $sex, 'user' => $user,'store' => $store ]);
     }
 
-
+// 店舗登録情報の更新処理
     public function ownerUpdateStore(StoreRequest $request, Store $store,StoreFormat $storeformat, Brand $brand, Product $product,User $user)
     {
         $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
@@ -237,6 +249,7 @@ if($store->store_format_id !==3)
         return redirect('posts/thank');
     }
 
+// 運営店舗消去（店舗ユーザー専用）
     public function ownerDeleteStore(Store $store)
     {
         $store->delete();
@@ -244,7 +257,7 @@ if($store->store_format_id !==3)
     }
 
 
-
+// 店舗登録やコメント登録をしてもらった時に表示される
     public function thank ()
     {
         $u = Auth::user();

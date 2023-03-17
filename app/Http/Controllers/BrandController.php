@@ -10,6 +10,7 @@ use App\Models\StoreFormat;
 
 class BrandController extends Controller
 {
+// ブランドの一覧表示
     public function showBrand(Brand $brand)
     {
         $brand = Brand::paginate(100);
@@ -18,6 +19,7 @@ class BrandController extends Controller
         return view('posts/brand')->with(['brands' => $brand,'store_formats' => $e,'user'=>$u]);
     }
 
+// もしない場合のブランド登録画面表示
     public function formBrand ()
     {
         $u = Auth::user();
@@ -25,6 +27,7 @@ class BrandController extends Controller
         return view ('posts/brand_form')->with(['store_formats' => $e,'user'=>$u]);
     }
 
+//
     public function storeBrand (Request $request, Brand $brand)
     {
         $input = $request['brand'];
