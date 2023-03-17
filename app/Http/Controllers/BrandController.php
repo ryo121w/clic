@@ -27,7 +27,7 @@ class BrandController extends Controller
         return view ('posts/brand_form')->with(['store_formats' => $e,'user'=>$u]);
     }
 
-//
+//ブランド登録処理
     public function storeBrand (Request $request, Brand $brand)
     {
         $input = $request['brand'];
