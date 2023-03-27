@@ -35,6 +35,7 @@ class BrandController extends Controller
         return redirect('/');
     }
 
+// ブランド詳細ページ
     public function detailBrand (Store $store, Brand $brand)
     {
         $u = Auth::user();
